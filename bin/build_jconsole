@@ -1,5 +1,5 @@
-#!/bin/bash
-source bin/jconfig
+#!/bin/sh
+. bin/jconfig
 make jconsole
 
 if [ -x jconsole ]

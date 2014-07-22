@@ -31,6 +31,7 @@
 #define SYS_NETBSD          1048576L        /* GCC                         */
 #define SYS_SUNSOL2         2097152L        /* GCC                         */
 #define SYS_MACOSX          4194304L        /* GCC (CC)                    */
+#define SYS_OPENBSD         8388608L        /* x86 only                    */
 
 #define SY_64               0    /* 64-bit systems                         */
 
@@ -47,7 +48,7 @@
 #define SYS_UNIX            (SYS_ATT3B1 + SYS_DEC5500 + SYS_IBMRS6000 + \
                              SYS_MIPS + SYS_NEXT + SYS_SGI + SYS_SUN3 + \
                              SYS_SUN4 + SYS_VAX + SYS_LINUX + SYS_MACOSX + \
-                             SYS_FREEBSD + SYS_NETBSD + SYS_SUNSOL2 + SYS_HPUX)
+                             SYS_FREEBSD + SYS_NETBSD + SYS_OPENBSD + SYS_SUNSOL2 + SYS_HPUX)
 
 #define SYS_ANSILIB         (SYS_AMIGA + SYS_ARCHIMEDES + SYS_DOS + \
                              SYS_MACINTOSH +  SYS_OS2 + SYS_UNIX)
@@ -57,7 +58,7 @@
 
 #define SYS_LILENDIAN       (SYS_ARCHIMEDES + SYS_DEC5500 + SYS_DOS + \
                              SYS_OS2 + SYS_LINUX + SYS_FREEBSD + \
-                             SYS_NETBSD)
+                             SYS_OPENBSD + SYS_NETBSD)
 
 #if defined(__FreeBSD__)
 #define SYS SYS_FREEBSD
@@ -65,6 +66,10 @@
 
 #if defined(__NetBSD__)
 #define SYS SYS_NETBSD
+#endif
+
+#if defined(__OpenBSD__)
+#define SYS SYS_OPENBSD
 #endif
 
 #if defined(sparc) && ! defined(__svr4__)
@@ -164,12 +169,16 @@
 #define SY_64               1
 #endif
 
+#if defined(SYS_FREEBSD) || defined(SYS_NETBSD) || defined (SYS_OPENBSD)
+#define SY_BSD 1
+#endif
+
 #ifndef SYS     /* must be defined */
  error: "SYS must be defined"
 #endif
 
-#if 1!=SY_WIN32+SY_LINUX+SY_MAC
- error: "one and only one of SY_WIN32, SY_LINUX, SY_MAC must be 1"
+#if 1!=SY_WIN32+SY_LINUX+SY_MAC+SY_BSD
+ error: "one and only one of SY_WIN32, SY_LINUX, SY_MAC must be 1" 
 #endif 
 
 #endif /* only include once */

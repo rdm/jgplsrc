@@ -191,6 +191,8 @@ static void double_trick(double*v, I n){I i=0;
   #define dtrick double_trick(dd[0],dd[1],dd[2],dd[3],dd[4],dd[5],dd[6],dd[7]);
  #elif SY_MAC
   #define dtrick;
+ #elif SY_BSD
+  #define dtrick ;
  #endif
 #else
  #if SY_WIN32
@@ -200,6 +202,8 @@ static void double_trick(double*v, I n){I i=0;
  #elif SY_MACPPC
   #define dtrick double_trick(dd,dcnt);
  #elif SY_MAC
+  #define dtrick ;
+ #elif SY_BSD
   #define dtrick ;
  #endif
 #endif

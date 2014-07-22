@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 TARGET=libj
-source bin/jconfig
+. bin/jconfig
 
 LIBJ_OBJS="a.o \
 ab.o \
@@ -129,8 +129,8 @@ echo LINK $SOLINK
 export LIBJ_OBJS
 
 echo takes minutes for a clean build
-echo "running: make libj >& make.txt"
-make libj >& make.txt
+echo "running: make libj > make.txt 2>&1"
+make libj > make.txt 2>&1
 
 # ignore incompatible pointer warnings (they are ok)
 echo "(strip make.txt to errors and important warnings) > esum.txt"

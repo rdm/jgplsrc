@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 # compiles and runs c programs built by sym2ijs
 # creates netdefs.ijs from netdefs.c
 # creates hostdefs.ijs from hostdefs.c
 
-source bin/jconfig
+. bin/jconfig
 
 if [ $bits == 32 ]
 then
