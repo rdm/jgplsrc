@@ -117,11 +117,7 @@ void breakclose(J jt)
  jt->breakmh=0;
  CloseHandle(jt->breakfh);
  jt->breakfh=0;
-#if SY_WINCE
- DeleteFile(tounibuf(jt->breakfn));
-#else
  DeleteFile(jt->breakfn);
-#endif
  *jt->breakfn=0;
 }
 #endif
@@ -253,7 +249,7 @@ void jsto(J jt,I type,C*s){C e;I ex;
   jt->jerr=e; jt->etxn=ex; 
  }else{
   if(jt->smoutput) ((outputtype)(jt->smoutput))(jt,(int)type,s);
-#if SY_WIN32 && !SY_WINCE
+#if SY_WIN32
   if(type & MTYOFM) oleoutput(jt,strlen(s),s);	/* save output for ole */
 #endif
 }}

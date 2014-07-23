@@ -195,22 +195,12 @@ typedef struct {VA2 p1[6];} UA;
 
 
 /* Embedded visual tools v3.0 fails perform the z++ on all wince platforms. -KBI */
-#if SY_WINCE
-#define ACMP(f,Tz,Tx,Ty,pfx)   \
- AHDR2(f,B,Tx,Ty){D u,v;                                          \
-  if(1==n)  DO(m, u=(D)*x++;       v=(D)*y++; *z++=pfx(u,v); )    \
-  else if(b)DO(m, u=(D)*x++; DO(n, v=(D)*y++; *z++=pfx(u,v);))    \
-  else      DO(m, v=(D)*y++; DO(n, u=(D)*x++; *z++=pfx(u,v);));   \
- }
-#else
 #define ACMP(f,Tz,Tx,Ty,pfx)   \
  AHDR2(f,B,Tx,Ty){D u,v;                                             \
   if(1==n)  DO(m, u=(D)*x++;       v=(D)*y++; *z=pfx(u,v); z++; )    \
   else if(b)DO(m, u=(D)*x++; DO(n, v=(D)*y++; *z=pfx(u,v); z++;))    \
   else      DO(m, v=(D)*y++; DO(n, u=(D)*x++; *z=pfx(u,v); z++;));   \
  }
-#endif
-
 
 #define BFSUB(xb,yi,pfx,bpfx)  \
  {B*a,*p,*yb,*zb;I j,k;                                        \

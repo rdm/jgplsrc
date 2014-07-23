@@ -49,11 +49,7 @@ typedef struct {X n,d;}    Q;
 typedef struct {D re,im;}  Z;
 typedef union {D d;UINT i[2];} DI;
 
-#if (SYS & SYS_PC+SYS_MACINTOSH)        /* for use by the session manager  */
-typedef S SI;
-#else
 typedef I SI;
-#endif
 
 /* Fields of type A                                                        */
 

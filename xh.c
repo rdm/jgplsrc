@@ -13,19 +13,6 @@
 #include "j.h"
 #include "x.h"
 
-#if (SYS & SYS_ARCHIMEDES)
-#define Wimp_StartTask 0x400DE
-extern int os_swi1(I,I);
-#endif
-
-
-#if (SYS & SYS_MACINTOSH)
-
-F1(jthost  ){ASSERT(0,EVDOMAIN);}
-F1(jthostne){ASSERT(0,EVDOMAIN);}
-
-#else
-
 F1(jthost){A z;
  F1RANK(1,jthost,0);
  RZ(w=vs(w));
@@ -67,8 +54,6 @@ F1(jthostne){C*s;
 #endif
  R mtv;
 }
-
-#endif
 
 
 #if !(SYS & SYS_UNIX)

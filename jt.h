@@ -3,7 +3,7 @@
 /*                                                                         */
 /* Definitions for jt ("jthis")                                            */
 
-#if !SY_WINCE && (SYS & SYS_DOS)
+#if (SYS & SYS_DOS)
 #include <sys/stat.h>
 #endif
 
@@ -84,13 +84,11 @@ typedef struct {
  C    dirmode[11];      /* set by ismatch, read by dir1                    */
  C    dirnamebuf[NPATH];/* for directory search                            */
  C    dirrwx[3];        /* set by ismatch, read by dir1                    */
-#if !SY_WINCE
  struct stat dirstatbuf; //set by ismatch, read by dir1
 #if !SY_64 && (SYS & SYS_LINUX)
  struct stat dummy1;    // stat above should be stat64
  struct stat dummy2;    // reserve extra to avoid stomping disp
 #endif
-#endif 
  I    disp[7];          /* # different verb displays                       */
  I    dlllasterror;     /* DLL stuff                                       */
  B    dotnames;         /* 1 iff x. y. etc. names are permitted            */

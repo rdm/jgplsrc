@@ -11,54 +11,16 @@
 #include "j.h"
 #include "x.h"
 
-#if !SY_WINCE
 char* toascbuf(char* s){ return s;}
 char* tounibuf(char* s){ return s;}
-#else
-wchar_t* tounibuf(char* src)
-{
-	static wchar_t buf[2048+1];
-
-	wchar_t* p=buf;
-	if(2048>strlen(src))
-	{
-		while(*src)	*p++=*src++;
-	}
-	*p=0;
-	return buf;
-}
-
-char *toascbuf(wchar_t *src)
-{
-	static char buf[2048+1];
-
-	char* p=buf;
-	if(2048>wcslen(src))
-	{
-		while(*src)	*p++=(char)*src++;
-	}
-	*p=0;
-	return buf;
-}
-#define _A_NORMAL   FILE_ATTRIBUTE_NORMAL
-#define _A_RDONLY   FILE_ATTRIBUTE_READONLY
-#define _A_HIDDEN   FILE_ATTRIBUTE_HIDDEN
-#define _A_SYSTEM   FILE_ATTRIBUTE_SYSTEM
-#define _A_VOLID    0
-#define _A_SUBDIR   FILE_ATTRIBUTE_DIRECTORY
-#define _A_ARCH     FILE_ATTRIBUTE_ARCHIVE
-
-#endif 
 
 #if (SYS & SYS_DOS)
 
-#if !SY_WINCE
 #include <ctype.h>
 #include <io.h>
 #include <dos.h>
 #include <direct.h>
 #include <time.h>
-#endif
 
 #ifndef F_OK            /* for access() */
 #define F_OK            0x00
@@ -104,16 +66,9 @@ static S jtattu(J jt,A w){C*s;I i,n;S z=0;
 F1(jtfullname){C*s; C dirpath[1000];
  RZ(w=str0(w));
  s=CAV(w); DO(AN(w), if(' '!=*s)break; ++s;);
-#if SY_WINCE
- if(*s=='\\'||*s=='/') strcpy(dirpath,s);
- else {strcpy(dirpath, "\\"); strcat(dirpath,s);}
-#else
  _fullpath(dirpath,s,NPATH); 
-#endif
  R cstr(dirpath);
 }
-
-#if !SY_WINCE
 
 F1(jtjfperm1){A y,fn,z;C *s;F f;int x; US *p,*q;
  F1RANK(0,jtjfperm1,0);
@@ -142,23 +97,7 @@ F2(jtjfperm2){A y,fn;C*s;F f;int x=0;US *p;
  R _wchmod(p,x)?jerrno():mtm;
 }
 
-#else /* SY_WINCE: */
 
-F1(jtjfperm1){A y,z;C*p,*q,*s;F f; DWORD attr;
- F1RANK(0,jtjfperm1,0);
- RE(f=stdf(w)); if(f)ASSERT(y=fname(sc((I)f)),EVFNUM) else y=AAV0(w);
- p=CAV(y); q=p+AN(y)-3;
- GA(z,LIT,3,1,0); s=CAV(z);
- if((attr=GetFileAttributes(tounibuf(p)))==0xFFFFFFFF)R jerrno();
- s[0]='r';
- s[1]=attr&FILE_ATTRIBUTE_READONLY?'-':'w';
- s[2]=strcmp(q,"exe")&&strcmp(q,"bat")&&strcmp(q,"com")?'-':'x';
- R z;
-}
-
-F2(jtjfperm2){ASSERT(0,EVNONCE);}
-
-#endif
 #endif
 
 /* jdir produces a 5-column matrix of boxes:                 */
@@ -254,11 +193,7 @@ F2(jtjfatt2){A y,fn;F f;U x;
 #include <dirent.h>
 #include <time.h>
 
-#if SYS&(SYS_SUN4+SYS_SGI)
-#include "fnmatch.h"
-#else
 #include <fnmatch.h>
-#endif
 
 
 /* Return mode_t formatted into a static 10-character buffer. */

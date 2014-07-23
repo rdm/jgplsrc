@@ -10,10 +10,10 @@
 
 #include "j.h"
 
-#if !SY_WINCE && (SY_WIN32 || (SYS & SYS_LINUX))
+#if (SY_WIN32 || (SYS & SYS_LINUX))
 #include <time.h>
 #else
-#if (SY_GETTOD && !(SYS&SYS_IBMRS6000))
+#if (SY_GETTOD)
 #include <sys/time.h>
 #endif
 #endif
@@ -84,11 +84,7 @@ F1(jtts0){A x,z;C s[9],*u,*v,*zv;D*xv;I n,q;
 #if SY_GETTOD
 D tod(void){struct timeval t; gettimeofday(&t,NULL); R t.tv_sec+(D)t.tv_usec/1e6;}
 #else
-#if SY_WINCE
-D tod(void){SYSTEMTIME t; GetLocalTime(&t); R t.wSecond+(D)t.wMilliseconds/1e3;}
-#else
 D tod(void){R(D)clock()/CLOCKS_PER_SEC;}
-#endif
 #endif
 
 
@@ -151,12 +147,8 @@ F1(jtdl){D m,n,*v;UINT ms,s;
  RZ(w=cvt(FL,w));
  n=0; v=DAV(w); DO(AN(w), m=*v++; ASSERT(0<=m,EVDOMAIN); n+=m;);
  s=(UINT)jfloor(n); ms=(UINT)jfloor(0.5+1000*(n-s));
-#if SYS & SYS_MACINTOSH
- {I t=TickCount()+(I)(60*n); while(t>TickCount())JBREAK0;}
-#else
  DO(s, sleepms(1000); JBREAK0;);
  sleepms(ms);
-#endif
  R w;
 }
 

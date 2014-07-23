@@ -32,12 +32,3 @@
 #ifndef L_tmpnam
 #define L_tmpnam        59
 #endif
-
-#if SY_WINCE
-#define _wmkdir(x)	(!CreateDirectory (x,0))
-#define _wrmdir(x)	(!RemoveDirectory (x))
-#define _wunlink(x)	(!DeleteFile (x))
-
-wchar_t *tounibuf(char * src);
-char *toascbuf(wchar_t *src);
-#endif

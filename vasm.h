@@ -13,7 +13,7 @@
 
 #ifndef NOASM /* builder defines NOASM to do I overflow in C instead of asm */
 
-#if SY_WIN32 && !SY_64 && !SY_WINCE
+#if SY_WIN32 && !SY_64
 #define OVF
 
 #define PLUSVV(m,z,x,y)                 \

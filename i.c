@@ -6,10 +6,6 @@
 #include "j.h"
 #include "w.h"
 
-#if SYS & SYS_FREEBSD
-#include <floatingpoint.h>
-#endif
-
 J gjt=0; // JPF debug
 
 void startup(void);
@@ -142,12 +138,6 @@ static C jtjinit3(J jt){S t;
 #if (SYS & SYS_DOS)
  t=EM_ZERODIVIDE+EM_INVALID; _controlfp(t,t);
 #endif
-#if (SYS & SYS_OS2)
- t=EM_ZERODIVIDE+EM_INVALID+EM_OVERFLOW+EM_UNDERFLOW; _control87(t,t);
-#endif
-#if (SYS & SYS_FREEBSD)
- fpsetmask(0);
-#endif
  jt->tssbase=tod();
  meminit();
  sesminit();
@@ -159,7 +149,7 @@ static C jtjinit3(J jt){S t;
  xsinit();
  sbtypeinit();
  rnginit();
-#if (SYS & SYS_DOS+SYS_MACINTOSH)
+#if (SYS & SYS_DOS)
  xlinit();
 #endif
  jtecvtinit(jt);

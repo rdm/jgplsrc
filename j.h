@@ -5,21 +5,13 @@
 
 #include "js.h"
 
-#if SY_WINCE
-#include "..\cesrc\cecompat.h"
-#endif
-
 #if (SYS & SYS_PCWIN)
 #define HEAPCHECK  heapcheck()
 #else
 #define HEAPCHECK
 #endif
 
-#if (SYS & SYS_ATARIST)
-#define __NO_INLINE__           1
-#endif
-
-#if (SYS & SYS_UNIX - SYS_SGI)
+#if (SYS & SYS_UNIX)
 #include <memory.h>
 #include <sys/types.h>
 #endif
@@ -36,10 +28,8 @@
 #define const /*nothing*/   /* blame rx.h */
 #endif
 
-#if ! SY_WINCE
 #include <errno.h>
 #include <stdio.h>
-#endif
 
 #include <math.h>
 #include <string.h>  
@@ -61,56 +51,6 @@
 #endif
 
 #define IMIN            (~IMAX)   /* ANSI C LONG_MIN is  -LONG_MAX */
-
-
-#if (SYS & SYS_AMIGA)
-#define XINF            "\177\377\000\000\000\000\000\000"
-#define XNAN            "\177\361\000\000\000\000\000\000"
-#endif
-
-#if (SYS & SYS_ARCHIMEDES)
-#define XINF            "\000\000\360\177\000\000\000\000"
-#define XNAN            "\000\000\370\377\000\000\000\000"
-#endif
-
-#if (SYS & SYS_DEC5500) || SY_WINCE_SH
-#define XINF            "\000\000\000\000\000\000\360\177"
-#define XNAN            "\000\000\000\000\000\000\370\377"
-#endif
-
-#if (SYS & SYS_MACINTOSH)
-/* for old versions of ThinkC */
-/* #define XINF         "\177\377\000\000\000\000\000\000\000\000\000\000" */
-/* #define XNAN         "\377\377\100\000\100\000\000\000\000\000\000\000" */
-/* for ThinkC 7.0 or later */
-#define XINF            "\177\377\177\377\000\000\000\000\000\000\000\000"
-#define XNAN            "\377\377\377\377\100\000\000\000\000\000\000\000"
-#endif
-
-#if (SYS & SYS_SUN4+SYS_SUNSOL2)
-#define XINF            "\177\360\000\000\000\000\000\000"
-#define XNAN            "\177\377\377\377\377\377\377\377"
-#endif
-
-#if (SYS & SYS_VAX)
-#define XINF            "\377\177\377\377\377\377\377\377"
-#define XNAN            "\377\177\377\377\377\377\377\376" /* not right */
-#endif
-
-#if (SY_WINCE_MIPS || SY_WINCE_SH)
-#if WIN32_PLATFORM_PSPC
-#define XINF            "\000\000\000\000\000\000\360\177"
-#define XNAN            "\377\377\377\377\377\377\367\177"
-#else
-#define XINF            "\000\000\000\000\000\000\360\177"
-#define XNAN            "\001\000\000\000\000\000\360\177"
-#endif
-#endif
-
-#if SY_WINCE_ARM
-#define XINF            "\000\000\000\000\000\000\360\177"
-#define XNAN            "\000\000\000\000\000\000\370\177"
-#endif
 
 #if (SYS & SYS_LILENDIAN)
 #ifndef XINF
@@ -144,10 +84,6 @@
 #define NPATH           1024            /* max length for path names,      */
                                         /* including trailing 0 byte       */
 
-#if SY_WINCE
-#define NFCALL          100L            /* wince     named fn call depth   */
-#define NFDEP           200L            /* wince           fn call depth   */
-#endif
 #if SYS & SYS_MACOSX
 #define NFCALL           9000L          /* darwin    named fn call depth   */
 #define NFDEP           18000L          /* darwin          fn call depth   */
@@ -328,11 +264,6 @@
 #define JPFX(s)  {char b[1000]; sprintf(b, s);    jsto(gjt,MTYOFM,b);}
 #define JPF(s,v) {char b[1000]; sprintf(b, s, v); jsto(gjt,MTYOFM,b);}
 extern J gjt; // global for JPF (procs without jt)
-
-#if SY_WINCE_MIPS
-/* strchr fails for CE MIPS - neg chars - spellit fails in ws.c for f=.+.  */
-#define strchr(a,b)     strchr(a, (UC)b)
-#endif
 
 #if SYS & SYS_UNIX
 #include <fenv.h>

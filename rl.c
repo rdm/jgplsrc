@@ -5,10 +5,6 @@
 
 #include "j.h"
 
-#if !SY_WINCE
-extern int isdigit(int);
-#endif
-
 static F1(jtlnoun);
 static F1(jtlnum);
 static F1(jtlrr);

@@ -55,7 +55,7 @@ F2(jtforeign){I p,q;
   case XC(1,21):  R SDERIV(CIBEAM, jtjopen,      0,            0,   0,   0   );
   case XC(1,22):  R SDERIV(CIBEAM, jtjclose,     0,            0,   0,   0   );
 
-#if (SYS & SYS_DOS+SYS_MACINTOSH)
+#if (SYS & SYS_DOS)
   case XC(1,30):  R SDERIV(CIBEAM, jtjlocks,     0,            RMAX,0,   0   );
   case XC(1,31):  R SDERIV(CIBEAM, jtjlock,      0,            1,   0,   0   );
   case XC(1,32):  R SDERIV(CIBEAM, jtjunlock,    0,            1,   0,   0   );

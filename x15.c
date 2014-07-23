@@ -54,12 +54,6 @@ typedef unsigned char       BYTE;
 
 #define SY_UNIX64 (SY_64 && (SY_LINUX || SY_MAC))
 
-#if SY_WINCE
-#define HINSTANCE_ERROR 0
-wchar_t *tounibuf(char * src);
-char *toascbuf(wchar_t *src);
-#endif
-
 /*  unix issues                                                 */
 /*  if there is only one calling convention then                */
 /*  ALTCALLINT/DOUBLE routines are not be required              */
@@ -71,11 +65,6 @@ char *toascbuf(wchar_t *src);
 #if (SYS & SYS_UNIX)
 
 #include <dlfcn.h>
-
-#if SYS & SYS_FREEBSD
-/* resolve some harmless name clashes */
-#undef atop
-#endif
 
 #undef MAX     /* defined in sys/param.h */
 #undef MIN     /* defined in sys/param.h */

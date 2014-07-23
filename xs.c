@@ -21,15 +21,6 @@ B jtxsinit(J jt){A x;
 F1(jtsnl){ASSERTMTV(w); R vec(BOX,jt->slistn,AAV(jt->slist));}
      /* 4!:3  list of script names */
 
-#if (SYS & SYS_MACINTOSH)
-void setftype(C*v,OSType type,OSType crea){C p[256];FInfo f;
- __c2p(v,p);
- GetFInfo(p,0,&f);
- f.fdType=type; f.fdCreator=crea;
- SetFInfo(p,0,&f);
-}
-#endif
-
 /* line/linf arguments:                         */
 /* a:   left argument for unlock                */
 /* w:   input file or lines; 1 means keyboard   */

@@ -17,7 +17,7 @@
 
 
 B jtxoinit(J jt){A x;
-#if SY_WIN32 && !SY_WINCE
+#if SY_WIN32
  _setmode(_fileno(stdin),_O_BINARY);
  _setmode(_fileno(stdout),_O_BINARY);
  _setmode(_fileno(stderr),_O_BINARY);
@@ -71,17 +71,9 @@ F jtjope(J jt,A w,C*mode){A t;F f;I n;static I nf=25; A z;
  s=(US*)CAV(z);
  for(i=0;i<(I)strlen(mode);++i){usmode[i]=(US)mode[i];}
  usmode[i]=0;
-#if !SY_WINCE 
  f=_wfopen(s,usmode);
  if(!f&&errno==ENOENT&&!wcscmp(usmode,FLUPDATE))f=_wfopen(s,FLUPDATEC);
  if(!f&&errno==EACCES&& wcscmp(usmode,FLREAD  ))f=_wfopen(s,FLREAD);
-#else
- {
- f=_wfopen(s,usmode);
- if(!f&&!wcscmp(usmode,FLUPDATE))f=_wfopen(s,FLUPDATEC); // no errno on wince
- if(!f&& wcscmp(usmode,FLREAD  ))f=_wfopen(s,FLREAD);
- }
-#endif
 }
 #endif
  R f?f:(F)jerrno();
@@ -117,7 +109,7 @@ F1(jtjclose){A*av;I*iv,j;
  if(AR(w))R rank1ex(w,0L,0L,jtjclose);
  RE(j=i0(indexof(jt->fopf,sc(fnum(w))))); ASSERT(j<jt->fopn,EVFNUM);
  av=AAV(jt->fopa); iv=IAV(jt->fopf); 
-#if (SYS & SYS_DOS+SYS_MACINTOSH)
+#if (SYS & SYS_DOS)
  RZ(unlk(iv[j]));
 #endif
  if(fclose((F)iv[j]))R jerrno();

@@ -22,7 +22,7 @@
 typedef long long INT64;
 #endif
 
-#if SY_WIN32 && !SY_WINCE
+#if SY_WIN32
 #include <direct.h>
 #include <io.h>
 #endif
@@ -61,11 +61,7 @@ A jtrd(J jt,F f,I j,I n){A z;C*x;I p=0;size_t q=1;
  RZ(f);
  if(0>n){if(j<0) n=-j; else n=fsize(f)-j;}
 
-#if !SY_WINCE
  {INT64 v; v= j+((0>j)?fsize(f):0); fsetpos(f,(fpos_t*)&v);}
-#else
- fseek(f,(long)(0>j?1+j:j),0>j?SEEK_END:SEEK_SET);
-#endif
 
  clearerr(f);
  GA(z,LIT,n,1,0); x=CAV(z);
@@ -80,11 +76,7 @@ static B jtwa(J jt,F f,I j,A w){C*x;I n,p=0;size_t q=1;
  RZ(f&&w);
  n=AN(w)*(C2T&AT(w)?2:1); x=CAV(w);
 
-#if !SY_WINCE
  {INT64 v; v= j+((0>j)?fsize(f):0); fsetpos(f,(fpos_t*)&v);}
-#else
- fseek(f,(long)(0>j?1+j:j),0>j?SEEK_END:SEEK_SET);
-#endif
  
  clearerr(f);
  while(q&&n>p){
@@ -177,34 +169,6 @@ F2(jtjiwrite){B b;F f;I i;
  RNE(mtm);
 }
 
-
-#if (SYS & SYS_MACINTOSH)
-
-static B setparm(C*v,C*ms,HParamBlockRec mp){I n;
- n=strlen(v);
- ASSERT(n<=NPATH,EVLIMIT); *ms=n; MC(1+ms,v,n);
- mp.fileParam.ioNamePtr=ms;
- mp.fileParam.ioVRefNum=0;
- mp.fileParam.ioDirID  =0;
- R 1;
-}
-
-#define DIRF(f,fsub)  \
- B f(J jt,C*v){C ms[256];HParamBlockRec mp; \
-  RZ(setparm(v,ms,mp));                     \
-  ASSERT(!fsub(&mp,0),EVFACE);              \
-  R 1;                                      \
- }
-
-static DIRF(jtmkdir1,PBDirCreate)
-static DIRF(jtrmdir1,PBHDelete  )
-
-static B mkdir(C*v){R!mkdir1(v);}
-static B rmdir(C*v){R!rmdir1(v);}
-
-#endif
-
-
 F1(jtjmkdir){A y,z;
  F1RANK(0,jtjmkdir,0);
  ASSERT(AT(w)&BOX,EVDOMAIN);
@@ -234,10 +198,6 @@ F1(jtjferase){A y,fn;US*s;I h;
 
 F1(jtpathcwd){C path[1+NPATH];US wpath[1+NPATH];
  ASSERTMTV(w);
-#if SY_WINCE
- &path;&wpath; /* avoid compiler warnings */
- R cstr("\\");
-#else
 #if (SYS & SYS_UNIX)
  ASSERT(getcwd(path,NPATH),EVFACE);
 #else
@@ -245,7 +205,6 @@ F1(jtpathcwd){C path[1+NPATH];US wpath[1+NPATH];
  jttoutf8x(jt,path,NPATH,wpath);
 #endif
  R cstr(path);
-#endif
 }
 
 F1(jtpathchdir){A z;
@@ -253,10 +212,6 @@ F1(jtpathchdir){A z;
  ASSERT(1>=AR(w),EVRANK);
  ASSERT(AN(w),EVLENGTH);
  ASSERT(LIT&AT(w),EVDOMAIN);
-#if SY_WINCE
- &z; /* avoid compiler warning */
- ASSERT(0,EVFACE);
-#else
 #if (SYS & SYS_UNIX)
  ASSERT(!chdir(CAV(w)),EVFACE);
 #else
@@ -264,12 +219,7 @@ F1(jtpathchdir){A z;
  _wchdir((US*)CAV(z));
 #endif
  R mtv;
-#endif
 }
-
-#if SY_WINCE
-#define _wgetenv(s)		(0)
-#endif
 
 F1(jtjgetenv){
  F1RANK(1,jtjgetenv,0);

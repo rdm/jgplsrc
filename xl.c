@@ -6,12 +6,12 @@
 #include "j.h"
 #include "x.h"
 
-#if SY_WINCE || !(SYS & SYS_DOS+SYS_MACINTOSH)
+#if !(SYS & SYS_DOS)
 #define LOCK 1
 static B jtdolock(J jt,B lk,F f,I i,I n){ASSERT(0,EVNONCE);}
 #endif
 
-#if SY_WIN32 && SYS&SYS_DOS && !SY_WINCE
+#if SY_WIN32 && SYS&SYS_DOS
 #define LOCK 1
 #include <sys/locking.h>
 
