@@ -1309,6 +1309,7 @@ Alpha=: a. {~ , (a.i.'Aa') +/ i.26
 Num=: a. {~ (a.i.'0') + i.10
 AlphaNum=: Alpha,Num
 Boxes=: ((16+i.11) { a.),:'+++++++++|-'
+BoxForm=: 1
 ScriptExt=: '.ijs'
 ProjExt=: '.jproj'
 
