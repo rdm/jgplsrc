@@ -66,7 +66,7 @@ pcheck=: 3 : 0
  assert. b +. h +.             i = (prev*-.h){next,0
 
  assert. b +. li +. -. a e. a:
- NB. assert. b +. li +. s e. '**local**';18!:1 i.2
+ assert. b +. li +. s e. '**local**';18!:1 i.2
  assert. (18!:1 i.2) e. s
  1
 )
