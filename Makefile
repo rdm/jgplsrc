@@ -14,6 +14,9 @@ LIB=a.o ab.o af.o ai.o am.o am1.o amn.o ao.o ap.o ar.o as.o au.o c.o   \
 
 all: j/bin/libj.so j/bin/jconsole
 
+clean:
+	rm -f *.o libj.so jconsole j/bin/libj.so j/bin/jconsole
+
 j/bin/libj.so: libj.so
 	cp libj.so j/bin/.
 
