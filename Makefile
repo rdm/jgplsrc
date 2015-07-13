@@ -17,7 +17,7 @@ all: j/bin/libj.so j/bin/jconsole j/system/defs/hostdefs_openbsd_64.ijs j/system
 clean:
 	rm -f *.o libj.so jconsole j/bin/libj.so j/bin/jconsole
 	rm -f defs/netdefs defs/netdefs.ijs defs/hostdefs defs/hostdefs.ijs 
-	rm -rf j/system/defs
+	rm -rf j/system/defs *.jmf
 
 j/bin/libj.so: libj.so
 	cp libj.so j/bin/.
@@ -41,7 +41,9 @@ j/system/defs:
 	mkdir -p j/system/defs
 
 defs/hostdefs.ijs: defs/hostdefs
-	defs/hostdefs >defs/temp && mv defs/temp defs/hostdefs.ijs
+	defs/hostdefs >defs/temp 
+	ldd defs/hostdefs | fmt -w1 | grep /libc | sed "s}.*/}LIBC=:'}; s/$$/'/" >>defs/temp
+	mv defs/temp defs/hostdefs.ijs
 
 defs/netdefs.ijs: defs/netdefs
 	defs/netdefs >defs/temp && mv defs/temp defs/netdefs.ijs
