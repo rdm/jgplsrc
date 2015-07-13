@@ -21,24 +21,6 @@ case. 'Win' do.
   LIB=: ''
   closesocketJ=: 'closesocket i i' scdm
   ioctlsocketJ=: 'ioctlsocket i i i *i' scdm
-case. 'Linux' do.
-  c=. 'libc.so.6'
-  ccdm=: 1 : ('(''"',c,'" '',x)&(15!:0)')
-  ncdm=: ccdm
-  scdm=: ccdm
-  wcdm=: 1 : ']'
-  LIB=: c
-  closesocketJ=: 'close i i' scdm
-  ioctlsocketJ=: 'ioctl i i i *i' scdm
-case. 'Darwin' do.
-  c=. 'libc.dylib'
-  ccdm=: 1 : ('(''"',c,'" '',x)&(15!:0)')
-  ncdm=: ccdm
-  scdm=: ccdm
-  wcdm=: 1 : ']'
-  LIB=: c
-  closesocketJ=: 'close i i' scdm
-  ioctlsocketJ=: 'ioctl i i i *i' scdm
 case. 'SunOS' do.
   c=. find_dll 'c'
   ccdm=: 1 : ('(''"',c,'" '',x)&(15!:0)')
@@ -48,6 +30,14 @@ case. 'SunOS' do.
   scdm=: 1 : ('(''"',s,'" '',x)&(15!:0)')
   wcdm=: 1 : ']'
   LIB=: c
+  closesocketJ=: 'close i i' scdm
+  ioctlsocketJ=: 'ioctl i i i *i' scdm
+case. do. NB. generic unix
+  ccdm=: 1 : ('(''"',LIBC,'" '',x)&(15!:0)')
+  ncdm=: ccdm
+  scdm=: ccdm
+  wcdm=: 1 : ']'
+  LIB=: LIBC
   closesocketJ=: 'close i i' scdm
   ioctlsocketJ=: 'ioctl i i i *i' scdm
 end.

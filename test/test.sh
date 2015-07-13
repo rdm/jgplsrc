@@ -16,6 +16,7 @@ echo 70#'-'
 echo BAD ddall
 echo 70#'-'
 
+13!:0]1
 TESTX (-.bad)#ddall
 
 exit -.*/bad
