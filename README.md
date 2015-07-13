@@ -8,6 +8,7 @@ In this branch, I'm stripping out a lot things which are irrelevant to
 building on OpenBSD. That can be added back in after things are working
 more to my taste.
 
+CAUTION: on OpenBSD may need to edit /etc/login.conf to increase stacksize - failing to do this can cause a segfault on stack overflow. 8M is more than sufficient, but 4M is too small.
 
 PLAN:
 
