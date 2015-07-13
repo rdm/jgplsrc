@@ -12,5 +12,16 @@ LIB=a.o ab.o af.o ai.o am.o am1.o amn.o ao.o ap.o ar.o as.o au.o c.o   \
     vx.o vz.o w.o wc.o wn.o ws.o x.o x15.o xa.o xb.o xc.o xcrc.o xd.o  \
     xf.o xfmt.o xh.o xi.o xl.o xo.o xs.o xt.o xu.o
 
+all: j/bin/libj.so j/bin/jconsole
+
+j/bin/libj.so: libj.so
+	cp libj.so j/bin/.
+
+j/bin/jconsole: jconsole
+	cp jconsole j/bin/.
+
 libj.so: $(LIB)
 	cc $(LIB) -shared -Wl,-soname,libj.so.8 -lm -o libj.so
+
+jconsole: jconsole.o jeload.o
+	cc jconsole.o jeload.o -o jconsole
