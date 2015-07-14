@@ -18,7 +18,7 @@ PLAN:
   ./configure should support openbsd, linux, osx, cygwin/mingw
   first need to support native, cross compile support can be later (much harder because of testing issues)
   note: just want the above structure, do not want to use autoconf nor any other such toolkit
-  instead pattern after djb's work (cr.yp.to)
+  instead borrow from djb's work (cr.yp.to)
 
 * get build and test to work on openbsd
   deal with all the warnings
@@ -30,3 +30,6 @@ PLAN:
   * plan to later re-implement as native J
 
 * when making major changes, introduce a new branch and leave comments about parentage and likely current stage of work and eventual merge targets in readme.md
+
+* When putting things back together (and re-introducing support for currently supported platforms) to follow the linux kernel practice of making conditional compilation define swappable names with parallel definitions for different contexts (e.g. unix vs. windows). This might mean considerable work so keep it simple. Note that this will probably mean I should just strip out windows support (and everything else). But I also want to stick to minimal code changes until after I can get the test-suite working.
+
