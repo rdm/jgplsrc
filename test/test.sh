@@ -11,12 +11,19 @@ onfail_z_=:3 :0
 9!:29]0
 
 load 'test/test.ijs'
-bad=: TEST ddall
-echo 70#'-'
-echo BAD ddall
-echo 70#'-'
+3 :0''
+  if. 2=#ARGV do.
+    bad=: TEST ddall
+    echo 70#'-'
+    echo BAD ddall
+    echo 70#'-'
 
-13!:0]1
-TESTX (-.bad)#ddall
+    13!:0]1
+    TESTX (-.bad)#ddall
 
-exit -.*/bad
+    exit -.*/bad
+  else.
+    13!:0]1
+    exit -.*/TESTX SNS ;:inv 2}.ARGV
+  end.
+)

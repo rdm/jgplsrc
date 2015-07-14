@@ -7,13 +7,7 @@ if. 0=4!:0<'libtsdll' do. 1[lib=: libtsdll return. end.
 t=. >IF64{'32';'64'
 s=. >(UNAME-:'Darwin'){'.so';'.dylib'
 if. IFUNIX do.
- lib=: jpath '~home/dev/j/tsdll/libtsdll',t,s
-else.
- if. IF64 do.
-  lib=: '\dev\j\p_tsdll\release64\tsdll.dll'
- else.
-  lib=: '\dev\j\p_tsdll\release\tsdll.dll'
- end.
+ lib=: 'libtsdll',t,s
 end.
 lib=: lib,' '
 1
