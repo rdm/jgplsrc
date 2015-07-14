@@ -12,7 +12,10 @@ LIB=a.o ab.o af.o ai.o am.o am1.o amn.o ao.o ap.o ar.o as.o au.o c.o   \
     vx.o vz.o w.o wc.o wn.o ws.o x.o x15.o xa.o xb.o xc.o xcrc.o xd.o  \
     xf.o xfmt.o xh.o xi.o xl.o xo.o xs.o xt.o xu.o
 
-all: j/bin/libj.so j/bin/jconsole j/system/defs/hostdefs_openbsd_64.ijs j/system/defs/netdefs_openbsd_64.ijs libtsdll.so
+all: j/bin/libj.so j/bin/jconsole j/system/defs/hostdefs_openbsd_64.ijs j/system/defs/netdefs_openbsd_64.ijs
+
+test: all libtsdll.so
+	test/test.sh
 
 clean:
 	rm -f *.o libj.so jconsole j/bin/libj.so j/bin/jconsole
@@ -50,3 +53,7 @@ defs/netdefs.ijs: defs/netdefs
 
 libtsdll.so: tsdll.o
 	cc tsdll.o -shared -Wl,-soname,libj.so.8 -lm -o libtsdll.so
+
+# table of contents
+toc:
+	fgrep -n '/*' *.c | grep :4:

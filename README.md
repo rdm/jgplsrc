@@ -17,6 +17,8 @@ PLAN:
   do not want libtool - keep external dependencies to a minimum
   ./configure should support openbsd, linux, osx, cygwin/mingw
   first need to support native, cross compile support can be later (much harder because of testing issues)
+  note: just want the above structure, do not want to use autoconf nor any other such toolkit
+  instead pattern after djb's work (cr.yp.to)
 
 * get build and test to work on openbsd
   deal with all the warnings

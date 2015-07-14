@@ -103,6 +103,7 @@ NB. *j
 NB. test f and d results and scalars
 (<1.5)= 'f f' dcd ''
 (<1.5)= 'd d' dcd ''
+(5.4;2.7        )= 'dd d d' dcd 2.7
 (3.3;1.1;2.2    )= 'ddd d d d' dcd 1.1;2.2
 (6.6;1.1;2.2;3.3)= 'dddd d d d d' dcd 1.1;2.2;3.3
 (4;1.5;2.5)= 'fff f f f' dcd 1.5;2.5
