@@ -93,13 +93,13 @@ h=: 4 : 0
 2 3 g      1000 ?@$ m=: 1e9
 2 3 g m -~ 1000 ?@$ 2*m
 
-x=: 10 ?@$2
-f=: x&i.
-(i.~x) -: f x+0
-(i.~x) -: f x+-~0.1
-(i.~x) -: f x+-~0j1
-(i.~x) -: f x+-~1x
-(i.~x) -: f x+-~1r2
+X=: 10 ?@$2
+f=: X&i.
+(i.~X) -: f X+0
+(i.~X) -: f X+-~0.1
+(i.~X) -: f X+-~0j1
+(i.~X) -: f X+-~1x
+(i.~X) -: f X+-~1r2
 
 ((i.7 2) -.   2 3) -: -.&   2 3  i. 7 2
 ((i.7 2) -. ,:2 3) -: -.&(,:2 3) i. 7 2
@@ -110,7 +110,7 @@ f=: x&i.
 'length error' -: (i.3 4)&i. etx i.2 5
 
 
-4!:55 ;:'f fedot fico fidot g h m ss x xx yy'
+4!:55 ;:'f fedot fico fidot g h m ss X xx yy'
 
 
  

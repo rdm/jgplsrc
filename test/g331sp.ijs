@@ -1,4 +1,4 @@
-NB. x f;.n y for sparse x, n e. _2 _1 1 2 -------------------------------
+NB. X f;.n Y for sparse X, n e. _2 _1 1 2 -------------------------------
 
 box=: 3 : '<y'
 
@@ -23,19 +23,19 @@ f=: 1 : 0
  1
 )
 
-<    f x=: ?100$1e6
-$    f x
-[    f x
-,    f x
-<@}. f x
-box  f x
+<    f X=: ?100$1e6
+$    f X
+[    f X
+,    f X
+<@}. f X
+box  f X
 
-<    f x=: a.{~ ?101 1 7$#a.
-$    f x
-[    f x
-,    f x
-<@}. f x
-box  f x
+<    f X=: a.{~ ?101 1 7$#a.
+$    f X
+[    f X
+,    f X
+<@}. f X
+box  f X
 
 test=: 4 : 0
  b=: $. (#y){.(i._2+#y) e. +/\2+?(#y)$10
@@ -77,6 +77,6 @@ _2 test t
 'index error'  -: ($. 1 1 1 0 0) {.;._1 etx i.5
 
 
-4!:55 ;:'b box C f t test x'
+4!:55 ;:'b box C f t test X'
 
 

@@ -5,105 +5,105 @@ NB. mapped boxed arrays -------------------------------------------------
 
 NB. ". ------------------------------------------------------------------
 
-q=: x=: ;:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (".'x')       -: ".'q'
-(mbxcheck_jmf_ q), (".'|.x')     -: ".'|.q'
+q=: X=: ;:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (".'X')       -: ".'q'
+(mbxcheck_jmf_ q), (".'|.X')     -: ".'|.q'
 
 
 NB. ": ------------------------------------------------------------------
 
-q=: x=: <"0 (<5!:2 <'g'),;:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (":x)         -: ":q
-(mbxcheck_jmf_ q), (0 1":x)      -: 0 1":q
-(mbxcheck_jmf_ q), (0 1":2 3$x)  -: 0 1":2 3$q
+q=: X=: <"0 (<5!:2 <'g'),;:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (":X)         -: ":q
+(mbxcheck_jmf_ q), (0 1":X)      -: 0 1":q
+(mbxcheck_jmf_ q), (0 1":2 3$X)  -: 0 1":2 3$q
 
 
 NB. ` -------------------------------------------------------------------
 
-q=: x=: 1: ` (* $:@<:)
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q),(x@.*"0 j)     -: q@.*"0 j=: ?40$30
+q=: X=: 1: ` (* $:@<:)
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q),(X@.*"0 j)     -: q@.*"0 j=: ?40$30
 
-q=: x=: +`%
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q),(x/j)          -: q/j=: 1+?30$30
+q=: X=: +`%
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q),(X/j)          -: q/j=: 1+?30$30
 
-q=: x=: ('a'&;)`('b'&;)`('c'&;)
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q),(x;._1 j)      -: q;._1 j=: ' bou stro phe don ic'
+q=: X=: ('a'&;)`('b'&;)`('c'&;)
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q),(X;._1 j)      -: q;._1 j=: ' bou stro phe don ic'
 
-q=: x=: ('a'&;)`('b'&;)`('c'&;)
-r=: y=: ('a'&;)`('b'&;)
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ r), y             -: r
-(mbxcheck_jmf_ r), (x`y)         -: x`r
-(mbxcheck_jmf_ r), (x`y)         -: q`y
-(mbxcheck_jmf_ r), (x`y)         -: q`r
+q=: X=: ('a'&;)`('b'&;)`('c'&;)
+r=: Y=: ('a'&;)`('b'&;)
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ r), Y             -: r
+(mbxcheck_jmf_ r), (X`Y)         -: X`r
+(mbxcheck_jmf_ r), (X`Y)         -: q`Y
+(mbxcheck_jmf_ r), (X`Y)         -: q`r
 
 
 NB. @. ------------------------------------------------------------------
 
-q=: x=: +`-`*
-(x@.2 0 1) -: q@.2 0 1
+q=: X=: +`-`*
+(X@.2 0 1) -: q@.2 0 1
 mbxcheck_jmf_ q
 
-q=: x=: 0;2;1
-(+`-`*@.x) -: +`-`*@.q
+q=: X=: 0;2;1
+(+`-`*@.X) -: +`-`*@.q
 mbxcheck_jmf_ q
 
 
 NB. &.> -----------------------------------------------------------------
 
-q=: x=: ;:'Cogito, ergo sum. boustrophedonic chthonic'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), ($&.> x)      -: $&.> q
-(mbxcheck_jmf_ q), (|.&.> x)     -: |.&.> q
-(mbxcheck_jmf_ q), (3|.&.> x)    -: 3|.&.> q
-(mbxcheck_jmf_ q), (x i.&.>'o')  -: q i.&.>'o'
-(mbxcheck_jmf_ q), (({.x),&.>{:x)-: ({.x) ,&.>{:q 
-(mbxcheck_jmf_ q), (({.x),&.>{:x)-: ({.q) ,&.>{:x 
-(mbxcheck_jmf_ q), (({.x),&.>{:x)-: ({.q) ,&.>{:q 
-(mbxcheck_jmf_ q), ((0{x) ,&.>x) -: (0{x) ,&.>q 
-(mbxcheck_jmf_ q), ((0{x) ,&.>x) -: (0{q) ,&.>x 
-(mbxcheck_jmf_ q), ((0{x) ,&.>x) -: (0{q) ,&.>q 
-(mbxcheck_jmf_ q), (x,&.> 0{x)   -: x ,&.>0{q 
-(mbxcheck_jmf_ q), (x,&.> 0{x)   -: q ,&.>0{x
-(mbxcheck_jmf_ q), (x,&.> 0{x)   -: q ,&.>0{q
-(mbxcheck_jmf_ q), (x,&.>x)      -: x ,&.>q
-(mbxcheck_jmf_ q), (x,&.>x)      -: q ,&.>x
-(mbxcheck_jmf_ q), (x,&.>x)      -: q ,&.>q
-(mbxcheck_jmf_ q), (x,&.>|.x)    -: x ,&.>|.q
-(mbxcheck_jmf_ q), (x,&.>|.x)    -: q ,&.>|.x
-(mbxcheck_jmf_ q), (x,&.>|.x)    -: q ,&.>|.q
+q=: X=: ;:'Cogito, ergo sum. boustrophedonic chthonic'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), ($&.> X)      -: $&.> q
+(mbxcheck_jmf_ q), (|.&.> X)     -: |.&.> q
+(mbxcheck_jmf_ q), (3|.&.> X)    -: 3|.&.> q
+(mbxcheck_jmf_ q), (X i.&.>'o')  -: q i.&.>'o'
+(mbxcheck_jmf_ q), (({.X),&.>{:X)-: ({.X) ,&.>{:q 
+(mbxcheck_jmf_ q), (({.X),&.>{:X)-: ({.q) ,&.>{:X 
+(mbxcheck_jmf_ q), (({.X),&.>{:X)-: ({.q) ,&.>{:q 
+(mbxcheck_jmf_ q), ((0{X) ,&.>X) -: (0{X) ,&.>q 
+(mbxcheck_jmf_ q), ((0{X) ,&.>X) -: (0{q) ,&.>X 
+(mbxcheck_jmf_ q), ((0{X) ,&.>X) -: (0{q) ,&.>q 
+(mbxcheck_jmf_ q), (X,&.> 0{X)   -: X ,&.>0{q 
+(mbxcheck_jmf_ q), (X,&.> 0{X)   -: q ,&.>0{X
+(mbxcheck_jmf_ q), (X,&.> 0{X)   -: q ,&.>0{q
+(mbxcheck_jmf_ q), (X,&.>X)      -: X ,&.>q
+(mbxcheck_jmf_ q), (X,&.>X)      -: q ,&.>X
+(mbxcheck_jmf_ q), (X,&.>X)      -: q ,&.>q
+(mbxcheck_jmf_ q), (X,&.>|.X)    -: X ,&.>|.q
+(mbxcheck_jmf_ q), (X,&.>|.X)    -: q ,&.>|.X
+(mbxcheck_jmf_ q), (X,&.>|.X)    -: q ,&.>|.q
  
-q=: x=: (<5!:2 <'g'), <"0 ;:'Cogito, ergo sum. boustrophedonic chthonic'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), ($&.> x)      -: $&.> q
-(mbxcheck_jmf_ q), (|.&.> x)     -: |.&.> q
-(mbxcheck_jmf_ q), (3|.&.> x)    -: 3|.&.> q
-(mbxcheck_jmf_ q), (x i.&.>'o')  -: q i.&.>'o'
-(mbxcheck_jmf_ q), (({.x),&.>{:x)-: ({.x) ,&.>{:q 
-(mbxcheck_jmf_ q), (({.x),&.>{:x)-: ({.q) ,&.>{:x 
-(mbxcheck_jmf_ q), (({.x),&.>{:x)-: ({.q) ,&.>{:q 
-(mbxcheck_jmf_ q), ((0{x),&.>x)  -: (0{x) ,&.>q 
-(mbxcheck_jmf_ q), ((0{x),&.>x)  -: (0{q) ,&.>x 
-(mbxcheck_jmf_ q), ((0{x),&.>x)  -: (0{q) ,&.>q 
-(mbxcheck_jmf_ q), (x,&.> 0{x)   -: x ,&.>0{q 
-(mbxcheck_jmf_ q), (x,&.> 0{x)   -: q ,&.>0{x
-(mbxcheck_jmf_ q), (x,&.> 0{x)   -: q ,&.>0{q
-(mbxcheck_jmf_ q), (x,&.>x)      -: x ,&.>q
-(mbxcheck_jmf_ q), (x,&.>x)      -: q ,&.>x
-(mbxcheck_jmf_ q), (x,&.>x)      -: q ,&.>q
-(mbxcheck_jmf_ q), (x,&.>|.x)    -: x ,&.>|.q
-(mbxcheck_jmf_ q), (x,&.>|.x)    -: q ,&.>|.x
-(mbxcheck_jmf_ q), (x,&.>|.x)    -: q ,&.>|.q
+q=: X=: (<5!:2 <'g'), <"0 ;:'Cogito, ergo sum. boustrophedonic chthonic'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), ($&.> X)      -: $&.> q
+(mbxcheck_jmf_ q), (|.&.> X)     -: |.&.> q
+(mbxcheck_jmf_ q), (3|.&.> X)    -: 3|.&.> q
+(mbxcheck_jmf_ q), (X i.&.>'o')  -: q i.&.>'o'
+(mbxcheck_jmf_ q), (({.X),&.>{:X)-: ({.X) ,&.>{:q 
+(mbxcheck_jmf_ q), (({.X),&.>{:X)-: ({.q) ,&.>{:X 
+(mbxcheck_jmf_ q), (({.X),&.>{:X)-: ({.q) ,&.>{:q 
+(mbxcheck_jmf_ q), ((0{X),&.>X)  -: (0{X) ,&.>q 
+(mbxcheck_jmf_ q), ((0{X),&.>X)  -: (0{q) ,&.>X 
+(mbxcheck_jmf_ q), ((0{X),&.>X)  -: (0{q) ,&.>q 
+(mbxcheck_jmf_ q), (X,&.> 0{X)   -: X ,&.>0{q 
+(mbxcheck_jmf_ q), (X,&.> 0{X)   -: q ,&.>0{X
+(mbxcheck_jmf_ q), (X,&.> 0{X)   -: q ,&.>0{q
+(mbxcheck_jmf_ q), (X,&.>X)      -: X ,&.>q
+(mbxcheck_jmf_ q), (X,&.>X)      -: q ,&.>X
+(mbxcheck_jmf_ q), (X,&.>X)      -: q ,&.>q
+(mbxcheck_jmf_ q), (X,&.>|.X)    -: X ,&.>|.q
+(mbxcheck_jmf_ q), (X,&.>|.X)    -: q ,&.>|.X
+(mbxcheck_jmf_ q), (X,&.>|.X)    -: q ,&.>|.q
  
 
 1 [ unmap_jmf_ 'q'
 1 [ unmap_jmf_ 'r'
 
-4!:55 ;:'f f1 g j mean q r t x y'
+4!:55 ;:'f f1 g j mean q r t X Y'
 
 

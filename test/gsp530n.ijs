@@ -63,15 +63,15 @@ s -: d=: 0 i}d
 scheck s
 
 i=: <"1 (?4$1000),.~(?4$#i){i=:4$.s
-x=: ?(#i)$1e6
-(IF64{9000 18000) > t=: 7!:2 's=: x i}s'
-s -: d=: x i}d
+X=: ?(#i)$1e6
+(IF64{9000 18000) > t=: 7!:2 's=: X i}s'
+s -: d=: X i}d
 scheck s
 
 i=: <"1 (?4$1000),.~(?4$#i){i=: (7 5#:i.35)-.4$.s
-x=: ?(#i)$1e6
-s=: x i}s  NB. not in place
-s -: d=: x i}d
+X=: ?(#i)$1e6
+s=: X i}s  NB. not in place
+s -: d=: X i}d
 scheck s
 
 
@@ -80,13 +80,13 @@ NB. amend in place for sparse replacement data ---------------------------
 d=: (0=?7 5$3)*?7 5 1000$1000
 s=: (2;0 1)$.d
 
-i=: <"1 (?375$#x){x=: 4$.s
+i=: <"1 (?375$#X){X=: 4$.s
 a=: $. ($i{d)$3
 (IF64{30000 50000) > t=: 7!:2 's=: a i}s'
 s -: d=: a i}d
 scheck s
 
-i=: <"1 (?4$1000),.~(?4$#x){x=:4$.s
+i=: <"1 (?4$1000),.~(?4$#X){X=:4$.s
 a=: $.?(#i)$1e6
 (IF64{30000 50000) > t=: 7!:2 's=: a i}s'
 s -: d=: a i}d
@@ -124,9 +124,9 @@ h=: 4 : '<"1 v#:3 4 5?@$n=. */v=. y{.$d'
 s=: 1$.5 6;'';123
 d=: 5 6$123
 i=: <"1 ?3 2$5 6
-x=: ?($i{d)$1000
+X=: ?($i{d)$1000
 s -: d
-(x i}d) -: x i}s
+(X i}d) -: X i}s
 
 case=: 3 : 0
  select. y
@@ -175,6 +175,6 @@ case 4
 'length error' -: (i.3 4) (2;3)        } etx (2;0 1)$. i.4 5
 
 
-4!:55 ;:'a b c ca case cw d e f g h i m r s t x y'
+4!:55 ;:'a b c ca case cw d e f g h i m r s t X Y'
 
 

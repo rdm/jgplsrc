@@ -36,7 +36,7 @@ d=: 2 3 4$0
 c=: ; (i.1+r) <"1@comb&.>r=:#$d
 (i.>:r) mean  A&>/c
 
-($"2 x) -: $"2 $. x=:2 3 3$12
+($"2 X) -: $"2 $. X=:2 3 3$12
 
 (<1 0) 10 11&(4 : 'x o. y') A&>/c
 
@@ -134,6 +134,6 @@ c=: ; (i.1+r) <"1@comb&.>r=:#$xx
 f&>c
 
 
-4!:55 ;:'A A2 c cat d double f mean minus q r ravel rev rot s sum t x x0 xx y y0 yy'
+4!:55 ;:'A A2 c cat d double f mean minus q r ravel rev rot s sum t X x0 xx Y y0 yy'
 
 

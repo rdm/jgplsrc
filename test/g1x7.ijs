@@ -17,7 +17,7 @@ mkdir d
 test perm d
 erase d
 
-f =. <'foogoo5.x'
+f =. <'foogoo5.X'
 'foo upon thee' write f
 test perm f
 
@@ -63,17 +63,17 @@ perm =. 1!:7
 'file number error' -: perm etx 2
 'file number error' -: perm etx 12345 12346
 
-'domain error'      -: 0 1 0 perm etx <'foo.x'
-'domain error'      -: 3 1   perm etx <'foo.x'
-'domain error'      -: 3.5   perm etx <'foo.x'
-'domain error'      -: 3j4   perm etx <'foo.x'
-'domain error'      -: (<'r')perm etx <'foo.x'
-'domain error'      -: (nn$'abc') perm etx <'foo.x'
-'domain error'      -: (nn$'a--') perm etx <'foo.x'
-'domain error'      -: (nn$'-a-') perm etx <'foo.x'
-'domain error'      -: (nn$'--a') perm etx <'foo.x'
+'domain error'      -: 0 1 0 perm etx <'foo.X'
+'domain error'      -: 3 1   perm etx <'foo.X'
+'domain error'      -: 3.5   perm etx <'foo.X'
+'domain error'      -: 3j4   perm etx <'foo.X'
+'domain error'      -: (<'r')perm etx <'foo.X'
+'domain error'      -: (nn$'abc') perm etx <'foo.X'
+'domain error'      -: (nn$'a--') perm etx <'foo.X'
+'domain error'      -: (nn$'-a-') perm etx <'foo.X'
+'domain error'      -: (nn$'--a') perm etx <'foo.X'
 
-'length error'      -: 'wx'  perm etx <'foo.x'
+'length error'      -: 'wx'  perm etx <'foo.X'
 
 4!:55 ;:'close d erase f h mkdir nn open perm test unix write '
 

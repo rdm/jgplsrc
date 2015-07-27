@@ -11,13 +11,13 @@ v     =: plus slash
 f     =: 'v' f.
 g     =: +/
 (ar<'f') -: ar<'g'
-(+/y)    -: 'v' f. y=: _1e7+?12$2e7
+(+/Y)    -: 'v' f. Y=: _1e7+?12$2e7
 
 each =: &.>
 f    =: 'each' f.
 g    =: &.>
 (ar<'f') -: ar<'g'
-(|.&.>y) -: |. 'each' f. y=: ;:'Cogito, ergo sum.'
+(|.&.>Y) -: |. 'each' f. Y=: ;:'Cogito, ergo sum.'
 
 f=: undefined_no
 'value error' -: ex 'f f.'
@@ -44,8 +44,8 @@ fact1=: 1:`(* $:@dec)@.sgn
 
 '1:`(* $:@<:)@.*' -: fact      f. lr
 '1:`(* $:@<:)@.*' -: fact1     f. lr
-'>:@(3 : ''1:`(* $:@<:)@.* y'' :(4 : ''x 1:`(* $:@<:)@.* y''))' -: inc@fact  f. lr
-'3 : ''1:`(* $:@<:)@.* y'' :(4 : ''x 1:`(* $:@<:)@.* y'')&.<:'  -: fact&.dec f. lr
+'>:@(3 : ''1:`(*$:@<:)@.*y'' :(4 : ''x 1:`(*$:@<:)@.*y''))' -: inc@fact  f. lr
+'3 : ''1:`(*$:@<:)@.*y'' :(4 : ''x 1:`(*$:@<:)@.*y'')&.<:'  -: fact&.dec f. lr
 
 s    =: $:
 cap  =: [:
@@ -115,10 +115,10 @@ s"2~           eq (dyad"2~      )
 C=: 0:`0:`1:`($:&<: + ($: <:)) @. ([: #. <:,0<[)
 f=: (C +:)"0 f.
 4!:55 ;:'C'
-(f -: (!+:)) y=: 10 ?@$ 6
+(f -: (!+:)) Y=: 10 ?@$ 6
 
 
 4!:55 ;:'a ambi ar b C cap dec dyad each f fact fact1 eq g inc lr '
-4!:55 ;:'mat monad plus s sgn slash t v y'
+4!:55 ;:'mat monad plus s sgn slash t v Y'
 
 

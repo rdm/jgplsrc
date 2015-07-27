@@ -1,14 +1,14 @@
 NB. locatives -----------------------------------------------------------
 
-ab__=: x=: ?20$1e9
-x -: ab__
-x -: ab_base_
+ab__=: X=: ?20$1e9
+X -: ab__
+X -: ab_base_
 (<'base') e. 4!:1 [6
 -.a:      e. 4!:1 [6
 (,<,'z') -: 18!:2 <'base'
 
-not_a_locative=: x=: ?4 5$1e9
-x -: not_a_locative
+not_a_locative=: X=: ?4 5$1e9
+X -: not_a_locative
 
 'ill-formed name' -: ex 'abc_'
 
@@ -20,25 +20,25 @@ x -: not_a_locative
 
 NB. indirect reference --------------------------------------------------
 
-ab_xyz_ =: x =: ?20$1e9
-x -: ab_xyz_
+ab_xyz_ =: X =: ?20$1e9
+X -: ab_xyz_
 indirect=: <'xyz'
-x -: ab__indirect
-a__indirect=: y=: ?20$1e6
-y -: a_xyz_
+X -: ab__indirect
+a__indirect=: Y=: ?20$1e6
+Y -: a_xyz_
 
 c=: <'charlie'
 b_charlie_=: <'baker'
-a__b__c =: y=: ?20$1e6
-y -: a__b__c
-y -: a_baker_
+a__b__c =: Y=: ?20$1e6
+Y -: a__b__c
+Y -: a_baker_
 d=: <'base'
-y -: a__b__c__d
+Y -: a__b__c__d
 f=: 3 : 'a__b__c__local [ local=.<''base'''
-y -: f 0
+Y -: f 0
 
-a_z_=: x=: ?20$1e6
-x -: a__k [ k=: <'huh'
+a_z_=: X=: ?20$1e6
+X -: a__k [ k=: <'huh'
 
 'value error'     -: ex 'ab__huh'
 'value error'     -: ab__k etx [ k=: <'huh'
@@ -51,7 +51,7 @@ x -: a__k [ k=: <'huh'
 'length error'    -: ex 'ab__k' [ k=: <$0
 
 'domain error'    -: ex 'ab__k' [ k=: 0 
-'domain error'    -: ex 'ab__k' [ k=: 'x'
+'domain error'    -: ex 'ab__k' [ k=: 'X'
 'domain error'    -: ex 'ab__k' [ k=: 5
 'domain error'    -: ex 'ab__k' [ k=: 5.4
 'domain error'    -: ex 'ab__k' [ k=: 5j4
@@ -66,7 +66,7 @@ x -: a__k [ k=: <'huh'
 'domain error'    -: ex 'ab__k' [ k=: <3r4 5
 'domain error'    -: ex 'ab__k' [ k=: <<'abc'
 
-'rank error'      -: ex 'ab__k' [ k=: <2 3$'x'
+'rank error'      -: ex 'ab__k' [ k=: <2 3$'X'
 
 'ill-formed name' -: ex 'ab___'
 'ill-formed name' -: ex 'ab__4'
@@ -93,11 +93,11 @@ ldestroy=: 18!:55
 
 0     -: lnc <'base'
 0 0   -: lnc <;._1 ' base z'
-0 0 1 -: lnc x=:(;:'base z'),lcreate ''
+0 0 1 -: lnc X=:(;:'base z'),lcreate ''
 _1 _1 -: lnc 'nonsuch123';'99999999'
 _2 _2 -: lnc '!!#*@';'01abc'
 
-ldestroy {:x
+ldestroy {:X
 
 'domain error'  -: lnc etx 0 1 0
 'domain error'  -: lnc etx 'abc'
@@ -126,13 +126,13 @@ NB. 18!:1 ---------------------------------------------------------------
 lnc =: 18!:0
 lnl =: 18!:1
 
-x=:lnl 0 1
-1  -: #$x
-32 -: type x
-x -: /~x
-(;:'base z') e. x
-2 = type&>x
-1 = #@$ &>x
+X=:lnl 0 1
+1  -: #$X
+32 -: type X
+X -: /~X
+(;:'base z') e. X
+2 = type&>X
+1 = #@$ &>X
 
 0 = lnc lnl 0
 1 = lnc lnl 1
@@ -146,10 +146,10 @@ x -: /~x
 (lnl $0) -: lnl ''
 (lnl $0) -: lnl 0$<5
 
-x=: lnl 0 1
-(a lnl 0 1) -: (a e.~ {.&>x)#x [ a=: 'j'
-(a lnl 0 1) -: (a e.~ {.&>x)#x [ a=: 'j0'
-(a lnl 0 1) -: (a e.~ {.&>x)#x [ a=: 'zb'
+X=: lnl 0 1
+(a lnl 0 1) -: (a e.~ {.&>X)#X [ a=: 'j'
+(a lnl 0 1) -: (a e.~ {.&>X)#X [ a=: 'j0'
+(a lnl 0 1) -: (a e.~ {.&>X)#X [ a=: 'zb'
 
 'domain error'  -: lnl etx 'abc'
 'domain error'  -: lnl etx 1 2.3
@@ -171,13 +171,13 @@ NB. 18!:2 ---------------------------------------------------------------
 
 lpath=: 18!:2
 
-y=: (+%)/\20$1r1
-a_new_ =: y
-y -: a_new_
+Y=: (+%)/\20$1r1
+a_new_ =: Y
+Y -: a_new_
 (<;._1 ' first new') lpath <'cool'
-y -: a_cool_
-a_first_=: x=:'kakistocracy kerygma'
-x -: a_cool_
+Y -: a_cool_
+a_first_=: X=:'kakistocracy kerygma'
+X -: a_cool_
 
 4!:55 ;:'a_new_ a_first_'
 
@@ -256,23 +256,23 @@ lcreate =: 18!:3
 ldestroy=: 18!:55
 spnow   =: 7!:0
 
-x=: 12345
-y=: spnow ''
-y=: spnow ''
+X=: 12345
+Y=: spnow ''
+Y=: spnow ''
 
 t=: lcreate ''
 t e. 18!:1 [1
 0  -: #$t
 32 -: type t
-2  -: type x=:>t
-1  -: #$x
-*./ x e. '0123456789'
+2  -: type X=:>t
+1  -: #$X
+*./ X e. '0123456789'
 asdf__t=: i.1e4
-18!:55 t,;:'t x'
+18!:55 t,;:'t X'
 
-x=: 12345
-x=: spnow ''
-(200*1+IF64) > x-y
+X=: 12345
+X=: spnow ''
+(200*1+IF64) > X-Y
 
 (<'asdf') -: 8 lcreate <'asdf'
 (<'asdf') -: 4 lcreate <'asdf'
@@ -323,7 +323,7 @@ f1_b_ =: 3 : 0
  p,q
 )
 
-(<;._1 ' a b asdf a') -: x=: f_a_ 0
+(<;._1 ' a b asdf a') -: X=: f_a_ 0
 
 f_a_ =: 3 : 0
  p=. 18!:5 ''
@@ -346,14 +346,14 @@ f2_c_ =: 3 : 0
  p,q
 )
 
-(<;._1 ' a b c asdf asdf a') -: x=: f_a_ 0
+(<;._1 ' a b c asdf asdf a') -: X=: f_a_ 0
 
 18!:4 <'base'
 (<'base') -: 18!:5 ''
 
-lswitch x=:<'NonExistent2'
-x_base_ -: 18!:5 ''
-x_base_ e. 18!:1 [0
+lswitch X=:<'NonExistent2'
+X_base_ -: 18!:5 ''
+X_base_ e. 18!:1 [0
 lswitch_base_ <'base'
 (<'base') -: 18!:5 ''
 
@@ -413,19 +413,19 @@ lname   =: 18!:5
 ldestroy=: 18!:55
 spnow   =: 7!:0
 
-x=: y=: spnow ''
-x=: spnow ''
+X=: Y=: spnow ''
+X=: spnow ''
 -.(<'ex1') e. 18!:1 [0
 a_ex1_=: i.1e5
 extract_ex1_=: 1e4$'pericope'
 (<'ex1') e. 18!:1 [0
 ldestroy <'ex1'
 -.(<'ex1') e. 18!:1 [0
-y=: spnow ''
-(200*1+IF64) > |x-y
+Y=: spnow ''
+(200*1+IF64) > |X-Y
 
-x=: y=: spnow ''
-x=: spnow ''
+X=: Y=: spnow ''
+X=: spnow ''
 k=: lcreate ''
 k e. 18!:1 [1
 a__k=: i.1e5
@@ -435,15 +435,15 @@ ldestroy k
 'locale error' -: ex '#a__k'
 'locale error' -: ex 'a__k=: i.12'
 4!:55 <'k'
-y=: spnow ''
-(200*1+IF64) > |x-y
+Y=: spnow ''
+(200*1+IF64) > |X-Y
 
-x=: spnow ''
+X=: spnow ''
 k=: lcreate"1 i.20 0
 ldestroy k
 4!:55 <'k'
-y=: spnow ''
-(200*1+IF64) > |x-y
+Y=: spnow ''
+(200*1+IF64) > |X-Y
 
 1 -: ldestroy <'NoNoSuchLocale'
 
@@ -537,14 +537,14 @@ a_baker_ =: i.12
 xy_z_ =: 99
 k=: 18!:3 ''
 sum__k=: +/
-x=: 4!:5 [1
+X=: 4!:5 [1
 4!:5 [0
 18!:55 k,<'baker'
-x -: /:~ ('sum_',(":>k),'_');;:'a_baker_ k_base_ xy_z_'
+X -: /:~ ('sum_',(":>k),'_');;:'a_baker_ k_base_ xy_z_'
 
 
 4!:55 ;:'a a_z_ ab c d f '
 4!:55 ;:'indirect k lcreate ldestroy lname lnc lnl lpath lswitch '
-4!:55 ;:'not_a_locative spnow t test x xy_z_ y '
+4!:55 ;:'not_a_locative spnow t test X xy_z_ Y '
 
 

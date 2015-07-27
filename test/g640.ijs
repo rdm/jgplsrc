@@ -1,4 +1,4 @@
-NB. ?y ------------------------------------------------------------------
+NB. ?Y ------------------------------------------------------------------
 
 tick =: [ <.@%~ (* 3 : 'qrl=:(<:2^31)|(7^5)*qrl')@]
 roll =: (<:2^31)&tick"0
@@ -71,7 +71,7 @@ test1"0 x: 5 555 55555
 'domain error' -: ?@(*/) etx 'abc'
 
 
-NB. x?y -----------------------------------------------------------------
+NB. X?Y -----------------------------------------------------------------
 
 bigdeal=: 4 : 0  
  t=. 0 $ v=. y $~ <.1.11*x
@@ -268,6 +268,6 @@ test_dx 1
 4!:55 ;:'a B b bigdeal c d deal deal1 dx dx1'
 4!:55 ;:'gb_A gb_flip_cycle gb_i gb_init_rand gb_init_rand1 gb_next_rand'
 4!:55 ;:'i lcg M m mean mod_diff n qrl r r1597 rix roll roll0 seed'
-4!:55 ;:'t test test_dx test_lcg test1 testmean tick var x zz'
+4!:55 ;:'t test test_dx test_lcg test1 testmean tick var X zz'
 
 

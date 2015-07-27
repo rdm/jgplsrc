@@ -15,11 +15,11 @@ test =. 3 : 0
  1
 )
 
-x=. 9!:12 ''
-win =. x e. 2 6
-mac =. x e. 3
-unix=. x e. 5 7
-pc  =. x e. 0 1 2 6
+X=. 9!:12 ''
+win =. X e. 2 6
+mac =. X e. 3
+unix=. X e. 5 7
+pc  =. X e. 0 1 2 6
 
 test dir (-.mac)#'*.*'
 test dir (pc#'\*.*'),(unix#'/etc/p*')
@@ -39,6 +39,6 @@ s -: size   p,&.>{."1 d
 
 'rank error'   -: dir etx 2 3$'ab'
 
-4!:55 ;:'d dir read mac p pc s size t test unix win x'
+4!:55 ;:'d dir read mac p pc s size t test unix win X'
 
 

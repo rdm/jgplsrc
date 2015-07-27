@@ -26,18 +26,18 @@ g =: ;: '&+&.+&:^.@'
 'rank error'  -: +`-`* @. ] etx i.1 1
 
 ack=: c1`c1`c2`c3 @. (#.@(,&*)) " 0
-c1 =: >:@]                     NB. 1+y
-c2 =: <:@[ ack 1:              NB. (x-1) ack 1
-c3 =: <:@[ ack [ ack <:@]      NB. (x-1) ack x ack y-1
+c1 =: >:@]                     NB. 1+Y
+c2 =: <:@[ ack 1:              NB. (X-1) ack 1
+c3 =: <:@[ ack [ ack <:@]      NB. (X-1) ack X ack Y-1
 
-(0&ack -:  >:&.(3&+)) x=: ?10$20
-(1&ack -: 2&+&.(3&+)) x=: ?10$20
-(2&ack -: 2&*&.(3&+)) x=: ?10$20
+(0&ack -:  >:&.(3&+)) X=: ?10$20
+(1&ack -: 2&+&.(3&+)) X=: ?10$20
+(2&ack -: 2&*&.(3&+)) X=: ?10$20
 (3&ack -: 2&^&.(3&+)) 3
 
-(o.  x) -: o.`*`(*:@+:)@.0 x=: 1 2 3
-(*   x) -: o.`*`(*:@+:)@.1 x=: 1 2 3
-(*:+:x) -: o.`*`(*:@+:)@.2 x=: 1 2 3
+(o.  X) -: o.`*`(*:@+:)@.0 X=: 1 2 3
+(*   X) -: o.`*`(*:@+:)@.1 X=: 1 2 3
+(*:+:X) -: o.`*`(*:@+:)@.2 X=: 1 2 3
 
 
 NB. g @. v " 0 ----------------------------------------------------------
@@ -48,8 +48,8 @@ NB. n01pdf v    probability density function for N(0,1)
 NB. erf v       error function
 NB. n01cdfh v   cumulative distribution function for N(0,1) using H.
 NB. n01cdfr v   ratio used for CDF in tails of N(0,1)
-NB. n01cdfn v   more accurate than n01cdfh in lower tail (say y. < _6)
-NB. n01cdfp v   more accurate than n01cdfh in upper tail (say y. > 6)
+NB. n01cdfn v   more accurate than n01cdfh in lower tail (say Y. < _6)
+NB. n01cdfp v   more accurate than n01cdfh in upper tail (say Y. > 6)
 NB. n01cdfa v   N(0,1) cdf using @.
 NB. n01cdf v    N(0,1) cdf using agenda 
 
@@ -68,24 +68,24 @@ n01cdfp=: 1: - n01cdfr
 n01cdfa=: n01cdfn`n01cdfh`n01cdfp @. (>&_6 + >&6) " 0
 n01cdf =: n01cdfn`n01cdfh`n01cdfp agenda (>&_6 + >&6)
 
-(n01cdf -: n01cdfa) x=: _10 + 0.01 * ? 10000 $ 1000
+(n01cdf -: n01cdfa) X=: _10 + 0.01 * ? 10000 $ 1000
 
 f0 =: -`*: @. (1: = 2&|) " 0
 f1 =: 3 : ' (b**:y)+(-.b=.2|y)*-y'
-(f0 -: f1) x=: ?13 17 19$1000
+(f0 -: f1) X=: ?13 17 19$1000
 
 square=: 3 : '*: y'
 
 f0=: 1: ` *:     @. (1: = 2&|) " 0
 f1=: 1: ` square @. (1: = 2&|) " 0
-(f0 -: f1) x=: ?13 17 19$1000
+(f0 -: f1) X=: ?13 17 19$1000
 
 f0=: 1: ` - ` *:     @. (3&|) " 0
 f1=: 1: ` - ` square @. (3&|) " 0
-(f0 -: f1) x=: ?13 17 19$1000
+(f0 -: f1) X=: ?13 17 19$1000
 
 
-NB. @. -- all size x partitions of y ------------------------------------
+NB. @. -- all size X partitions of Y ------------------------------------
 
 start =: +/@{. >:@i.@<.@%&>: {:@$
 mask  =: start <:/ {."1 <. -.@(-/)@(_2&{.)"1
@@ -117,6 +117,6 @@ f/+/\?5 10
 4!:55 ;:'ack agenda ar c1 c2 c3 basis decr do erf f f0 f1 form from from1 '
 4!:55 ;:'g ifopen ind mask '
 4!:55 ;:'n01cdf n01cdfa n01cdfh n01cdfn n01cdfp n01cdfr n01pdf '
-4!:55 ;:'part pfx recur square start t test x z '
+4!:55 ;:'part pfx recur square start t test X z '
 
 

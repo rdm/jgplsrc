@@ -10,10 +10,10 @@ t=: ts ''
 *./ (1&<: *. <:&12 31) 1 2{t
 24 60 60 *./ . > 3 4 5{t
 
-t=: ts x=: 'YYYY-MM-DD hh:mm:ss.sss'
-t -:&$ x
-t -:&(3!:0) x
-t -:&((-.x e. 'YMDhms')&#) x
+t=: ts X=: 'YYYY-MM-DD hh:mm:ss.sss'
+t -:&$ X
+t -:&(3!:0) X
+t -:&((-.X e. 'YMDhms')&#) X
 
 'domain error' -: ts etx 3 4 5
 'domain error' -: ts etx <'YYYY-MM-DD hh:mm:ss.sss'
@@ -28,4 +28,4 @@ t -:&((-.x e. 'YMDhms')&#) x
 (_2{.":{.ts '') -: ts 'YY'
 
 
-4!:55 ;:'t ts x'
+4!:55 ;:'t ts X'

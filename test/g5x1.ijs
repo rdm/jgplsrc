@@ -39,7 +39,7 @@ fork =: (plus,or) f.
 
 f   =: *
 g   =: +
-a   =: >'*y'; ':'; 'x*y'
+a   =: >'*Y'; ':'; 'X*Y'
 n3  =: 3
 gd  =: :
 fnn =: 3 : a
@@ -154,19 +154,19 @@ f=: &.
 f=: !.
 (<'!.') -: ar <'f'
 
-x=:y=:f=:+/
--:&ar / ;:'f x'
--:&ar / ;:'f y'
+X=:Y=:f=:+/
+-:&ar / ;:'f X'
+-:&ar / ;:'f Y'
 
-x=:y=:f=:/
--:&ar / ;:'f x'
--:&ar / ;:'f y'
+X=:Y=:f=:/
+-:&ar / ;:'f X'
+-:&ar / ;:'f Y'
 
-x=:y=:f=:&
--:&ar / ;:'f x'
--:&ar / ;:'f y'
+X=:Y=:f=:&
+-:&ar / ;:'f X'
+-:&ar / ;:'f Y'
 
 4!:55 ;:'a adv ar c conj dr f fnn fork fvv g gd hook mtv n3 nar '
-4!:55 ;:'one or over plus tv two x y'
+4!:55 ;:'one or over plus tv two X Y'
 
 

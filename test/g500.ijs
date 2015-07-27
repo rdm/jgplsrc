@@ -36,12 +36,12 @@ xj -: xj [ xi
 xj -: xj [ xd
 xj -: xj [ xj
 
-x=: i.1e4
-y=: 2e4$'boustrophedonic chuffed'
+X=: i.1e4
+Y=: 2e4$'boustrophedonic chuffed'
 
-(IF64{1000 2400) > 7!:2 'x[y'
+(IF64{1000 2400) > 7!:2 'X[Y'
 
 
-4!:55 ;:'x xa xb xd xi xj y'
+4!:55 ;:'X xa xb xd xi xj Y'
 
 

@@ -52,8 +52,8 @@ r -: 'c'
 
 'p' =: i.12
 p -: i.12
-(<'abc') =: x=: ?4 5$100
-abc -: x
+(<'abc') =: X=: ?4 5$100
+abc -: X
 
 0 0$ ('p';'q';'r') =: o.4 5 6
 p -: o.4
@@ -104,8 +104,8 @@ a=:12
 'length error'      -: ". etx '(''p'';''q'';''r'') =. 4 5'
 'length error'      -: ". etx '(,<''abc'') =. i.5'
 
-4!:55 ;:'Cogito a abc ergo p q r sum x'
-4!:55 ;:'Cogito a abc ergo p q r sum x'
+4!:55 ;:'Cogito a abc ergo p q r sum X'
+4!:55 ;:'Cogito a abc ergo p q r sum X'
 
 
 NB. naming side effects -------------------------------------------------
@@ -115,8 +115,8 @@ fa =: 3 : 0
  2*fa y
 )
 
-(2*+/x) -: fa x=:?30$1000
-(  +/x) -: fa x
+(2*+/X) -: fa X=:?30$1000
+(  +/X) -: fa X
 
 fb =: 3 : ('abc=:25'; 'y+abc')
 abc =: 12
@@ -140,34 +140,34 @@ lf      =: 10{a.
 write   =: 1!:2
 sscript =: 0!:0
 
-t=:'x=:'&,@":@i.&.>10-i.10
-x=:<'foo.x'
-(;t,&.>lf) write x
-sscript (20)$x
-0 -: x
-0!:0 x=:20$<'foo.x'
-0 -: x
-1!:55 <'foo.x'
+t=:'X=:'&,@":@i.&.>10-i.10
+X=:<'foo.X'
+(;t,&.>lf) write X
+sscript (20)$X
+0 -: X
+0!:0 X=:20$<'foo.X'
+0 -: X
+1!:55 <'foo.X'
 
-x=:>|.t
-(".x) -: i."0>:i.10
-x -: i.10
+X=:>|.t
+(".X) -: i."0>:i.10
+X -: i.10
 
 
 NB. reassignment on the same line ---------------------------------------
 
 t=:123456
-x=:17
+X=:17
 t=:7!:0 ''
-x=:i.1e5
-(17,i.1e5) -: (x=:17),x
-1200 > y=:t -~ 7!:0 ''
+X=:i.1e5
+(17,i.1e5) -: (X=:17),X
+1200 > Y=:t -~ 7!:0 ''
 
-x=:i.1e3
-(17,i.1e3) -: (17 [ 4!:55 <'x'),x
+X=:i.1e3
+(17,i.1e3) -: (17 [ 4!:55 <'X'),X
 
-4!:55 ;:'b t x y'
-4!:55 ;:'b t x y'
+4!:55 ;:'b t X Y'
+4!:55 ;:'b t X Y'
 
 fa =: 3 : 0
  if. y do.
@@ -184,7 +184,7 @@ fa 3
 fa 4
 fa 5  
 
-4!:55 ;:'b x'
+4!:55 ;:'b X'
 
 fb =: 3 : 0
  if. y do.
@@ -204,6 +204,6 @@ fb 5
 4!:55 ;:'Cogito Ich_liebe_dich a a_man aa abc alta b def erase ergo'
 4!:55 ;:'fa fb first'
 4!:55 ;:'ghi global j_k lf local names p pqr q r second sscript'
-4!:55 ;:'sum t third write x y'
+4!:55 ;:'sum t third write X Y'
 
 

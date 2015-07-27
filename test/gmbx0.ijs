@@ -5,85 +5,85 @@ NB. mapped boxed arrays -------------------------------------------------
 
 NB. = -------------------------------------------------------------------
 
-q=: x=: (<5!:2 <'g') 1};:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (=j{x)        -: = j{q [ j=: ?$~#x
-q=: x=: <"0 (<5!:2 <'g') 1};:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (=j{x)        -: = j{q [ j=: ?$~#x
-q=: x=: <"0 +&.>?10 2 3$10
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (=j{x)        -: = j{q [ j=: ?$~#x
+q=: X=: (<5!:2 <'g') 1};:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (=j{X)        -: = j{q [ j=: ?$~#X
+q=: X=: <"0 (<5!:2 <'g') 1};:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (=j{X)        -: = j{q [ j=: ?$~#X
+q=: X=: <"0 +&.>?10 2 3$10
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (=j{X)        -: = j{q [ j=: ?$~#X
 
-q=: x=: (<5!:2 <'g') 1};:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (x=j{x)       -: q = j{q [ j=: ?$~#x
-(mbxcheck_jmf_ q), (x=j{x)       -: q = j{x
-(mbxcheck_jmf_ q), (x=j{x)       -: (j{q) = x
-(mbxcheck_jmf_ q), (x=j{x)       -: (j{q) = q
-q=: x=: (?10 3$#x){x=: <"0 (<5!:2 <'g') 1};:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), (x="1 j{x)    -: q ="1 j{q [ j=: ?#x
-(mbxcheck_jmf_ q), (x="1 j{x)    -: q ="1 j{x
-(mbxcheck_jmf_ q), (x="1 j{x)    -: (j{q) ="1 x
-(mbxcheck_jmf_ q), (x="1 j{x)    -: (j{q) ="1 q
+q=: X=: (<5!:2 <'g') 1};:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (X=j{X)       -: q = j{q [ j=: ?$~#X
+(mbxcheck_jmf_ q), (X=j{X)       -: q = j{X
+(mbxcheck_jmf_ q), (X=j{X)       -: (j{q) = X
+(mbxcheck_jmf_ q), (X=j{X)       -: (j{q) = q
+q=: X=: (?10 3$#X){X=: <"0 (<5!:2 <'g') 1};:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), (X="1 j{X)    -: q ="1 j{q [ j=: ?#X
+(mbxcheck_jmf_ q), (X="1 j{X)    -: q ="1 j{X
+(mbxcheck_jmf_ q), (X="1 j{X)    -: (j{q) ="1 X
+(mbxcheck_jmf_ q), (X="1 j{X)    -: (j{q) ="1 q
 
 
 NB. =: ------------------------------------------------------------------
 
-q=: x=: (<5!:2 <'g'), ;:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
+q=: X=: (<5!:2 <'g'), ;:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
 
-x=: 2 2 2 2 2 2 2$x
+X=: 2 2 2 2 2 2 2$X
 q=: 2 2 2 2 2 2 2$q
-(mbxcheck_jmf_ q), x             -: q
+(mbxcheck_jmf_ q), X             -: q
 
-x=: x;2
+X=: X;2
 q=: q;2
-(mbxcheck_jmf_ q), x             -: q
+(mbxcheck_jmf_ q), X             -: q
 
-x=: >{.x
+X=: >{.X
 q=: >{.q
-(mbxcheck_jmf_ q), x             -: q
+(mbxcheck_jmf_ q), X             -: q
 
-x=: ,x
+X=: ,X
 q=: ,q
-(mbxcheck_jmf_ q), x             -: q
+(mbxcheck_jmf_ q), X             -: q
 
 'allocation error' -: ex 'q=: i.&.>10^i.7'
 
 
 NB. < -------------------------------------------------------------------
 
-q=: x=: (?2 3 4$#x){x=: (<5!:2 <'g'),;:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (<x)          -: <q
-(mbxcheck_jmf_ q), (<"0 x)       -: <"0 q
-(mbxcheck_jmf_ q), (<"1 x)       -: <"1 q
-(mbxcheck_jmf_ q), (<"2 x)       -: <"2 q
+q=: X=: (?2 3 4$#X){X=: (<5!:2 <'g'),;:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (<X)          -: <q
+(mbxcheck_jmf_ q), (<"0 X)       -: <"0 q
+(mbxcheck_jmf_ q), (<"1 X)       -: <"1 q
+(mbxcheck_jmf_ q), (<"2 X)       -: <"2 q
 
 
 NB. > -------------------------------------------------------------------
 
-q=: x=: ;:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (>  x)        -: >    q
-(mbxcheck_jmf_ q), (>{.x)        -: > {. q
-q=: x=: <"0 ;:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (>x)          -: >   q
-(mbxcheck_jmf_ q), (>{.x)        -: > {.q
-x=: (<1;2;3;4) 1}x
+q=: X=: ;:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (>  X)        -: >    q
+(mbxcheck_jmf_ q), (>{.X)        -: > {. q
+q=: X=: <"0 ;:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (>X)          -: >   q
+(mbxcheck_jmf_ q), (>{.X)        -: > {.q
+X=: (<1;2;3;4) 1}X
 q=: (<1;2;3;4) 1}q
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q),(>x)           -: >q
-q=: x=: ((<4$<'x'),<<"0 ]2 3$'abcdef') ((1;0;2);<0;1;0)} <"0 <"0 i.2 3 4
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (>x)          -: >q
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q),(>X)           -: >q
+q=: X=: ((<4$<'X'),<<"0 ]2 3$'abcdef') ((1;0;2);<0;1;0)} <"0 <"0 i.2 3 4
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (>X)          -: >q
 
 
 1 [ unmap_jmf_ 'q'
 1 [ unmap_jmf_ 'r'
 
-4!:55 ;:'f f1 g j mean q r t x y'
+4!:55 ;:'f f1 g j mean q r t X Y'
 
 

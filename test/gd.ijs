@@ -77,21 +77,21 @@ NB. D. non-scalar functions ---------------------------------------------
 eq =: 2 : '''x'' -:&(5!:1)&< ''y'''
 dc =: }.@(* i.@#)
 
-x=.(>:?10),~_5+?5$20
-(x&p. d. 1)    eq ((dc    x)&p.)
-(x&p. d. 2)    eq ((dc^:2 x)&p.)
-(x&p. d. 3)    eq ((dc^:3 x)&p.)
-(x&p. d. 4)    eq ((dc^:4 x)&p.)
-(x&p. d. 0)    eq ((dc^:0 x)&p."0)
-(x&p. d. 0)    eq (x&p."0)
-x=.j./_5+?2 5$20
-((<x)&p. d. 1) eq ((dc p.<x)&p.)
+X=.(>:?10),~_5+?5$20
+(X&p. d. 1)    eq ((dc    X)&p.)
+(X&p. d. 2)    eq ((dc^:2 X)&p.)
+(X&p. d. 3)    eq ((dc^:3 X)&p.)
+(X&p. d. 4)    eq ((dc^:4 X)&p.)
+(X&p. d. 0)    eq ((dc^:0 X)&p."0)
+(X&p. d. 0)    eq (X&p."0)
+X=.j./_5+?2 5$20
+((<X)&p. d. 1) eq ((dc p.<X)&p.)
 
 _0.5 1&p. eq (2&! d. 1)
 
 ((10"_ * %:) D. 1) eq ((10 * %:) D. 1)
 
 
-4!:55 ;:'D E b dc eq f g h test x '
+4!:55 ;:'D E b dc eq f g h test X '
 
 

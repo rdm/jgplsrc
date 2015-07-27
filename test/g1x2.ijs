@@ -4,14 +4,14 @@ read  =. 1!:1
 write =. 1!:2
 erase =. 1!:55
 
-f =. <'foogQ0m1.x'
-x =. (?1000$#a.){a.
-x write f
+f =. <'foogQ0m1.X'
+X =. (?1000$#a.){a.
+X write f
 
-x-:read f
-x-:read f [ (x=.a.{~?(>:?1000)$#a.) write f
-x-:read f [ x=.,'j' [ 'j' write f
-x-:read f [ (x=.'') write f
+X-:read f
+X-:read f [ (X=.a.{~?(>:?1000)$#a.) write f
+X-:read f [ X=.,'j' [ 'j' write f
+X-:read f [ (X=.'') write f
 
 erase f
 
@@ -53,16 +53,16 @@ write =. 1!:2
 'domain error'      -: 3j4 0 write etx <'noQsuch'
 'file name error'   -: read etx <'noQsuch'
 
-x=. 9!:12 ''
-win =. x e. 2 6
-mac =. x e. 3
-unix=. x e. 5 7
-pc  =. x e. 0 1 2 6
+X=. 9!:12 ''
+win =. X e. 2 6
+mac =. X e. 3
+unix=. X e. 5 7
+pc  =. X e. 0 1 2 6
 
 f   =. mac{'no/such/dir/or/file';':no:such:dir:or:file'
 
 'file name error'   -: 'asdf'  write etx f
 
-4!:55 ;:'erase f mac pc read unix win write x'
+4!:55 ;:'erase f mac pc read unix win write X'
 
 

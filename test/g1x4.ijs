@@ -5,11 +5,11 @@ size  =. 1!:4
 open  =. 1!:21
 close =. 1!:22
 
-x=. 9!:12 ''
-win =. x e. 2 6
-mac =. x e. 3
-unix=. x e. 5 7
-pc  =. x e. 0 1 2 6
+X=. 9!:12 ''
+win =. X e. 2 6
+mac =. X e. 3
+unix=. X e. 5 7
+pc  =. X e. 0 1 2 6
 
 p =. >{:4!:3 ''
 p =. < p ([ }.~ [: - |.@[ i. ]) (pc#'\'),(mac#':'),unix#'/'
@@ -52,6 +52,6 @@ f   =. mac{'no/such/dir/or/file';':no:such:dir:or:file'
 'file name error'   -: size etx f
 'file name error'   -: size etx <'noQsuch'
 
-4!:55 ;:'close d dir f h j mac open p pc s size unix win x ' 
+4!:55 ;:'close d dir f h j mac open p pc s size unix win X ' 
 
 

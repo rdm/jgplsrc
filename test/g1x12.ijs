@@ -7,24 +7,24 @@ iwrite =. 1!:12
 open   =. 1!:21
 erase  =. 1!:55
 
-f =. <'foo1x12.x'
-x =. (?1000$#a.){a.
-x write f
+f =. <'foo1x12.X'
+X =. (?1000$#a.){a.
+X write f
 h =. open f
 
-'' iwrite h,?#x
-x -: read h
+'' iwrite h,?#X
+X -: read h
 
-y =. 'Cogito, ergo sum.'
-y iwrite h,100
-y -: iread h,100,#y
+Y =. 'Cogito, ergo sum.'
+Y iwrite h,100
+Y -: iread h,100,#Y
 
 'plangent' iwrite f,<_1
-'plangent' -: iread h,(_1+#x),8
+'plangent' -: iread h,(_1+#X),8
 
 erase h
   
-f =. <'foo1x12.x'
+f =. <'foo1x12.X'
 '0123456789' write f
 h =. open f
 
@@ -96,6 +96,6 @@ f =. (3=9!:12 ''){'no/such/dir/or/file';':no:such:dir:or:file'
 
 erase h
 
-4!:55 ;:'erase f h iread iwrite open read write x y '
+4!:55 ;:'erase f h iread iwrite open read write X Y '
 
 

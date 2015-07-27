@@ -5,14 +5,14 @@ write  =. 1!:2
 append =. 1!:3
 erase  =. 1!:55
 
-f =. <'foogQ0m1.x'
-x =. (?1000$#a.){a.
-x append f
+f =. <'foogQ0m1.X'
+X =. (?1000$#a.){a.
+X append f
 
-x-:read f
-x-:read f [ y append f [ x=.x,y=.a.{~?(>:?1000)$#a.
-x-:read f [ y append f [ x=.x,y=.'j'
-x-:read f [ y append f [ x=.x,y=.''
+X-:read f
+X-:read f [ Y append f [ X=.X,Y=.a.{~?(>:?1000)$#a.
+X-:read f [ Y append f [ X=.X,Y=.'j'
+X-:read f [ Y append f [ X=.X,Y=.''
 
 erase f
 
@@ -52,6 +52,6 @@ mac =. 3 = 9!:12 ''
 f   =. mac{'no/such/dir/or/file';':no:such:dir:or:file'
 'file name error'   -: 'asdf' append etx f
 
-4!:55 ;:'append erase f mac read write x y '
+4!:55 ;:'append erase f mac read write X Y '
 
 

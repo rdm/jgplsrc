@@ -7,13 +7,13 @@ open  =. 1!:21
 close =. 1!:22
 erase =. 1!:55
 
-x=. 9!:12 ''
-win =. x e. 2 6
-mac =. x e. 3
-unix=. x e. 5 7
-pc  =. x e. 0 1 2 6
+X=. 9!:12 ''
+win =. X e. 2 6
+mac =. X e. 3
+unix=. X e. 5 7
+pc  =. X e. 0 1 2 6
 
-f =. <'foo.x'
+f =. <'foo.X'
 g =. <'g'
 
 (128$'a') write f
@@ -25,8 +25,8 @@ h e. >{."1 files ''
 erase h
 (214$'triskaidekaphobic') write g
 q =. files ''
-h =. open <'non1such.x'
-erase g,<'non1such.x'
+h =. open <'non1such.X'
+erase g,<'non1such.X'
 q -: files ''
 
 0~:open g
@@ -41,13 +41,13 @@ q e. files ''
 close h
 q -: files ''
 
-x -: open x=.''
-x -: open x=.i.0 1 2
-x -: open x=.0 1 2$a:
+X -: open X=.''
+X -: open X=.i.0 1 2
+X -: open X=.0 1 2$a:
 
-x -: close x=.''
-x -: close x=.i.0 1 2
-x -: close x=.0 1 2$a:
+X -: close X=.''
+X -: close X=.i.0 1 2
+X -: close X=.0 1 2$a:
 
 'domain error'      -: open  etx 'a'
 'domain error'      -: open  etx 'abc'
@@ -69,7 +69,7 @@ x -: close x=.0 1 2$a:
 'file number error' -: open  etx 0;1;0
 'file number error' -: open  etx 3;4;5
 
-t=.(pc#'does\not\exist\no.x'),(mac#':does:not:exist:no.x'),unix#'does/not/exist/no.x'
+t=.(pc#'does\not\exist\no.X'),(mac#':does:not:exist:no.X'),unix#'does/not/exist/no.X'
 'file name error'   -: open  etx <t
 
 'domain error'      -: close etx 'abc'
@@ -93,6 +93,6 @@ t=.(pc#'does\not\exist\no.x'),(mac#':does:not:exist:no.x'),unix#'does/not/exist/
 'file number error' -: close etx 0;1;0
 'file number error' -: close etx 4;5;6
 
-4!:55 ;:'close d dir erase f files g h mac open pc q t unix win write x'
+4!:55 ;:'close d dir erase f files g h mac open pc q t unix win write X'
 
 

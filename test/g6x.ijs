@@ -13,11 +13,11 @@ t =: ts ''
 *./ (1&<: *. <:&12 31) 1 2{t
 24 60 60 *./ . > 3 4 5{t
 
-NB. 0.5>|(x=:t-~tss '')-[dl 5 [ t=:tss ''
+NB. 0.5>|(X=:t-~tss '')-[dl 5 [ t=:tss ''
 
 0<:time 't=:+/i.5000'
 t -: +/i.5000
-NB. 0.5>|5-x=:time 'dl 5'
+NB. 0.5>|5-X=:time 'dl 5'
 
 'domain error' -: time etx 0 1     
 'domain error' -: time etx 3 4 _5    
@@ -40,16 +40,16 @@ NB. 6!:8 and 6!:9  ------------------------------------------------------
 qpf=: 6!:8
 qpc=: 6!:9
 
-x=: qpf ''
-8 = type x
-0 = #$x
-0 < x
+X=: qpf ''
+8 = type X
+0 = #$X
+0 < X
 
-x=: qpc"1 i.21 0
-8 = type x
-1 = #$x
-0 <: x
-(}.x) >: }:x
+X=: qpc"1 i.21 0
+8 = type X
+1 = #$X
+0 <: X
+(}.X) >: }:X
 
 
 NB. 6!:10 11 12 13 ------------------------------------------------------
@@ -72,13 +72,13 @@ avg=: 3 : 0
  s % n
 )
 
-200 -: x=: pmdata (bhdr+bpe*200)$'c'
+200 -: X=: pmdata (bhdr+bpe*200)$'c'
 
-1 = x=: pmctr 1
+1 = X=: pmctr 1
 1 = 5{pmstats ''
 n=: 1+?35
 1 [ avg"1 ?(n,11)$1000
-0 = x=: pmctr _1
+0 = X=: pmctr _1
 
 s=: pmstats ''
 t=: pmunpack ''
@@ -104,13 +104,13 @@ f=: 4 : 0
 ({&:>/1 6{t) e. <'base'
 (>3{t) -: _2 _1 _2,((2*n)$_1 _2),_1
 
-200 -: x=: 1 0 pmdata (bhdr+bpe*200)$'c'
+200 -: X=: 1 0 pmdata (bhdr+bpe*200)$'c'
 
-1 = x=: pmctr 1
+1 = X=: pmctr 1
 1 = 5{pmstats ''
 n=: 1+?35
 1 [ avg"1 ?(n,11)$1000
-0 = x=: pmctr _1
+0 = X=: pmctr _1
 
 s=: pmstats ''
 t=: pmunpack ''
@@ -133,7 +133,7 @@ mean_l6x_=: 3 : 0
  (sum y) % #y
 )
 
-100 -: 1 pmdata (bhdr+bpe*100)$'x'
+100 -: 1 pmdata (bhdr+bpe*100)$'X'
 1 -: pmctr 1
 1 [ mean_l6x_ i.12
 0 -: pmctr _1
@@ -147,7 +147,7 @@ mean_aa_=: 3 : 0
  (sum y) % #y
 )
 
-100 -: 1 pmdata (bhdr+bpe*100)$'x'
+100 -: 1 pmdata (bhdr+bpe*100)$'X'
 1 -: pmctr 1
 1 [ mean_aa_ i.12
 0 -: pmctr _1
@@ -165,7 +165,7 @@ m=: sp ''
 m=: sp ''
 
 ". f,'=: 3 : ''(+/y) % #y'''
-20000 -: x=: pmdata (bhdr+bpe*20000)$'c'
+20000 -: X=: pmdata (bhdr+bpe*20000)$'c'
 1 = pmctr 1
 1 [ ". f,' i.1234'
 0 = pmctr _1
@@ -198,17 +198,17 @@ m=: sp ''
 
 'rank error'   -: pmdata etx 3 20$'a'
 
-'domain error' -: 1 2     pmdata etx 20$'x'
-'domain error' -: 1.2     pmdata etx 20$'x'
-'domain error' -: 1j2     pmdata etx 20$'x'
-'domain error' -: 1 2x    pmdata etx 20$'x'
-'domain error' -: 1r2     pmdata etx 20$'x'
-'domain error' -: '01'    pmdata etx 20$'x'
-'domain error' -: (1;0)   pmdata etx 20$'x'
+'domain error' -: 1 2     pmdata etx 20$'X'
+'domain error' -: 1.2     pmdata etx 20$'X'
+'domain error' -: 1j2     pmdata etx 20$'X'
+'domain error' -: 1 2x    pmdata etx 20$'X'
+'domain error' -: 1r2     pmdata etx 20$'X'
+'domain error' -: '01'    pmdata etx 20$'X'
+'domain error' -: (1;0)   pmdata etx 20$'X'
 
-'rank error'   -: (1 2$0) pmdata etx 20$'x'
+'rank error'   -: (1 2$0) pmdata etx 20$'X'
 
-'length error' -: 0 1 0   pmdata etx 20$'x'
+'length error' -: 0 1 0   pmdata etx 20$'X'
 
 'domain error' -: pmctr etx 1.5
 'domain error' -: pmctr etx 1j5
@@ -240,6 +240,6 @@ m=: sp ''
 
 4!:55 ;:'avg bhdr bpe dl f m n '
 4!:55 ;:'pmctr pmdata pmstats pmunpack qpc qpf '
-4!:55 ;:'s sp sum_z_ t time ts tss x xx '
+4!:55 ;:'s sp sum_z_ t time ts tss X xx '
 
 

@@ -3,15 +3,15 @@ NB. x: and infinity -----------------------------------------------------
 match=: -:&(3!:1)
 xi   =: x:^:_1
 
-( 64=type x), 5 _ -: x=: 5x  _
-( 64=type x), 5 _ -: x=: 5r1 _
+( 64=type X), 5 _ -: X=: 5x  _
+( 64=type X), 5 _ -: X=: 5r1 _
 
-(128 -: type x), _  1r2 match x=:x:  _ 0.5
-(128 -: type x), __ 1r2 match x=:x: __ 0.5
+(128 -: type X), _  1r2 match X=:x:  _ 0.5
+(128 -: type X), __ 1r2 match X=:x: __ 0.5
 
-(8 -: type x), _ __ 225 match x=:xi _ __ 225x
-(8 -: type x), _ __ 2   match x=:xi _ __ 2x
-(8 -: type x), _ __ 0.5 match x=:xi _ __ 1r2
+(8 -: type X), _ __ 225 match X=:xi _ __ 225x
+(8 -: type X), _ __ 2   match X=:xi _ __ 2x
+(8 -: type X), _ __ 0.5 match X=:xi _ __ 1r2
 
 0r1 -:  5r_
 0r1 -: _5r_
@@ -102,21 +102,21 @@ __ 5r2 match __ 2r2 + _5 3r2
 'NaN error' -: __ 2r1 + etx _  5r4
 
 
-y=: }. 5x _ __
-'NaN error' -: y    +. etx  12x
-'NaN error' -: y    +. etx _12x
-'NaN error' -:  12x +. etx y
-'NaN error' -: _12x +. etx y
-'NaN error' -: y +. etx  y
-'NaN error' -: y +.  etx |.y
+Y=: }. 5x _ __
+'NaN error' -: Y    +. etx  12x
+'NaN error' -: Y    +. etx _12x
+'NaN error' -:  12x +. etx Y
+'NaN error' -: _12x +. etx Y
+'NaN error' -: Y +. etx  Y
+'NaN error' -: Y +.  etx |.Y
 
-y=: }. 5r1 _ __
-'NaN error' -: y    +. etx  12x
-'NaN error' -: y    +. etx _12x
-'NaN error' -:  12x +. etx y
-'NaN error' -: _12x +. etx y
-'NaN error' -: y +. etx  y
-'NaN error' -: y +.  etx |.y
+Y=: }. 5r1 _ __
+'NaN error' -: Y    +. etx  12x
+'NaN error' -: Y    +. etx _12x
+'NaN error' -:  12x +. etx Y
+'NaN error' -: _12x +. etx Y
+'NaN error' -: Y +. etx  Y
+'NaN error' -: Y +.  etx |.Y
 
 _  5x match _  8x - __ 3x
 _  5x match _  8x -  5 3x
@@ -163,79 +163,79 @@ _1 = * {. __ 2r3
 0 0 -: 0 * __ 2r5
 
 
-y=: }. 5x _ __
-'NaN error' -: y    *. etx  12x
-'NaN error' -: y    *. etx _12x
-'NaN error' -:  12x *. etx y
-'NaN error' -: _12x *. etx y
+Y=: }. 5x _ __
+'NaN error' -: Y    *. etx  12x
+'NaN error' -: Y    *. etx _12x
+'NaN error' -:  12x *. etx Y
+'NaN error' -: _12x *. etx Y
 
-x=: {. _  5x
-y=: {. __ 5x
+X=: {. _  5x
+Y=: {. __ 5x
 
-'NaN error' -: x *. etx x
-'NaN error' -: x *. etx y
-'NaN error' -: y *. etx x
-'NaN error' -: y *. etx y
+'NaN error' -: X *. etx X
+'NaN error' -: X *. etx Y
+'NaN error' -: Y *. etx X
+'NaN error' -: Y *. etx Y
 
-y=: }. 5r1 _ __
-'NaN error' -: y    *. etx  1r2
-'NaN error' -: y    *. etx _1r2
-'NaN error' -:  1r2 *. etx y
-'NaN error' -: _1r2 *. etx y
+Y=: }. 5r1 _ __
+'NaN error' -: Y    *. etx  1r2
+'NaN error' -: Y    *. etx _1r2
+'NaN error' -:  1r2 *. etx Y
+'NaN error' -: _1r2 *. etx Y
 
-x=: {. _  5r2
-y=: {. __ 5r2
+X=: {. _  5r2
+Y=: {. __ 5r2
 
-'NaN error' -: x *. etx x
-'NaN error' -: x *. etx y
-'NaN error' -: y *. etx x
-'NaN error' -: y *. etx y
+'NaN error' -: X *. etx X
+'NaN error' -: X *. etx Y
+'NaN error' -: Y *. etx X
+'NaN error' -: Y *. etx Y
 
  5r0 -:  %0x
 _5r0 -: -%0x
  5r0 -:  %0r1
 _5r0 -: -%0r1
 
-x=: {. _ 5x
-(64=type y),  x  = y=:  5x % 0x
-(64=type y),(-x) = y=: _5x % 0x
-(64=type y), 0x  = y=:  5x % x
-(64=type y), 0x  = y=: _5x % x
+X=: {. _ 5x
+(64=type Y),  X  = Y=:  5x % 0x
+(64=type Y),(-X) = Y=: _5x % 0x
+(64=type Y), 0x  = Y=:  5x % X
+(64=type Y), 0x  = Y=: _5x % X
 
-x=: {. _  5x
-y=: {. __ 5x
-'NaN error' -: x % etx x
-'NaN error' -: x % etx y
-'NaN error' -: y % etx x
-'NaN error' -: y % etx y
+X=: {. _  5x
+Y=: {. __ 5x
+'NaN error' -: X % etx X
+'NaN error' -: X % etx Y
+'NaN error' -: Y % etx X
+'NaN error' -: Y % etx Y
 
-x=: {. _  5r2
-y=: {. __ 5r2
-'NaN error' -: x % etx x
-'NaN error' -: x % etx y
-'NaN error' -: y % etx x
-'NaN error' -: y % etx y
+X=: {. _  5r2
+Y=: {. __ 5r2
+'NaN error' -: X % etx X
+'NaN error' -: X % etx Y
+'NaN error' -: Y % etx X
+'NaN error' -: Y % etx Y
 
 
 pinf = | pinf,ninf
 
-y=: }. 2x _ __
-(<'NaN error') = 5 _5x | etx&.>/ y
-(2 2$5 _ __ _5x) -: y |/ 5 _5x
-y -: 0x | y
+Y=: }. 2x _ __
+(<'NaN error') = 5 _5x | etx&.>/ Y
+(2 2$5 _ __ _5x) -: Y |/ 5 _5x
+Y -: 0x | Y
 
-y=: }. 2r3 _ __
-(<'NaN error') = 5 _5r1 |etx&.>/ y
-(2 2$5 _ __ _5r1) -: y |/ 5 _5r1
-y -: 0r1 | y
+Y=: }. 2r3 _ __
+(<'NaN error') = 5 _5r1 |etx&.>/ Y
+(2 2$5 _ __ _5r1) -: Y |/ 5 _5r1
+Y -: 0r1 | Y
 
 _ 2x match !  _ 2x
 _ 2x match !  _ 2r1
 _ 2x match ! __ 2x
 _ 2x match ! __ 2r1
 
-( 64 -: type x), '_ __ 5'   -: ": x=:_ __ 5x
-(128 -: type x), '_ __ 5r3' -: ": x=:_ __ 5r3
+( 64 -: type X), '_ __ 5'   -: ": X=:_ __ 5x
+(128 -: type X), '_ __ 5r3' -: ": X=:_ __ 5r3
 
 'domain error' -: p: etx {. _  12x
 'domain error' -: p: etx {. __ 12x
@@ -248,6 +248,6 @@ _ 2x match ! __ 2r1
 'domain error' -: q: etx {. __ 12r7
 
 
-4!:55 ;:'match ninf pinf x xi y'
+4!:55 ;:'match ninf pinf X xi Y'
 
 

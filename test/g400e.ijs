@@ -1,4 +1,4 @@
-NB. x #^:_1 y (expand) --------------------------------------------------
+NB. X #^:_1 Y (expand) --------------------------------------------------
 
 expand=: (* +/\ )@[ { -@>:@(+/)@[ {. +/@[ $ ]
 exp   =: #^:_1
@@ -25,25 +25,25 @@ g=: 4 : 0
 (>:(i.10),?10$500) g"0/>:i.20
 
 
-NB. x #^:_1 y (expand), scalar y ----------------------------------------
+NB. X #^:_1 Y (expand), scalar Y ----------------------------------------
 
-b (exp -: expand) x=:     ?2     [ b=: ?(1+?1000)$2
-b (exp -: expand) x=: a.{~?#a.   [ b=: ?(1+?1000)$2
-b (exp -: expand) x=:     ?1e6   [ b=: ?(1+?1000)$2
-b (exp -: expand) x=: o.  ?1e6   [ b=: ?(1+?1000)$2
-b (exp -: expand) x=: j./ ?2$1e6 [ b=: ?(1+?1000)$2
+b (exp -: expand) X=:     ?2     [ b=: ?(1+?1000)$2
+b (exp -: expand) X=: a.{~?#a.   [ b=: ?(1+?1000)$2
+b (exp -: expand) X=:     ?1e6   [ b=: ?(1+?1000)$2
+b (exp -: expand) X=: o.  ?1e6   [ b=: ?(1+?1000)$2
+b (exp -: expand) X=: j./ ?2$1e6 [ b=: ?(1+?1000)$2
 
-b (exp -: expand) x=:     ?2     [ b=:  (1+?1000)$1
-b (exp -: expand) x=: a.{~?#a.   [ b=:  (1+?1000)$1
-b (exp -: expand) x=:     ?1e6   [ b=:  (1+?1000)$1
-b (exp -: expand) x=: o.  ?1e6   [ b=:  (1+?1000)$1
-b (exp -: expand) x=: j./ ?2$1e6 [ b=:  (1+?1000)$1
+b (exp -: expand) X=:     ?2     [ b=:  (1+?1000)$1
+b (exp -: expand) X=: a.{~?#a.   [ b=:  (1+?1000)$1
+b (exp -: expand) X=:     ?1e6   [ b=:  (1+?1000)$1
+b (exp -: expand) X=: o.  ?1e6   [ b=:  (1+?1000)$1
+b (exp -: expand) X=: j./ ?2$1e6 [ b=:  (1+?1000)$1
 
-b (exp -: expand) x=:     ?2     [ b=:  (1+?1000)$0
-b (exp -: expand) x=: a.{~?#a.   [ b=:  (1+?1000)$0
-b (exp -: expand) x=:     ?1e6   [ b=:  (1+?1000)$0
-b (exp -: expand) x=: o.  ?1e6   [ b=:  (1+?1000)$0
-b (exp -: expand) x=: j./ ?2$1e6 [ b=:  (1+?1000)$0
+b (exp -: expand) X=:     ?2     [ b=:  (1+?1000)$0
+b (exp -: expand) X=: a.{~?#a.   [ b=:  (1+?1000)$0
+b (exp -: expand) X=:     ?1e6   [ b=:  (1+?1000)$0
+b (exp -: expand) X=: o.  ?1e6   [ b=:  (1+?1000)$0
+b (exp -: expand) X=: j./ ?2$1e6 [ b=:  (1+?1000)$0
 
 
 'rank error' -: 0 #^:_1 etx 'a'
@@ -56,6 +56,6 @@ b (exp -: expand) x=: j./ ?2$1e6 [ b=:  (1+?1000)$0
 'length error' -: 1 0 1 #^:_1 etx i.5 3
 
 
-4!:55 ;:'b exp expand f g x'
+4!:55 ;:'b exp expand f g X'
 
 

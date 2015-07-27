@@ -52,8 +52,8 @@ f=: 3 : 'try. 13!:8 y catch. 13!:11 $0 end.'
 255 -: f 255
 10  -: f 256
 
-13!:8 :: 1: x=: ?256
-x -: 13!:11 ''
+13!:8 :: 1: X=: ?256
+X -: 13!:11 ''
 
 'length error' -: 13!:11 etx 'junkfoo'
 'length error' -: 13!:12 etx 'junkfoo'
@@ -106,47 +106,51 @@ NB. 13!:13  -------------------------------------------------------------
 mean=: sum % #
 sum =: [: +/ ".@('t=:13!:13 $0'&[) ] ]
 
+13!:0 ]0
 13!:0 ]1
-1: mean x=: ?4 5$100
+1: mean X=: ?4 5$100
 
-($t) -: 2 9
+($t) -: 3 9 NB. sum mean TESTX (FIXME for non-TESTX case)
+t=: 2{.t
 (0{"1 t) -: 'sum';'mean'          NB. name
 (1{"1 t) -: 0;0                   NB. error number
 (2{"1 t) -: 0;0                   NB. line number
 (3{"1 t) -: 3;3                   NB. name class
 ((<1 4){t) -: <'sum % #'          NB. definition
 (_8{.&.>5{"1 t) -: 2$<'g13x.ijs'  NB. defining scripts
-(6{"1 t) -: (<,<x),<,<x           NB. boxed argument(s)
+(6{"1 t) -: (<,<X),<,<X           NB. boxed argument(s)
 (7{"1 t) -: 2$<0 2$0              NB. locals
 (8{"1 t) e. ' ';'*'               NB. * if begins suspension
 
-1: mean"1 x
+1: mean"1 X
 
-($t) -: 2 9
+($t) -: 3 9 NB. sum mean TESTX (FIXME for non-TESTX case)
+t=: 2{.t
 (0{"1 t) -: 'sum';'mean'          NB. name
 (1{"1 t) -: 0;0                   NB. error number
 (2{"1 t) -: 0;0                   NB. line number
 (3{"1 t) -: 3;3                   NB. name class
 ((<1 4){t) -: <'sum % #'          NB. definition
 (_8{.&.>5{"1 t) -: 2$<'g13x.ijs'  NB. defining scripts
-(6{"1 t) -: (<,<{:x),<,<{:x       NB. boxed argument(s)
+(6{"1 t) -: (<,<{:X),<,<{:X       NB. boxed argument(s)
 (7{"1 t) -: 2$<0 2$a:             NB. locals
 (8{"1 t) e. ' ';'*'               NB. * if begins suspension
 
 sum=: 3 : ('z=.+/y';'t=: 13!:13 $0';'z')
 
-1: mean"1 x
+1: mean"1 X
 
-($t) -: 2 9
+($t) -: 3 9 NB. sum mean TESTX (FIXME for non-TESTX case)
+t=: 2{.t
 (0{"1 t) -: 'sum';'mean'          NB. name
 (1{"1 t) -: 0;0                   NB. error number
 (2{"1 t) -: 1;0                   NB. line number
 (3{"1 t) -: 3;3                   NB. name class
 ((<1 4){t) -: <'sum % #'          NB. definition
 (_8{.&.>5{"1 t) -: 2$<'g13x.ijs'  NB. defining scripts
-(6{"1 t) -: (<,<{:x),<,<{:x       NB. boxed argument(s)
-NB. (7{"1 t) -: (('y.';{:x),:(,'z');+/{:x);<0 2$a:  NB. locals
-(>(<0 7){t) e. ('y.';{:x), ((,'y');{:x),:(,'z');+/{:x  NB. locals
+(6{"1 t) -: (<,<{:X),<,<{:X       NB. boxed argument(s)
+NB. (7{"1 t) -: (('y.';{:X),:(,'z');+/{:X);<0 2$a:  NB. locals
+(>(<0 7){t) e. ('y.';{:X), ((,'y');{:X),:(,'z');+/{:X  NB. locals
 (8{"1 t) e. ' ';'*'               NB. * if begins suspension
 
 13!:0 ]0
@@ -165,6 +169,6 @@ NB. (2{.t) -: (2,{:$t){.];.1 '|sum[1]|mean[0] !'
 
 
 4!:55 ;:'commute conj f f1 f2 fac foo '
-4!:55 ;:'g goo goo1 goo2 goo3 h h1 mean sum t x '
+4!:55 ;:'g goo goo1 goo2 goo3 h h1 mean sum t X '
 
 

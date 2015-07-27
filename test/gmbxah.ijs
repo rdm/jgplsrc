@@ -5,50 +5,50 @@ NB. mapped boxed arrays -------------------------------------------------
 
 NB. A. ------------------------------------------------------------------
 
-q=: x=: <"0 (<5!:2 <'g'), ;:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (j A. x)      -: j A. q [ j=: ?20$#x
+q=: X=: <"0 (<5!:2 <'g'), ;:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (j A. X)      -: j A. q [ j=: ?20$#X
 
 
 NB. C. ------------------------------------------------------------------
 
-q=: x=: (1,0<?50$4) <;.1]51?100
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (C.x)         -: C.q
-(mbxcheck_jmf_ q), (x C.y)       -: q C.y=: ?100$1e6
-(mbxcheck_jmf_ q), ((<0 _1) C. x)-: (<0 _1) C. q
+q=: X=: (1,0<?50$4) <;.1]51?100
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (C.X)         -: C.q
+(mbxcheck_jmf_ q), (X C.Y)       -: q C.Y=: ?100$1e6
+(mbxcheck_jmf_ q), ((<0 _1) C. X)-: (<0 _1) C. q
 
 
 NB. e. ------------------------------------------------------------------
 
-q=: x=: (?50$#x){x=: <"0 (<5!:2 <'g') 1};:'Cogito, ergo sum.'
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (e. x)        -: e. q
-(mbxcheck_jmf_ q), (e.!.0 x)     -: e.!.0 q
-q=: x=: (?50$#x){x=: <"1 ?10 3$5
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (e. x)        -: e. q
-(mbxcheck_jmf_ q), (e.!.0 x)     -: e.!.0 q
+q=: X=: (?50$#X){X=: <"0 (<5!:2 <'g') 1};:'Cogito, ergo sum.'
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (e. X)        -: e. q
+(mbxcheck_jmf_ q), (e.!.0 X)     -: e.!.0 q
+q=: X=: (?50$#X){X=: <"1 ?10 3$5
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (e. X)        -: e. q
+(mbxcheck_jmf_ q), (e.!.0 X)     -: e.!.0 q
 
-q=: x=: (?50$#x){x=:     (<5!:2 <'g') 1};:'Cogito, ergo sum.'
-r=: (j=: ?30$+:#x){q,t=: <"0 ?(#x)$1e5
-y=: j{x,t
-(mbxcheck_jmf_ q), x             -: q
-(mbxcheck_jmf_ q), (x e. y)      -: q e. r
-(mbxcheck_jmf_ q), (x e. y)      -: q e. y
-(mbxcheck_jmf_ q), (x e. y)      -: x e. r
+q=: X=: (?50$#X){X=:     (<5!:2 <'g') 1};:'Cogito, ergo sum.'
+r=: (j=: ?30$+:#X){q,t=: <"0 ?(#X)$1e5
+Y=: j{X,t
+(mbxcheck_jmf_ q), X             -: q
+(mbxcheck_jmf_ q), (X e. Y)      -: q e. r
+(mbxcheck_jmf_ q), (X e. Y)      -: q e. Y
+(mbxcheck_jmf_ q), (X e. Y)      -: X e. r
 f=: e.
-(mbxcheck_jmf_ q), (x f"1 0 x)   -: q f"1 0 q 
-(mbxcheck_jmf_ q), (x e.!.0 y)   -: q e.!.0 r
-(mbxcheck_jmf_ q), (x e.!.0 y)   -: q e.!.0 y
-(mbxcheck_jmf_ q), (x e.!.0 y)   -: x e.!.0 r
+(mbxcheck_jmf_ q), (X f"1 0 X)   -: q f"1 0 q 
+(mbxcheck_jmf_ q), (X e.!.0 Y)   -: q e.!.0 r
+(mbxcheck_jmf_ q), (X e.!.0 Y)   -: q e.!.0 Y
+(mbxcheck_jmf_ q), (X e.!.0 Y)   -: X e.!.0 r
 f=: e.!.0
-(mbxcheck_jmf_ q), (x f"1 0 x)   -: q f"1 0 q
+(mbxcheck_jmf_ q), (X f"1 0 X)   -: q f"1 0 q
 
 
 1 [ unmap_jmf_ 'q'
 1 [ unmap_jmf_ 'r'
 
-4!:55 ;:'f f1 g j mean q r t x y'
+4!:55 ;:'f f1 g j mean q r t X Y'
 
 

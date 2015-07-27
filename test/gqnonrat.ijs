@@ -1,8 +1,8 @@
 NB. rational approximations of non-rational functions -------------------
 
-NB. e f  x -- compute f x within error e
-NB. n f0 x -- n terms of series for f x
-NB. e nf x -- number of terms required for error e and f x
+NB. e f  X -- compute f X within error e
+NB. n f0 X -- n terms of series for f X
+NB. e nf X -- number of terms required for error e and f X
 
 exp0 =: ] ([: +/ ^ % !@])       i.@[
 ln0  =: 4 : '+: +/ i %~ (%/y+_1 1)^i=. 1+2*i.x'  NB. AS 4.1.27
@@ -23,8 +23,8 @@ sin=: nsin sin0 ]
 cos=: ncos cos0 ]
 exp=: nexp exp0 ]
 
-NB. (ln x*y) = (ln x)+(ln y)
-NB. (ln x^e) = e * ln x
+NB. (ln X*Y) = (ln X)+(ln Y)
+NB. (ln X^e) = e * ln X
 
 ln=: 4 : 0
  assert. 0<y

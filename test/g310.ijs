@@ -17,7 +17,7 @@ f =: %&>: : |
 
 f =: 4 : 'x+y'
 
-3 4 5 (f -: +) x=:?3$1e9
+3 4 5 (f -: +) X=:?3$1e9
 
 f=: 3 : '1 [ big=.y$''abc'''
 p=: 7!:0 ''
@@ -58,34 +58,34 @@ nl =: 10{a.                  NB. system independent new-line
 monad =: *:@:>:
 dyad  =: *:@:>:@:+
 
-x =: <;._1 '/t=.y+1/t^2/:/t=.x+y/t=.t+1/t^2'
+X =: <;._1 '/t=.y+1/t^2/:/t=.x+y/t=.t+1/t^2'
 
-f0  =: 3 : x                 NB. boxed sentences
+f0  =: 3 : X                 NB. boxed sentences
 (f0 -: monad) ?30$100
 (?31$100) (f0 -: dyad) ?31$100
 
-f1  =: 3 : (>x)              NB. character matrix
+f1  =: 3 : (>X)              NB. character matrix
 (f1 -: monad) ?30$100
 (?31$100) (f1 -: dyad) ?31$100
 
-f2  =: 3 : (;x,&.><nl)       NB. string (with embedded newlines)
+f2  =: 3 : (;X,&.><nl)       NB. string (with embedded newlines)
 (f2 -: monad) ?30$100
 (?31$100) (f2 -: dyad) ?31$100
 
-f3  =: 3 : (}:;x,&.><nl)     NB. string without final newline
+f3  =: 3 : (}:;X,&.><nl)     NB. string without final newline
 (f3 -: monad) ?30$100
 (?31$100) (f3 -: dyad) ?31$100
 
-f4  =: 3 : (2{.x)            NB. boxed monad only
+f4  =: 3 : (2{.X)            NB. boxed monad only
 (f4 -: monad) ?30$100
 
-f4a =: 3 : (>2{.x)           NB. matrix monad only
+f4a =: 3 : (>2{.X)           NB. matrix monad only
 (f4a -: monad) ?30$100
 
-f5  =: 3 : (2}.x)            NB. boxed dyad only
+f5  =: 3 : (2}.X)            NB. boxed dyad only
 (?31$100) (f5 -: dyad) ?31$100
 
-f5a =: 3 : (>2}.x)           NB. matrix dyad only
+f5a =: 3 : (>2}.X)           NB. matrix dyad only
 (?31$100) (f5a -: dyad) ?31$100
 
 f6  =: 3 : '(y+1)^2'         NB. string monad only
@@ -103,10 +103,10 @@ f6c =: 3 : (':       ',nl,'(x+y+1)^2')   NB. string dyad only
 f7  =: 3 : '7'               NB. scalar string
 7 -: f7 ?30$100
 
-x=: 'abc',nl,(a.{~190+i.4),nl
-('p=: 0 : 0',nl,x,')',nl) 1!:2 <'asdf.txt'
+X=: 'abc',nl,(a.{~190+i.4),nl
+('p=: 0 : 0',nl,X,')',nl) 1!:2 <'asdf.txt'
 0!:0 <'asdf.txt'
-p -: x
+p -: X
 1!:55 <'asdf.txt'
 
 
@@ -123,9 +123,9 @@ f1 =: 3 : 0
 
 )
 
-x=: ];._1 '//  1  NB. aa///  4  NB. bbb/'
-(5!:1 <'f1') -: <(,':');<((,'0');3);<(,'0');,.x
-(5!:2 <'f1') -: 3;(,':');,.x
+X=: ];._1 '//  1  NB. aa///  4  NB. bbb/'
+(5!:1 <'f1') -: <(,':');<((,'0');3);<(,'0');,.X
+(5!:2 <'f1') -: 3;(,':');,.X
 (5!:5 <'f1') -: '3 : 0',nl,nl,'  1  NB. aa',nl,nl,nl,'  4  NB. bbb',nl,nl,')'
 
 f2 =: 3 : 0
@@ -138,9 +138,9 @@ f2 =: 3 : 0
   4  NB. bbb
 )
 
-x=: ];._1 '//://  1  NB. aa///  4  NB. bbb'
-(5!:1 <'f2') -: <(,':');<((,'0');3);<(,'0');,.x
-(5!:2 <'f2') -: 3;(,':');,.x
+X=: ];._1 '//://  1  NB. aa///  4  NB. bbb'
+(5!:1 <'f2') -: <(,':');<((,'0');3);<(,'0');,.X
+(5!:2 <'f2') -: 3;(,':');,.X
 (5!:5 <'f2') -: '3 : 0',nl,nl,':',nl,nl,'  1  NB. aa',nl,nl,nl,'  4  NB. bbb',nl,')'
 
 f3 =: 3 : 0
@@ -161,9 +161,9 @@ f3 =: 3 : 0
       NB. ff
 )
 
-x=: ];._1 '//  11  NB. aaaa/  12  NB. b///  15  NB. cc///://  21  NB. ddd///  24  NB. e/      NB. ff'
-(5!:1 <'f3') -: <(,':');<((,'0');3);<(,'0');x
-(5!:2 <'f3') -: 3;(,':');x
+X=: ];._1 '//  11  NB. aaaa/  12  NB. b///  15  NB. cc///://  21  NB. ddd///  24  NB. e/      NB. ff'
+(5!:1 <'f3') -: <(,':');<((,'0');3);<(,'0');X
+(5!:2 <'f3') -: 3;(,':');X
 (5!:5 <'f3') -: '3 : 0',nl,nl,'  11  NB. aaaa',nl,'  12  NB. b',nl,nl,nl,'  15  NB. cc',nl,nl,nl,':',nl,nl,'  21  NB. ddd',nl,nl,nl,'  24  NB. e',nl,'      NB. ff',nl,')'
 
 9!:41 ]0  NB. discard comments and white space
@@ -177,9 +177,9 @@ f1 =: 3 : 0
 
 )
 
-x=: ];._1 '//1///4'
-(5!:1 <'f1') -: <(,':');<((,'0');3);<(,'0');,.x
-(5!:2 <'f1') -: 3;(,':');,.x
+X=: ];._1 '//1///4'
+(5!:1 <'f1') -: <(,':');<((,'0');3);<(,'0');,.X
+(5!:2 <'f1') -: 3;(,':');,.X
 (5!:5 <'f1') -: '3 : 0',nl,nl,'1',nl,nl,nl,'4',nl,')'
 
 f2 =: 3 : 0
@@ -192,9 +192,9 @@ f2 =: 3 : 0
   4  NB. bbb
 )
 
-x=: ];._1 '/://1///4'
-(5!:1 <'f2') -: <(,':');<((,'0');3);<(,'0');,.x
-(5!:2 <'f2') -: 3;(,':');,.x
+X=: ];._1 '/://1///4'
+(5!:1 <'f2') -: <(,':');<((,'0');3);<(,'0');,.X
+(5!:2 <'f2') -: 3;(,':');,.X
 (5!:5 <'f2') -: '3 : 0',nl,':',nl,nl,'1',nl,nl,nl,'4',nl,')'
 
 f3 =: 3 : 0
@@ -215,9 +215,9 @@ f3 =: 3 : 0
       NB. ff
 )
 
-x=: ];._1 '//11/12///15/://21///24'
-(5!:1 <'f3') -: <(,':');<((,'0');3);<(,'0');x
-(5!:2 <'f3') -: 3;(,':');x
+X=: ];._1 '//11/12///15/://21///24'
+(5!:1 <'f3') -: <(,':');<((,'0');3);<(,'0');X
+(5!:2 <'f3') -: 3;(,':');X
 (5!:5 <'f3') -: '3 : 0',nl,nl,'11',nl,'12',nl,nl,nl,'15',nl,':',nl,nl,'21',nl,nl,nl,'24',nl,')'
 
 9!:41 ]1  NB. retain comments and white space
@@ -294,6 +294,6 @@ f3 =: 4 : 'x+y'
 
 4!:55 ;:'a ar det dyad eq f f0 f1 f2 f3 f4'
 4!:55 ;:'f4a f5 f5a f6 f6a f6b f6c f7'
-4!:55 ;:'minors monad nl p q Tv x'
+4!:55 ;:'minors monad nl p q Tv x X'
 
 

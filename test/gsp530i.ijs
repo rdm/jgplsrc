@@ -55,15 +55,15 @@ s -: d=: 0 i}d
 scheck s
 
 i=: ,(?5$#i){i=: 4$.s
-x=: ?((#i),{:$s)$1000
-(IF64{9000 12000) > t=: 7!:2 's=: x i}s'
-s -: d=: x i}d
+X=: ?((#i),{:$s)$1000
+(IF64{9000 12000) > t=: 7!:2 's=: X i}s'
+s -: d=: X i}d
 scheck s
 
 i=: (?5$#i){i=:(i.37)-.,4$.s
-x=: ?((#i),{:$s)$1000
-s=: x i}s  NB. not in place
-s -: d=: x i}d
+X=: ?((#i),{:$s)$1000
+s=: X i}s  NB. not in place
+s -: d=: X i}d
 scheck s
 
 
@@ -73,15 +73,15 @@ d=: (0=?23456$10)*?23456 10$1000
 s=: (2;0)$.d
 
 i=: ,(?5$#i){i=: 4$.s
-x=: $. (?($x)$2)*x=: ?($i{s)$1000
-(IF64{40000 80000) > t=: 7!:2 's=: x i}s'
-s -: d=: x i}d
+X=: $. (?($X)$2)*X=: ?($i{s)$1000
+(IF64{40000 80000) > t=: 7!:2 's=: X i}s'
+s -: d=: X i}d
 scheck s
 
 i=: (?5$#i){i=:(i.#s)-.,4$.s
-x=: (?($x)$2)*x=: ?($i{s)$1000
-s=: x i}s  NB. not in place
-s -: d=: x i}d
+X=: (?($X)$2)*X=: ?($i{s)$1000
+s=: X i}s  NB. not in place
+s -: d=: X i}d
 scheck s
 
 
@@ -102,11 +102,11 @@ m=: #d
 s=: 1$.5 6;'';123
 d=: 5 6$123
 i=: ?2$5
-x=: ?($i{d)$1000
+X=: ?($i{d)$1000
 s -: d
-(x i}d) -: x i}s
+(X i}d) -: X i}s
 
-'domain error' -: (3 4$'x') 2 0} etx $.i.2 3 4
+'domain error' -: (3 4$'X') 2 0} etx $.i.2 3 4
 'domain error' -: (3 4$<4 ) 2 0} etx $.i.2 3 4
 
 'index error'  -: (i.2 3)   4 0} etx $.i.4 2 3
@@ -115,6 +115,6 @@ s -: d
 'length error' -: (i.2 3)   2 0} etx $.i.4 3 2
 
 
-4!:55 ;:'a b c d f g h i m r s t x'
+4!:55 ;:'a b c d f g h i m r s t X'
 
 

@@ -1,4 +1,4 @@
-NB. x;:y ----------------------------------------------------------------
+NB. X;:Y ----------------------------------------------------------------
 
 NB. example 0: English words
 NB. rows are sp A; cols are sp A
@@ -6,8 +6,8 @@ NB. rows are sp A; cols are sp A
 me=: (i.#a.) e. (a.i.''''),,(a.i.'Aa')+/i.26
 se=: 2 2 2 $ 0 0 1 1  0 3 1 0
 
-(;:    -: (0;se;me)&;:) y=: 'Now is the time all good men'
-(<;._1 -: (0;se;me)&;:) y=: ' fourscore and ten years ago our fathers brought forth on this continent'
+(;:    -: (0;se;me)&;:) Y=: 'Now is the time all good men'
+(<;._1 -: (0;se;me)&;:) Y=: ' fourscore and ten years ago our fathers brought forth on this continent'
 
 
 NB. example 1: separating quoted strings from non-quoted strings
@@ -21,17 +21,17 @@ remq =: (+: ~:/\)@(''''&=) # ]
 remq1=: 3 : '(,"0 (({:"1 t)e.2 3)#}:"1 t=. (4;sq;mq) ;: y) ;@:(<;.0) y'
 remq2=: (1;sqx;mq)&;:
 
-(remq -: remq1) y=: '''Don''''t tread on me!'', he said with some feeling '
-(remq -: remq2) y
-(remq -: remq2) y=: '''The Power of the Powerless'' by Havel; ''1984'' by Orwell'
+(remq -: remq1) Y=: '''Don''''t tread on me!'', he said with some feeling '
+(remq -: remq2) Y
+(remq -: remq2) Y=: '''The Power of the Powerless'' by Havel; ''1984'' by Orwell'
 
-(  3&$"0&.>(0;sq ;mq);:y) -: (0;(sq ,"2 ]0);<  3&$"0&.>(a.-.'''');'''');:  3&$"0 y
-(2 3&$"0&.>(0;sq ;mq);:y) -: (0;(sq ,"2 ]0);<2 3&$"0&.>(a.-.'''');'''');:2 3&$"0 y
+(  3&$"0&.>(0;sq ;mq);:Y) -: (0;(sq ,"2 ]0);<  3&$"0&.>(a.-.'''');'''');:  3&$"0 Y
+(2 3&$"0&.>(0;sq ;mq);:Y) -: (0;(sq ,"2 ]0);<2 3&$"0&.>(a.-.'''');'''');:2 3&$"0 Y
 
-(  3&$"0   (1;sqx;mq);:y) -: (1;(sqx,"2 ]0);<  3&$"0&.>(a.-.'''');'''');:  3&$"0 y
-(2 3&$"0   (1;sqx;mq);:y) -: (1;(sqx,"2 ]0);<2 3&$"0&.>(a.-.'''');'''');:2 3&$"0 y
+(  3&$"0   (1;sqx;mq);:Y) -: (1;(sqx,"2 ]0);<  3&$"0&.>(a.-.'''');'''');:  3&$"0 Y
+(2 3&$"0   (1;sqx;mq);:Y) -: (1;(sqx,"2 ]0);<2 3&$"0&.>(a.-.'''');'''');:2 3&$"0 Y
 
-t=: (1;sqx;mq) ;: 'a''',1e6$'x'
+t=: (1;sqx;mq) ;: 'a''',1e6$'X'
 t -: ,'a'
 1000 > 7!:5 <'t'
 
@@ -78,14 +78,14 @@ mj1=: (a.-.;t);t=. ' '; A; 'N'; 'B'; '0123456789_'; '.'; ':'; ''''
 
 
 NB. Example 4: Detecting 0xABC hex strings (test end-of-input)
-NB. m: 3='0', 2='x', 1=nonzero hexdigit, 0=other
+NB. m: 3='0', 2='X', 1=nonzero hexdigit, 0=other
 
 mh=: a. e. '0x123456789abcdefABCDEF'
 mh=: mh + a. e. '0x'
 mh=: mh + a. e. '0'
-NB.             ghi  0aA   x    0
+NB.             ghi  0aA   X    0
 sh=:    1 4 2 $ 0 0  0 0  0 0  1 1  NB. awaiting 0
-sh=: sh , 4 2 $ 0 0  0 0  2 0  0 0  NB. found 0, awaiting x
+sh=: sh , 4 2 $ 0 0  0 0  2 0  0 0  NB. found 0, awaiting X
 sh=: sh , 4 2 $ 0 0  3 0  0 0  3 0  NB. found 0x, awaiting hexdigit
 sh=: sh , 4 2 $ 0 3  3 0  0 3  3 0  NB. found hexdigit, awaiting end-of-string
 
@@ -102,14 +102,14 @@ NB. Using the same machine, test ijr
 
 f=: ;:
 
-(<;._1 ' Cogito ergo sum')    -: (0;se;me) f y=: 'Cogito, ergo sum.'
-(<;._1 ' Cogito ergo sum')    -: (0;se;me) f y,5$' '
-(<;._1 ' Cogito ergo sum')    -: (2;se;me) (,"0@f <;.0 ]) y
-(<;._1 ' Cogito ergo sum')    -: (2;se;me) (,"0@f <;.0 ]) y,5$' '
-(<;._1 ' Don''t tread on me') -: (0;se;me) f y=: 'Don''t tread on me!'
-(<;._1 ' Don''t tread on me') -: (0;se;me) f y,' '
-(<;._1 ' Don''t tread on me') -: (2;se;me) (,"0@f <;.0 ]) y
-(<;._1 ' Don''t tread on me') -: (2;se;me) (,"0@f <;.0 ]) y,5$' '
+(<;._1 ' Cogito ergo sum')    -: (0;se;me) f Y=: 'Cogito, ergo sum.'
+(<;._1 ' Cogito ergo sum')    -: (0;se;me) f Y,5$' '
+(<;._1 ' Cogito ergo sum')    -: (2;se;me) (,"0@f <;.0 ]) Y
+(<;._1 ' Cogito ergo sum')    -: (2;se;me) (,"0@f <;.0 ]) Y,5$' '
+(<;._1 ' Don''t tread on me') -: (0;se;me) f Y=: 'Don''t tread on me!'
+(<;._1 ' Don''t tread on me') -: (0;se;me) f Y,' '
+(<;._1 ' Don''t tread on me') -: (2;se;me) (,"0@f <;.0 ]) Y
+(<;._1 ' Don''t tread on me') -: (2;se;me) (,"0@f <;.0 ]) Y,5$' '
 
 testj=: 4 : 0
  assert. x -: (0;sj;mj) f y
@@ -127,20 +127,20 @@ testj=: 4 : 0
  1
 )
 
-(,<y) testj y=: '_3.4e_5j_6.7e_8'
-(,<y) testj y=: '1 2 _3.4e_5j_6.7e_8 9'
-(,<y) testj y=: 'abc'
-(,<y) testj y=: 'abc_locale59_'
-(,<y) testj y=: 'abc__59'
-(,<y) testj y=: '''To quote or not to quote'''
-(,<y) testj y=: '''Don''''t tread on me!'''
+(,<Y) testj Y=: '_3.4e_5j_6.7e_8'
+(,<Y) testj Y=: '1 2 _3.4e_5j_6.7e_8 9'
+(,<Y) testj Y=: 'abc'
+(,<Y) testj Y=: 'abc_locale59_'
+(,<Y) testj Y=: 'abc__59'
+(,<Y) testj Y=: '''To quote or not to quote'''
+(,<Y) testj Y=: '''Don''''t tread on me!'''
 
-(<;._1 ' abc _59')         testj y=: 'abc _59'
-(<;._1 ';abc;''def'';1 2') testj y=: 'abc ''def'' 1 2'
+(<;._1 ' abc _59')         testj Y=: 'abc _59'
+(<;._1 ';abc;''def'';1 2') testj Y=: 'abc ''def'' 1 2'
 
-y=: 'sum=. (i.3 4)+/ .*0j4+pru 4'
-x=: <;._1 ';sum;=.;(;i.;3 4;);+;/;.;*;0j4;+;pru;4' 
-x testj y
+Y=: 'sum=. (i.3 4)+/ .*0j4+pru 4'
+X=: <;._1 ';sum;=.;(;i.;3 4;);+;/;.;*;0j4;+;pru;4' 
+X testj Y
 
 
 'domain error' -: 0 1 0                 ;: etx 'abcd montegu'
@@ -175,6 +175,6 @@ x testj y
 
 
 4!:55 ;:'A f me mh mj mj1 mq mv remq remq1 remq2 se sh sj sq sqx sv'
-4!:55 ;:'t testj x y'
+4!:55 ;:'t testj X Y'
 
 

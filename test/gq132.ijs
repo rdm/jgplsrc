@@ -21,7 +21,7 @@ rat %: *: 7r2
 NB. %: ------------------------------------------------------------------
 
 NB. Pell Equation 
-NB. Integer solutions of 1=(x^2)-N*(y^2), N not a perfect square
+NB. Integer solutions of 1=(X^2)-N*(Y^2), N not a perfect square
 
 NB. continued fraction expansion of %:N
 NB. do computations in Z[%:N]

@@ -25,7 +25,7 @@ bsd    =: 1 : '(x suffix) : (x outfix)'
 sd     =: 1 : '(x ob    ) : (x key   )'
 
 
-NB.  f/.y ---------------------------------------------------------------
+NB.  f/.Y ---------------------------------------------------------------
 
 NB. Boolean
 a=:1=?10 5$2
@@ -84,7 +84,7 @@ a=:t{~?10 3$#t
 (</. -: < ob) 0$<'_3j4'
 
 
-NB.  f/.y convolution ---------------------------------------------------
+NB.  f/.Y convolution ---------------------------------------------------
 
 pru=: [: ^ 0j2p1&%               NB. principal n-th root of unity
 
@@ -111,7 +111,7 @@ s ( conv eq  conv1) t
 s (pconv eq pconv1) t
 
 
-NB.  x f/. y ------------------------------------------------------------
+NB.  X f/. Y ------------------------------------------------------------
 
 NB. Boolean
 a=:1=?11 5$2
@@ -143,7 +143,7 @@ k (]/.  -: ] key) a     [ k=:?11$4
 k (+//. -: +/ key) a    [ k=:?11$4
 
 NB. boxed
-a=:x{~?11 3$#x=:(1=?70$3)<;.1 ?70$110
+a=:X{~?11 3$#X=:(1=?70$3)<;.1 ?70$110
 k (</. -: < key) a      [ k=:?11$4
 k (]/. -: ] key) a      [ k=:?11$4
 
@@ -154,7 +154,7 @@ k (]/. -: ] key) a      [ k=:?11$4
 (,<i.1 9) -: 4 </. i.1 9
 (,<,4)    -: (i.1 9) </. 4
 (,<,4)    -: (i.1 0) </. 4
-(,<x )    -: (i.(#x),0) </. x=:'abcdefghij'
+(,<X )    -: (i.(#X),0) </. X=:'abcdefghij'
 
 'length error' -: 'abc'  </. etx i.4
 'length error' -: 'abcd' </. etx i.3
@@ -163,7 +163,7 @@ k (]/. -: ] key) a      [ k=:?11$4
 'length error' -: 'abcd' </. etx 4
 
 
-NB. x f/.y on empty x ---------------------------------------------------
+NB. X f/.Y on empty X ---------------------------------------------------
 
 test=: 2 : 0
  n=: p: ?200
@@ -193,6 +193,6 @@ test=: 2 : 0
 
 4!:55 ;:'a base bs bsd conv conv1 em en eq iind infix k '
 4!:55 ;:'kay key n ob oind omask osub outfix pconv pconv1 prefix pru '
-4!:55 ;:'s sd seg suffix t test x xx'
+4!:55 ;:'s sd seg suffix t test X xx'
 
 

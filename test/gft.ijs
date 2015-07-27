@@ -6,27 +6,27 @@ sum  =: plus/
 mean =: sum % tally
 rev  =: |.
 
-x=: 5e5?@$100
-y=: 5e5?@$100
+X=: 5e5?@$100
+Y=: 5e5?@$100
 
-s=: 10 timer 'x #/. y'
-t=: 10 timer 'x tally/.f. y'
+s=: 10 timer 'X #/. Y'
+t=: 10 timer 'X tally/.f. Y'
 (1-*:threshold) > | (s-t)%s
 
-s=: 10 timer '+/y'
-t=: 10 timer 'sum f. y'
+s=: 10 timer '+/Y'
+t=: 10 timer 'sum f. Y'
 (1-*:threshold) > | (s-t)%s
 
-s=: 10 timer '(+/ % #) y'
-t=: 10 timer 'mean f. y'
+s=: 10 timer '(+/ % #) Y'
+t=: 10 timer 'mean f. Y'
 (1-*:threshold) > | (s-t)%s
 
-y=: (1e5 7?@$#a.){a.
-s=: 10 timer '|."1 y'
-t=: 10 timer 'rev"1 f. y'
+Y=: (1e5 7?@$#a.){a.
+s=: 10 timer '|."1 Y'
+t=: 10 timer 'rev"1 f. Y'
 (1-*:threshold) > | (s-t)%s
 
 
-4!:55 ;:'mean plus rev s sum t tally x y'
+4!:55 ;:'mean plus rev s sum t tally X Y'
 
 

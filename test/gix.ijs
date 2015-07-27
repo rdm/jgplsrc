@@ -1,4 +1,4 @@
-NB. x i.y with wrong rank/shape -----------------------------------------
+NB. X i.Y with wrong rank/shape -----------------------------------------
 
 f0=: 4 : 0
  assert. (  7$3)   -: (  3 4  $x) i.        7 2$y

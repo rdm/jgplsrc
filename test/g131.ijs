@@ -23,16 +23,16 @@ qr =: 3 : 0
  end.
 )
 
-em   =: >.@-:@#                    NB.  m  =. >.-:#y.
+em   =: >.@-:@#                    NB.  m  =. >.-:#Y.
 mm   =: ,~@em                      NB.  mm =. m,m
-ai   =: rinv@(mm {. ])             NB.  ai =. rinv mm{.y.
-di   =: rinv@(mm }. ])             NB.  di =. rinv mm}.y.
-bee  =: (em , em - #) {. ]         NB.  b  =. (m,m-n){.y.
+ai   =: rinv@(mm {. ])             NB.  ai =. rinv mm{.y
+di   =: rinv@(mm }. ])             NB.  di =. rinv mm}.y
+bee  =: (em , em - #) {. ]         NB.  b  =. (m,m-n){.y
 bx   =: -@(ai X bee X di)          NB.  bx =. - ai X b X di
 r4   =: (ai,.bx) , (-@# {."1 di)   NB.  (ai,.bx),(-n){."1 di
 rinv =: r4`% @. (1&>:@#)
 
-minv =: (|.@$ ($,) (rinv@] X +@|:@[)&>/@qr) " 2
+minv =: (|.@$ ($,) (rinv@] X +@|:@[)&>/@qr) " 2 f.
 mdiv =: (%.@] +/ . * [) " _ 2
 
 id=: =&i.&#
@@ -61,10 +61,10 @@ id=: =&i.&#
 (b-:minv a) *. (1=+/a*b) *. (+/a*+a)-:%+/b*+b =.%.a=.0.1*_10+?13$20
 (b-:minv a) *. (1=+/a*b) *. (+/a*+a)-:%+/b*+b =.%.a=.r.?23$20
 
-x -: %. x=.=i.1
-x -: %. x=.=i.2
-x -: %. x=.=i.4
-x -: %. x=.=i.9
+X -: %. X=.=i.1
+X -: %. X=.=i.2
+X -: %. X=.=i.4
+X -: %. X=.=i.9
 
 f =. (%@[ * ]) -: %.@:*
 

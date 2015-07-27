@@ -40,8 +40,8 @@ z1=: (<"1 x1)-.&.>' '
 (] -: _5&s:@(5&s:)) y1
 (] -: _6&s:@(6&s:)) y1
 
-x=: ;:'anaphoric boustrophedonic chthonic epigrammatic metonymic oxymoronic'
-x2=: x,&.>/":&.>?100$150
+X=: ;:'anaphoric boustrophedonic chthonic epigrammatic metonymic oxymoronic'
+x2=: X,&.>/":&.>?100$150
 y2=: s: x2
 y0 -: s: x0
 y1 -: s: x1
@@ -75,7 +75,7 @@ NB. s: fill -------------------------------------------------------------
 (2 4$s: ' 0 1 2 3 4 5  ') -: s:"1 (<;._1 ' 0 1 2 3'),:<;._1 ' 4 5'
 
 
-NB. 0 s: y --------------------------------------------------------------
+NB. 0 s: Y --------------------------------------------------------------
 
 0 s: 11
 
@@ -137,157 +137,157 @@ t=: 0 s: 12
 (0 s: 0) >: >./t
 
 
-NB. 1 s: y --------------------------------------------------------------
+NB. 1 s: Y --------------------------------------------------------------
 
-x=: (;:'now is the time') ,&.>/ ":&.>?100$1e4
-y=: s: x
-(;,'`',&.>x) -: 1 s: y
-(,y) -: _1 s: ;,'*',&.>x
+X=: (;:'now is the time') ,&.>/ ":&.>?100$1e4
+Y=: s: X
+(;,'`',&.>X) -: 1 s: Y
+(,Y) -: _1 s: ;,'*',&.>X
 
-t=: 1 s: y
+t=: 1 s: Y
 2 -: type t
 1 = #$t
 '`' -: {.t
 
-x=: <"1 ] 97+?31 13 4$26
-x=: (?($x)$4){.&.>x
-(, x{&.><a.) -: 5 s: _1 s: (; 32,&.>x){a.
+X=: <"1 ] 97+?31 13 4$26
+X=: (?($X)$4){.&.>X
+(, X{&.><a.) -: 5 s: _1 s: (; 32,&.>X){a.
 
 (0$s: ' a') -: _1 s: ''
 
 
-NB. 2 s: y --------------------------------------------------------------
+NB. 2 s: Y --------------------------------------------------------------
 
-x=: (;:'bou stro phe don ic') ,&.>/ ":&.>?2 25$1e4
-y=: s: x
-(;,x,&.>{.a.) -: 2 s: y
-(,y) -: _2 s: ;,x,&.>'*'
+X=: (;:'bou stro phe don ic') ,&.>/ ":&.>?2 25$1e4
+Y=: s: X
+(;,X,&.>{.a.) -: 2 s: Y
+(,Y) -: _2 s: ;,X,&.>'*'
 
-t=: 2 s: y
+t=: 2 s: Y
 2 -: type t
 1 = #$t
 ({.a.) -: {:t
 
-x=: <"1 ] 97+?31 13 4$26
-x=: (?($x)$4){.&.>x
-(, x{&.><a.) -: 5 s: _2 s: (; x,&.>0){a.
+X=: <"1 ] 97+?31 13 4$26
+X=: (?($X)$4){.&.>X
+(, X{&.><a.) -: 5 s: _2 s: (; X,&.>0){a.
 
 (0$s: ' a') -: _2 s: ''
 
 
-NB. 3 s: y --------------------------------------------------------------
+NB. 3 s: Y --------------------------------------------------------------
 
-x=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
-y=: s: x
-m=: >./,i=: #&>x
-(>x,&.>(m-i)$&.>{.a.) -: 3 s: y
-y -: _3 s: >x,&.>(m-i)$&.>{.a.
+X=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
+Y=: s: X
+m=: >./,i=: #&>X
+(>X,&.>(m-i)$&.>{.a.) -: 3 s: Y
+Y -: _3 s: >X,&.>(m-i)$&.>{.a.
 
-t=: 3 s: y
+t=: 3 s: Y
 2 -: type t
-(($x),m) = $t
-(>x,&.>(m-i)$&.>{.a.) -: t
+(($X),m) = $t
+(>X,&.>(m-i)$&.>{.a.) -: t
 
-x=: <"1 ] 97+?31 13 4$26
-x=: (?($x)$4){.&.>x
-(x{&.><a.) -: 5 s: _3 s: (>x){a.
+X=: <"1 ] 97+?31 13 4$26
+X=: (?($X)$4){.&.>X
+(X{&.><a.) -: 5 s: _3 s: (>X){a.
 
 
-NB. 4 s: y --------------------------------------------------------------
+NB. 4 s: Y --------------------------------------------------------------
 
-x=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
-y=: s: x
-(>x) -: 4 s: y
-y -: _4 s: >x
+X=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
+Y=: s: X
+(>X) -: 4 s: Y
+Y -: _4 s: >X
 
-t=: 4 s: y
+t=: 4 s: Y
 2 -: type t
-(($x),>./,#&>x) = $t
-(>x) -: t
+(($X),>./,#&>X) = $t
+(>X) -: t
 
-x=: <"1 ] 97+?31 13 4$26
-x=: (?($x)$4){.&.>x
-(x{&.><a.) -: 5 s: _4 s: >x{&.><a.
+X=: <"1 ] 97+?31 13 4$26
+X=: (?($X)$4){.&.>X
+(X{&.><a.) -: 5 s: _4 s: >X{&.><a.
 
 
-NB. 5 s: y --------------------------------------------------------------
+NB. 5 s: Y --------------------------------------------------------------
 
-x=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
-y=: s: x
-x -: 5 s: y
-y -: _5 s: x
+X=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
+Y=: s: X
+X -: 5 s: Y
+Y -: _5 s: X
 
-t=: 5 s: y
+t=: 5 s: Y
 32 -: type t
-($y) = $t
-x -: t
+($Y) = $t
+X -: t
 
 
-NB. 6 s: y --------------------------------------------------------------
+NB. 6 s: Y --------------------------------------------------------------
 
-x=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
-y=: s: x
+X=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
+Y=: s: X
 
-t =: 6 s: y
+t =: 6 s: Y
 4 -: type t
-($y) = $t
-y -: _6 s: t
+($Y) = $t
+Y -: _6 s: t
 *./ (0<:t) *.t< 0 s: 0
 
 
-NB. 7 s: y --------------------------------------------------------------
+NB. 7 s: Y --------------------------------------------------------------
 
-x=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
-y=: s: x
+X=: (;:'el eem o syn ary') ,&.>/ ":&.>?2 3 4$1e4
+Y=: s: X
 
-t =: 7 s: y
+t =: 7 s: Y
 4 -: type t
-($y) = $t
+($Y) = $t
 
 
-NB. 10 s: y -------------------------------------------------------------
+NB. 10 s: Y -------------------------------------------------------------
 
 0 s: 11
 
-x=: 0 s: 10
+X=: 0 s: 10
 
-'domain error' -: 10 s: etx ($x)$0 1
-'domain error' -: 10 s: etx ($x)$1 2 3 4
-'domain error' -: 10 s: etx ($x)$1 2 3.4
-'domain error' -: 10 s: etx ($x)$1 2 3j4
-'domain error' -: 10 s: etx ($x)$1 2 3r4
-'domain error' -: 10 s: etx ($x)$1 2 3 4x
-'domain error' -: 10 s: etx ($x)$' 2 3 4'
+'domain error' -: 10 s: etx ($X)$0 1
+'domain error' -: 10 s: etx ($X)$1 2 3 4
+'domain error' -: 10 s: etx ($X)$1 2 3.4
+'domain error' -: 10 s: etx ($X)$1 2 3j4
+'domain error' -: 10 s: etx ($X)$1 2 3r4
+'domain error' -: 10 s: etx ($X)$1 2 3 4x
+'domain error' -: 10 s: etx ($X)$' 2 3 4'
 
-'domain error' -: 10 s: etx }.x
-'domain error' -: 10 s: etx }:x
-'domain error' -: 10 s: etx ,:x
-'domain error' -: 10 s: etx {.x
+'domain error' -: 10 s: etx }.X
+'domain error' -: 10 s: etx }:X
+'domain error' -: 10 s: etx ,:X
+'domain error' -: 10 s: etx {.X
 
-'domain error' -: 10 s: etx x 0}~< 'a'         
-'domain error' -: 10 s: etx x 0}~< 100002.4 
-'domain error' -: 10 s: etx x 0}~< 100002j4
-'domain error' -: 10 s: etx x 0}~< 100002r4
-'domain error' -: 10 s: etx x 0}~< ({.x),&.>0
-'domain error' -: 10 s: etx x 0}~< 1+#>2{x
-'domain error' -: 10 s: etx x 0}~< 1+#>4{x
-'domain error' -: 10 s: etx x 0}~< _1e6
+'domain error' -: 10 s: etx X 0}~< 'a'         
+'domain error' -: 10 s: etx X 0}~< 100002.4 
+'domain error' -: 10 s: etx X 0}~< 100002j4
+'domain error' -: 10 s: etx X 0}~< 100002r4
+'domain error' -: 10 s: etx X 0}~< ({.X),&.>0
+'domain error' -: 10 s: etx X 0}~< 1+#>2{X
+'domain error' -: 10 s: etx X 0}~< 1+#>4{X
+'domain error' -: 10 s: etx X 0}~< _1e6
 
-'domain error' -: 10 s: etx x 1}~< 'a'         
-'domain error' -: 10 s: etx x 1}~< 100002.4    
-'domain error' -: 10 s: etx x 1}~< 100002j4    
-'domain error' -: 10 s: etx x 1}~< 100002r4    
-'domain error' -: 10 s: etx x 1}~< (1{x),&.>0
-'domain error' -: 10 s: etx x 1}~< 1+#>3{x   
+'domain error' -: 10 s: etx X 1}~< 'a'         
+'domain error' -: 10 s: etx X 1}~< 100002.4    
+'domain error' -: 10 s: etx X 1}~< 100002j4    
+'domain error' -: 10 s: etx X 1}~< 100002r4    
+'domain error' -: 10 s: etx X 1}~< (1{X),&.>0
+'domain error' -: 10 s: etx X 1}~< 1+#>3{X   
 
-'domain error' -: 10 s: etx x 3}~< 1234
-'domain error' -: 10 s: etx x 3}~< ,:>2{x
-'domain error' -: 10 s: etx x 3}~< ($>2{x)$'2'
-'domain error' -: 10 s: etx x 3}~< ($>2{x)$2.3
-'domain error' -: 10 s: etx x 3}~< ($>2{x)$2j3
-'domain error' -: 10 s: etx x 3}~< ($>2{x)$2r3
-'domain error' -: 10 s: etx x 3}~< }:"1 >2{x
-'domain error' -: 10 s: etx x 3}~< (>2{x),.0
+'domain error' -: 10 s: etx X 3}~< 1234
+'domain error' -: 10 s: etx X 3}~< ,:>2{X
+'domain error' -: 10 s: etx X 3}~< ($>2{X)$'2'
+'domain error' -: 10 s: etx X 3}~< ($>2{X)$2.3
+'domain error' -: 10 s: etx X 3}~< ($>2{X)$2j3
+'domain error' -: 10 s: etx X 3}~< ($>2{X)$2r3
+'domain error' -: 10 s: etx X 3}~< }:"1 >2{X
+'domain error' -: 10 s: etx X 3}~< (>2{X),.0
 
 
 NB. s: errors -----------------------------------------------------------
@@ -335,6 +335,6 @@ NB. s: errors -----------------------------------------------------------
 'rank error'   -: 1 2 s: etx s: ' a bc'
 
 
-4!:55 ;:'i m t x x0 x1 x2 y y0 y1 y2 z0 z1'
+4!:55 ;:'i m t X x0 x1 x2 Y y0 y1 y2 z0 z1'
 
 

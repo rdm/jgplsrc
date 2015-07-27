@@ -9,8 +9,8 @@ NB. applying the polynomial (inverted) using the LSB.
 NB. Some other implementations seem to process bits in a different order.  
 NB. CRC-32 of '123456789' is CBF43926
 
-NB. crcbyte: One calculation: y is shiftregister, x is new byte
-NB. crc:     y is string or numeric vector; result is CRC-32
+NB. crcbyte: One calculation: Y is shiftregister, X is new byte
+NB. crc:     Y is string or numeric vector; result is CRC-32
 
 bitand  =: 17 b.
 bitxor  =: 22 b.
@@ -29,16 +29,16 @@ crc     =: _1&bitxor @ (crcbyte/) @ prep
 
 f=: 128!:3
 
-_873187034 -:               f x=: '123456789'
-_873187034 -: crcpolyi      f x
-_873187034 -: crcpolyb      f x
-_873187034 -: (<crcpolyi)   f x
-_873187034 -: (<crcpolyb)   f x
-_873187034 -: (crcpolyi;_1) f x
-_873187034 -: (crcpolyb;_1) f x
+_873187034 -:               f X=: '123456789'
+_873187034 -: crcpolyi      f X
+_873187034 -: crcpolyb      f X
+_873187034 -: (<crcpolyi)   f X
+_873187034 -: (<crcpolyb)   f X
+_873187034 -: (crcpolyi;_1) f X
+_873187034 -: (crcpolyb;_1) f X
 
-(f -: crc) x
-(f -: crc) x=: 'assiduously avoid any and all asinine alliterations'
+(f -: crc) X
+(f -: crc) X=: 'assiduously avoid any and all asinine alliterations'
 
 b=: 32 ?@$ 2
 
@@ -70,7 +70,7 @@ b=: 32 ?@$ 2
 
 4!:55 ;:'b bitand bitshift bitxor crc crcbyte crcpoly crcpolyb crcpolyi crctbl'
 4!:55 ;:'crctblb crctbli'
-4!:55 ;:'f mask32 p prep shift x '
+4!:55 ;:'f mask32 p prep shift X '
 
 
 

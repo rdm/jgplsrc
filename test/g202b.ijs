@@ -37,9 +37,9 @@ spleak '>:&.>^:(<1000) <1 '
 'domain error' -: >:^:(<2r5) etx 1
 
 
-NB. {&x^:n with boxed n -------------------------------------------------
+NB. {&X^:n with boxed n -------------------------------------------------
 
-x=: (# ,~ # <. ]) (+ i.@#) 1+1000 ?@$ 10
+X=: (# ,~ # <. ]) (+ i.@#) 1+1000 ?@$ 10
 
 indexlim=: 4 : 0
  s=. 1+t=. y
@@ -50,17 +50,17 @@ indexlim=: 4 : 0
  }: z
 )
 
-({&x^:a: -: x&indexlim) 0 
-({&x^:a: -: x&indexlim) 6 4 9
+({&X^:a: -: X&indexlim) 0 
+({&X^:a: -: X&indexlim) 6 4 9
 
-x ({~^:a: -: indexlim) 0 
-x ({~^:a: -: indexlim) 6 4 9
+X ({~^:a: -: indexlim) 0 
+X ({~^:a: -: indexlim) 6 4 9
 
-spleak '{&x^:a: 0'
-spleak '{&x^:a: 6 4 9'
+spleak '{&X^:a: 0'
+spleak '{&X^:a: 6 4 9'
 
-spleak 'x {~^:a: 0'
-spleak 'x {~^:a: 6 4 9'
+spleak 'X {~^:a: 0'
+spleak 'X {~^:a: 6 4 9'
 
 NB. Each record of a file begins with a byte indicating the record length 
 NB. (excluding the record length byte itself), followed by the record contents. 
@@ -97,6 +97,6 @@ test"0 ] 10^i.4
 
 
 4!:55 ;:'boxed_rec f indexlim r randomfile rec rec1 spleak'
-4!:55 ;:'test x x2288 y2288'
+4!:55 ;:'test X x2288 y2288'
 
 

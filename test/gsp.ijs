@@ -1,66 +1,66 @@
 NB. $. ------------------------------------------------------------------
 
-s=: $. x=: 7 3 5 ?@$ 5
-t=: $. y=: 7 3 5 ?@$ 5
+s=: $. X=: 7 3 5 ?@$ 5
+t=: $. Y=: 7 3 5 ?@$ 5
 
-(s=t) -: x=y
+(s=t) -: X=Y
     
 'nonce error' -: < etx s
-(s<t) -: x<y
+(s<t) -: X<Y
 
-(<.s) -: <.x
-(s<.t) -: x<.y
+(<.s) -: <.X
+(s<.t) -: X<.Y
 
-(<:s) -: <:x
-(s<:t) -: x<:y
+(<:s) -: <:X
+(s<:t) -: X<:Y
 
-(>s) -: >x
-(s>t) -: x>y
+(>s) -: >X
+(s>t) -: X>Y
   
-(>.s) -: >.x
-(s>.t) -: x>.y
+(>.s) -: >.X
+(s>.t) -: X>.Y
 
-(>:s) -: >:x
-(s>:t) -: x>:y
+(>:s) -: >:X
+(s>:t) -: X>:Y
 
-(+s) -: +x
-(s+t) -: x+y
+(+s) -: +X
+(s+t) -: X+Y
 
-(+.s) -: +.x
-(s+.t) -: x+.y
+(+.s) -: +.X
+(s+.t) -: X+.Y
 
-(+:s) -: +:x
-((2|s)+:(2|t)) -: (2|x)+:2|y
+(+:s) -: +:X
+((2|s)+:(2|t)) -: (2|X)+:2|Y
 
-(*s) -: *x
-(s*t) -: x*y
+(*s) -: *X
+(s*t) -: X*Y
 
-(*.s) -: *.x
-(s*.t) -: x*.y
+(*.s) -: *.X
+(s*.t) -: X*.Y
 
-(*:s) -: *:x
-((2|s)*:(2|t)) -: (2|x)*:2|y
+(*:s) -: *:X
+((2|s)*:(2|t)) -: (2|X)*:2|Y
 
-(-s) -: -x
-(s-t) -: x-y
+(-s) -: -X
+(s-t) -: X-Y
 
-(-.s) -: -.x
+(-.s) -: -.X
 
-(-:s) -: -:x
-s -: x
+(-:s) -: -:X
+s -: X
 
-(%s) -: %x
-(s%t) -: x%y
+(%s) -: %X
+(s%t) -: X%Y
 
 NB.  %. CDOMINO, VERB, minv,    mdiv,   
 
-(%:s) -: %:x
-(s%:t) -: x%:y
+(%:s) -: %:X
+(s%:t) -: X%:Y
 
-(^s) -: ^x
-(s^t) -: x^y
+(^s) -: ^X
+(s^t) -: X^Y
 
-(^.s) -: ^.x
+(^.s) -: ^.X
 'NaN error' -: s^. etx t
 
 NB.  ^: CPOWOP,  CONJ, 0L,      powop,  
@@ -69,13 +69,13 @@ NB.  $. CSPARSE, VERB, sparse1, sparse2,
 NB.  $: CSELF,   VERB, self1,   self2,  
 NB.  ~  CTILDE,  ADV,  swap,    0L,  
    
-(s~:t) -: x~:y
+(s~:t) -: X~:Y
     
-(|s) -: |x
-(s|t) -: x|y
+(|s) -: |X
+(s|t) -: X|Y
 
-(|.s) -: |.x
-(3|.s) -: 3|.x
+(|.s) -: |.X
+(3|.s) -: 3|.X
 
 NB.  |: CCANT,   VERB, cant1,   cant2,  
 NB.  .  CDOT,    CONJ, 0L,      dot,    
@@ -85,23 +85,23 @@ NB.  :  CCOLON,  CONJ, 0L,      colon,
 NB.  :. COBVERSE,CONJ, 0L,      obverse,
 NB.  :: CADVERSE,CONJ, 0L,      adverse,
 
-(,s) -: ,x
-(s,t) -: x,y
+(,s) -: ,X
+(s,t) -: X,Y
 
-(,.s) -: ,.x
-(s,.t) -: x,.y
+(,.s) -: ,.X
+(s,.t) -: X,.Y
 
-(,: s) -: ,: x
-(s,:t) -: x,:y
+(,: s) -: ,: X
+(s,:t) -: X,:Y
 
-(;s) -: ;x
+(;s) -: ;X
 'nonce error' -: s ; etx t
 
 NB.  ;. CCUT,    CONJ, 0L,      cut,    
 NB.  ;: CWORDS,  VERB, words,   0L,  
 
-(#s) -: #x
-(3#s) -: 3#x
+(#s) -: #X
+(3#s) -: 3#X
 
 'nonce error' -: #. etx t
 'nonce error' -: 3 #. etx t
@@ -114,14 +114,14 @@ NB.  ;: CWORDS,  VERB, words,   0L,
 'nonce error' -: s #: etx 3
 'nonce error' -: s #: etx t
 
-(!s) -: !x
-(s!t) -: x!y
+(!s) -: !X
+(s!t) -: X!Y
 
 NB.  !. CFIT,    CONJ, 0L,      fit,    
 NB.  !: CIBEAM,  CONJ, 0L,      foreign,
 
-(+/s) -: +/x
-NB. (s +/ t) -: x +/ y
+(+/s) -: +/X
+NB. (s +/ t) -: X +/ Y
 
 NB.  /. CSLDOT,  ADV,  sldot,   0L,     
 NB.  /: CGRADE,  VERB, grade1,  grade2, 
@@ -129,29 +129,29 @@ NB.  \  CBSLASH, ADV,  bslash,  0L,
 NB.  \. CBSDOT,  ADV,  bsdot,   0L,     
 NB.  \: CDGRADE, VERB, dgrade1, dgrade2,
 
-([s) -: [x
-(s[t) -: x[y
+([s) -: [X
+(s[t) -: X[Y
 
 NB.  [: CCAP,    VERB, 0L,      0L,    
 
-(]s) -: ]x
-(s]t) -: x]y
+(]s) -: ]X
+(s]t) -: X]Y
 
 'nonce error' -: { etx s
-(i{s) -: i{x [ i=: <"1 ?(2 3,#$s)$$s 
+(i{s) -: i{X [ i=: <"1 ?(2 3,#$s)$$s 
 
-({.s) -: {.x
-(3 4{.s) -: 3 4{.x
+({.s) -: {.X
+(3 4{.s) -: 3 4{.X
 
-({:s) -: {:x
+({:s) -: {:X
 
 'nonce error' -: i} etx s [ i=: ?(}.$s)$#s
-(33 (<"1 i)}s) -: 33 (<"1 i)}x [ i=: ?(7,#$s)$$s
+(33 (<"1 i)}s) -: 33 (<"1 i)}X [ i=: ?(7,#$s)$$s
 
-(}.s) -: }.x
-(5 1}.s) -: 5 1}.x
+(}.s) -: }.X
+(5 1}.s) -: 5 1}.X
 
-(}:s) -: }:x
+(}:s) -: }:X
    
 NB.  "  CQQ,     CONJ, 0L,      qq,     
 NB.  ". CEXEC,   VERB, exec1,   exec2,  
@@ -196,24 +196,24 @@ NB.  H. CHGEOM,  CONJ, 0L,      hgeom,
 
 NB.  I. CICAP,   ADV,  icap,    0L,     
 
-(j.s) -: j. x
-(s j. t) -: x j. y
+(j.s) -: j. X
+(s j. t) -: X j. Y
 
 NB.  L. CLDOT,   VERB, level1,  0,
 
 'nonce error' -:   $. L: 0 etx 1 2 ;3 4 5  
 'nonce error' -: 1 $. L: 0 etx 1 2 ;3 4 5  
 
-(o.s) -: o.x
-(1 o. s) -: 1 o. x
-(2 o. s) -: 2 o. x
+(o.s) -: o.X
+(1 o. s) -: 1 o. X
+(2 o. s) -: 2 o. X
   
 NB.  p. CPOLY,   VERB, poly1,   poly2,  
 NB.  p: CPCO,    VERB, prime,   0,      
 NB.  q: CQCO,    VERB, factor,  qcol2,  
 
-(r.s) -: r. x
-(s r. t) -: x r. y
+(r.s) -: r. X
+(s r. t) -: X r. Y
 
 NB.  S: CSCO,    CONJ, 0L,      sco,    
 NB.  t. CTDOT,   ADV,  tdot,    0L,     
@@ -225,6 +225,6 @@ NB.  T. CTCAP,   CONJ, 0L,      tcap,
 'nonce error' -: 2 x: etx s
 
 
-4!:55 ;:'i s t x y'
+4!:55 ;:'i s t X Y'
 
 

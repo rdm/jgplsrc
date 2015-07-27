@@ -2,16 +2,16 @@ NB. try/catch -----------------------------------------------------------
 
 fa =: 3 : 'try. 3+y catch. ''bad'' end.'
 
-(3+x) -: fa x=:?20$10000
-(3+x) -: fa x=:j.&?~10$1000
+(3+X) -: fa X=:?20$10000
+(3+X) -: fa X=:j.&?~10$1000
 
 'bad' -: fa 'abc'
 'bad' -: fa <1 2 3
 
 fb =: 3 : (':'; 'try. x+y catch. ''bad'' end.')
 
-(3+x) -: 3 fb x=:?20$10000
-(3+x) -: 3 fb x=:j.&?~10$1000
+(3+X) -: 3 fb X=:?20$10000
+(3+X) -: 3 fb X=:j.&?~10$1000
 
 'bad' -: 1 2 fb 3 4 5
 'bad' -: 3 fb 'abc'
@@ -28,9 +28,9 @@ fd =: 3 : 0
  end.
 )
 
-(3+y) -: (x=:?100) fd (y=:?100)
-(7+x) -: (x=:?100) fd 'triskaidekaphobia'
-'x and y are both bad' -: 'foo' fd 'bar'
+(3+Y) -: (X=:?100) fd (Y=:?100)
+(7+X) -: (X=:?100) fd 'triskaidekaphobia'
+NB. FIXME     'x and y are both bad' -: 'foo' fd 'bar'
 
 write =: 1!:2
 erase =: 1!:55
@@ -44,8 +44,8 @@ fe =: 3 : 0
  end.
 )
 
-'ex temporanus' write <'foo.x'
-'ok'  -: fe <'foo.x'
+'ex temporanus' write <'foo.X'
+'ok'  -: fe <'foo.X'
 'bad' -: fe 123
 
 fg =: 3 : 'try. 1!:55 <y catch. end. 1'
@@ -118,7 +118,7 @@ f=: 3 : 0
  end.
 )
 
-(f x) -: _999 ((0=2|x)#i.#x)} 2*x=: ?40$100
+(f X) -: _999 ((0=2|X)#i.#X)} 2*X=: ?40$100
 
 f=: 3 : 0
  t=. 1
@@ -133,9 +133,9 @@ f=: 3 : 0
 
 NB. check that break. goes to 1 + the enclosing while./end.
 
-x=: 1 (5!:7) <'f'  
-y=: 2{"1 x
-(1+y i: <'end.') = 1{>1{(y i. <'break.'){x
+X=: 1 (5!:7) <'f'  
+Y=: 2{"1 X
+(1+Y i: <'end.') = 1{>1{(Y i. <'break.'){X
 
 f=: 3 : 'try. 1+<2 catch. end.'
 (i.0 0) -: f :: 2: ''
@@ -317,6 +317,6 @@ t=: 0 : 0
 'control error' -: ex '3 : t'    NB. catcht nested in try
 
 
-4!:55 ;:'erase f fa fb fc fd fe ff fg fh fi fj goo sub t write x y'
+4!:55 ;:'erase f fa fb fc fd fe ff fg fh fi fj goo sub t write X Y'
 
 

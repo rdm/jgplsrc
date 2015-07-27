@@ -224,25 +224,25 @@ jnc    =: 4!:0
 jnl    =: 4!:1
 erase =: 4!:55
 
-x =: ?13$100000
-y =: 'supercalifragilisticespialidocious'
-abcd =: x
-abcd_locale_ =: y
-abcd -: x
-abcd_locale_ -: y
+X =: ?13$100000
+Y =: 'supercalifragilisticespialidocious'
+abcd =: X
+abcd_locale_ =: Y
+abcd -: X
+abcd_locale_ -: Y
 0 0 -: jnc ;:'abcd abcd_locale_'
 (<'locale') e. jnl 6
 (<'locale') e. 'l' jnl 6
 -. (<'locale') e. 'abc' jnl 6
 1=+/(jnl 0) e. <'abcd'
 erase <'abcd_locale_'
-abcd -: x
+abcd -: X
 0 _1 -: jnc ;:'abcd abcd_locale_'
 
-x =: 'sui generis'
-ab_cd =. x
+X =: 'sui generis'
+ab_cd =. X
 ab_cd_asdf_ =. +/ % #
-ab_cd -: x
+ab_cd -: X
 9.5 -: ab_cd_asdf_ i.20
 0 3 -: jnc ;:'ab_cd ab_cd_asdf_'
 (<'asdf') e. jnl 6
@@ -250,7 +250,7 @@ ab_cd -: x
 -. (<'asdf') e. 'xyz' jnl 6
 1=+/(jnl 0) e. <'ab_cd'
 erase <'ab_cd_asdf_'
-ab_cd -: x
+ab_cd -: X
 0 _1 -: jnc ;:'ab_cd ab_cd_asdf_'
 1=+/(jnl 0 3) e. <'ab_cd'
 
@@ -275,21 +275,21 @@ NB. 'nonce error'     -: 3 : 'abc_d_ =. 17' etx 17
 NB. z locale ------------------------------------------------------------
 
 erase ;:'abc abc_z_ sum sum_z_'
-x=: o.?3 4$1000
-abc__ =: x
-abc__ -: x
-abc   -: x
-y =: j./?2 5 4$1000
-abc_z_ =: y
-abc_z_ -: y
-abc_nonexist_ -: y
-abc__ -: x
-abc   -: x
+X=: o.?3 4$1000
+abc__ =: X
+abc__ -: X
+abc   -: X
+Y =: j./?2 5 4$1000
+abc_z_ =: Y
+abc_z_ -: Y
+abc_nonexist_ -: Y
+abc__ -: X
+abc   -: X
 sum_z_ =: +/
-(+/y) -: sum y
-(+/y) -: sum__ y
-(+/y) -: sum_z_ y
-(+/y) -: sum_nonexist_ y
+(+/Y) -: sum Y
+(+/Y) -: sum__ Y
+(+/Y) -: sum_z_ Y
+(+/Y) -: sum_nonexist_ Y
 ces_exist_ =: ;:'Cogito, ergo sum.'
 3 3 3 3 -: jnc ;:'sum sum_exist_ sum_nonexist_ sum_z_'
 -. (<'sum') e. jnl 3
@@ -304,6 +304,6 @@ erase ;:'abc abc_z_ ces_exist_ sum_z_'
 4!:55 ;:'a ab_cd abc abc__ abc_z_ abcd '
 4!:55 ;:'advx alpha b beta c ces conjx erase f'
 4!:55 ;:'g gamma jnc jnc_z_ jnl jnl_z_ nm nounx plus scind sum '
-4!:55 ;:'sum__ sum_z_ t v verbx x y '
+4!:55 ;:'sum__ sum_z_ t v verbx X Y '
 
 

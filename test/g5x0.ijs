@@ -29,7 +29,7 @@ pow  =: 2 : ('i=.>:y'; 't=.]'; 'while. i=.<:i do. t=.x&t f. end.')
 
 +/ : *        tv
 +/ : [:       tv
-3  : '2*y'    tv
+3  : '2*Y'    tv
 [: : (3&*)    tv
 [: : [:       tv
 

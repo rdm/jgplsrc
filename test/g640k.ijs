@@ -1,4 +1,4 @@
-NB. x ?@$ y -------------------------------------------------------------
+NB. X ?@$ Y -------------------------------------------------------------
 
 NRNG=: 5  NB. number of RNGs
 
@@ -364,6 +364,6 @@ testf=: 4 : 0
 4!:55 ;:'test test1 test10 test2 test3 test4'
 4!:55 ;:'test5 test6 test7 test8 test9'
 4!:55 ;:'testa testb testc testd teste testf'
-4!:55 ;:'var x xx x1 y yy'
+4!:55 ;:'var X xx x1 Y yy'
 
 

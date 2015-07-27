@@ -60,12 +60,12 @@ cut1=: 1 : 0
 
 i=: ?1000$2e9
 j=: ?5000$2e9
-x=: ?5000$2e9
+X=: ?5000$2e9
 p=: 1 i}1$.2e9;0;0
-q=: x j}1$.2e9;0;2-2
+q=: X j}1$.2e9;0;2-2
 (p +/;.1 q) -: p +/ cut1 q
 
 
-4!:55 ;:'classify cut1 f i j n p q qs s t x'
+4!:55 ;:'classify cut1 f i j n p q qs s t X'
 
 

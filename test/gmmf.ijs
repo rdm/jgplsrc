@@ -80,11 +80,11 @@ t=: showmap_jmf_''          NB. mapping information
 0 -: unmap_jmf_ 'jdata'     NB. 0 result is success
 1 -: # showmap_jmf_ ''
 
-x=: 10?1e6
+X=: 10?1e6
 map_jmf_ 'jdata';f
-jdata=: x
+jdata=: X
 abc=: jdata
-abc -: x
+abc -: X
 3 = >(<(({."1 t) i. <'jdata_base_'),9){t=: showmap_jmf_ 'jdata'
 2 -: unmap_jmf_ 'jdata'
 2 = >(<(({."1 t) i. <'jdata_base_'),9){t=: showmap_jmf_ 'jdata'
@@ -93,21 +93,21 @@ abc -: x
 0 -: unmap_jmf_ 'jdata'
 
 map_jmf_ 'jdata'; (>f); ''; 1  NB. read-only
-x -: jdata
+X -: jdata
 'read-only data' -: ex 'jdata=: 1 2 3'
 0 -: unmap_jmf_ 'jdata'
 
-x=: 'Professors in New England guard the glory that was Greece'
-x fwrite f
+X=: 'Professors in New England guard the glory that was Greece'
+X fwrite f
 JCHAR map_jmf_ 'jdata';f
-jdata -: x
+jdata -: X
 0 -: unmap_jmf_ 'jdata'
 JINT map_jmf_ 'jdata';f
 4 -: 3!:0 jdata
 0 -: unmap_jmf_ 'jdata'
 
 (JCHAR;2 5) map_jmf_ 'jdata';f
-jdata -: ((<.(#x)%10),2 5)$x
+jdata -: ((<.(#X)%10),2 5)$X
 0 -: unmap_jmf_ 'jdata'
 
 ferase f
@@ -115,6 +115,6 @@ ferase f
 18!:55 <'jmf'
 
 
-4!:55 ;:'f f0 fdir ferase fread fwrite i jdata t x '
+4!:55 ;:'f f0 fdir ferase fread fwrite i jdata t X '
 
 

@@ -82,14 +82,14 @@ test _123 2 3 4
 test 0 _1.2e_3j_4.5e_6 7 8 9 0 _8
 test 5$183164
 test 13$183164
-test x=:?13$183164
-test x=:?2 3$183164
-test x=:?1 1$183164
-test x=:?1 7$183164
-test x=:?7 1$183164
-test x=:o.i.3 4
-test x=:o.>:i.-4 5
-test x=:r.?2 3 4$10
+test X=:?13$183164
+test X=:?2 3$183164
+test X=:?1 1$183164
+test X=:?1 7$183164
+test X=:?7 1$183164
+test X=:o.i.3 4
+test X=:o.>:i.-4 5
+test X=:r.?2 3 4$10
 test j.i.4 5
 test r.i.8
 test i.3 4
@@ -515,6 +515,6 @@ f =: @.('abc'&i.)
 4!:55 ;:'pfx prefix pstr qstr quote rc rep right root '
 4!:55 ;:'s sd seg shape shl shr slist suffix symb '
 4!:55 ;:'t take test test1 test2 tr trcase tree trg trgl trgr trtil trx '
-4!:55 ;:'value vbox vchar x '
+4!:55 ;:'value vbox vchar X '
 
 

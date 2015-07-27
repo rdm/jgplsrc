@@ -49,9 +49,9 @@ test 'try. ''without catch.'''
 test 'try. 1 catch.'
 test 'try. 1 end.'
 
-test 'if. y do. continue. end.'
-test 'if. y do. break.    end.'
-test 'if. y do. return.'
+test 'if. Y do. continue. end.'
+test 'if. Y do. break.    end.'
+test 'if. Y do. return.'
 
 test 'if. 1 do. 2 elseif. 3 do. 4 else. 5 end.'
 test 'if. 1 do. 2 else. if. 3 do. 4 else. 5 end.'

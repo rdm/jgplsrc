@@ -8,7 +8,7 @@ NB. 7   header words
 NB. 1   shape
 NB. 4   NM struct
 NB. 1   trailing 0 pad
-NB. #y  letters in the name
+NB. #Y  letters in the name
 
 spl=: 4 : 0   NB. space needed for locale y with hash table size x
  z=. spn >y                      NB. locale name
@@ -22,7 +22,7 @@ sp_z_=: 7!:5
 18!:55 <'abc'
 (<'abc') -: (h=:3) (18!:3) <'abc'
 foot_abc_=: i.3 4
-charboil_abc_=: 123$'x'
+charboil_abc_=: 123$'X'
 jajabinks_abc_ =: !100x
 (p=: ;:'z base j') 18!:2 <'abc'
 NB. (7!:6 <'abc') -: ((spn 'abc')+(4*2^6+h)+sp <'p') + (+/spn&> nl_abc_ '') + +/ 24+sp_abc_ nl_abc_ ''

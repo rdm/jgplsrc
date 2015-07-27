@@ -37,24 +37,24 @@ h =: 3 : 0
  old,sp ''
 )
 
-x=:20
-y=:20
+X=:20
+Y=:20
 s=: 2 3
 
-x =: sp ''
+X =: sp ''
 s =: f 30+?200
-y =: sp ''
-x -: y
+Y =: sp ''
+X -: Y
 
-x =: sp ''
+X =: sp ''
 s =: g 30+?200
-y =: sp ''
-x -: y
+Y =: sp ''
+X -: Y
 
-x =: sp ''
+X =: sp ''
 s =: h 3+?7
-y =: sp ''
-x -: y
+Y =: sp ''
+X -: Y
 
 t =: sp ''
 0 = $$t
@@ -83,6 +83,6 @@ t -: /:~t
 *./~:{."1 t
 
 
-4!:55 ;:'f g h n old pr s sp space t x y '
+4!:55 ;:'f g h n old pr s sp space t X Y '
 
 

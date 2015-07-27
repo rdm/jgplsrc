@@ -17,13 +17,13 @@ t =. read <'junkfoo'
 
 mtm -: (|.t) write <'oofknuj'
 (#t) =  size 'junkfoo';'oofknuj'
-x =. read <'oofknuj'
-x -: |.t
+X =. read <'oofknuj'
+X -: |.t
 
 mtm -: t append <'oofknuj'
 (2*#t) = size <'oofknuj'
-x =. read <'oofknuj'
-x -: (|.t),t
+X =. read <'oofknuj'
+X -: (|.t),t
 
 erase 'junkfoo';'oofknuj'
 
@@ -145,6 +145,6 @@ erase  =. 1!:55
 'rank error'        -: (3 4$'a') append etx <'abc'
 
 
-4!:55 ;:'append erase in mtm out read size t write x'
+4!:55 ;:'append erase in mtm out read size t write X'
 
 

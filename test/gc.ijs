@@ -1,4 +1,4 @@
-NB. C.y -----------------------------------------------------------------
+NB. C.Y -----------------------------------------------------------------
 
 boxed =: 32&=@type
 ord   =: >:@(>./)
@@ -33,7 +33,7 @@ c -: C.C.c
 'domain error' -: C. etx 3 4;'abc'
 
 
-NB. C.!.2 y -------------------------------------------------------------
+NB. C.!.2 Y -------------------------------------------------------------
 
 parity=: 3 : 0 " 1
  n=. #q=. y
@@ -65,7 +65,7 @@ CT=: 3 : '(C.!.2 p) (<"1 p)}1$.$~y [ p=. (i.!y) A. i.y'  NB. complete tensor
 'rank error'   -: ex 'C.!.2 2  '
 
 
-NB. x C.y ---------------------------------------------------------------
+NB. X C.Y ---------------------------------------------------------------
 
 boxed =: 32&=@type
 pind  =: ]`]`+@.(*@])"0
@@ -77,35 +77,35 @@ cdot2 =: ((#@] pfill`dfc@.(boxed@]) [) { ]) " 1 _
 
 cyc   =: (1&<@#@> # ])@C.
 
-p (C. -: cdot2) x [ p=:?~#x=:1=?200 2$2
-p (C. -: cdot2) x [ p=:?~#x=:(?200$#a.){a.
-p (C. -: cdot2) x [ p=:?~#x=:?200 2$2
-p (C. -: cdot2) x [ p=:?~#x=:o.?200 2$2
-p (C. -: cdot2) x [ p=:?~#x=:r.?200$2002
-p (C. -: cdot2) x [ p=:?~#x=:(?200$#t){t=:;:'#a.){a.now is the 1 2 3'
+p (C. -: cdot2) X [ p=:?~#X=:1=?200 2$2
+p (C. -: cdot2) X [ p=:?~#X=:(?200$#a.){a.
+p (C. -: cdot2) X [ p=:?~#X=:?200 2$2
+p (C. -: cdot2) X [ p=:?~#X=:o.?200 2$2
+p (C. -: cdot2) X [ p=:?~#X=:r.?200$2002
+p (C. -: cdot2) X [ p=:?~#X=:(?200$#t){t=:;:'#a.){a.now is the 1 2 3'
 
-(cyc p) (C. -: cdot2) x [ p=:?~#x=:1=?200 2$2
-(cyc p) (C. -: cdot2) x [ p=:?~#x=:(?200$#a.){a.
-(cyc p) (C. -: cdot2) x [ p=:?~#x=:?200 2$2
-(cyc p) (C. -: cdot2) x [ p=:?~#x=:o.?200 2$2
-(cyc p) (C. -: cdot2) x [ p=:?~#x=:r.?200$2002
-(cyc p) (C. -: cdot2) x [ p=:?~#x=:(?200$#t){t=:;:'#a.){a.now is the 1 2 3'
+(cyc p) (C. -: cdot2) X [ p=:?~#X=:1=?200 2$2
+(cyc p) (C. -: cdot2) X [ p=:?~#X=:(?200$#a.){a.
+(cyc p) (C. -: cdot2) X [ p=:?~#X=:?200 2$2
+(cyc p) (C. -: cdot2) X [ p=:?~#X=:o.?200 2$2
+(cyc p) (C. -: cdot2) X [ p=:?~#X=:r.?200$2002
+(cyc p) (C. -: cdot2) X [ p=:?~#X=:(?200$#t){t=:;:'#a.){a.now is the 1 2 3'
 
 1 2 3 0 4 -: (2 1;3 0 1)C.i.5
 
-(p C. x) -: (p=:?~200){x=:1=?200 2$2
-(p C. x) -: (p=:?~200){x=:(?200$#a.){a.
-(p C. x) -: (p=:?~200){x=:?200 2$2000
-(p C. x) -: (p=:?~200){x=:o.?200 2$2000
-(p C. x) -: (p=:?~200){x=:^0j1*?200$200
-(p C. x) -: (p=:?~200){x=:(?200$#x){x=:;:'#a.){a.now is the 1 2 3'
+(p C. X) -: (p=:?~200){X=:1=?200 2$2
+(p C. X) -: (p=:?~200){X=:(?200$#a.){a.
+(p C. X) -: (p=:?~200){X=:?200 2$2000
+(p C. X) -: (p=:?~200){X=:o.?200 2$2000
+(p C. X) -: (p=:?~200){X=:^0j1*?200$200
+(p C. X) -: (p=:?~200){X=:(?200$#X){X=:;:'#a.){a.now is the 1 2 3'
 
-((cyc p) C. x) -: (p=:?~400){x=:1=?400 2$2
-((cyc p) C. x) -: (p=:?~1200){x=:(?1200$#a.){a.
-((cyc p) C. x) -: (p=:?~200){x=:?200 2$2000
-((cyc p) C. x) -: (p=:?~200){x=:o.?200 2$2000
-((cyc p) C. x) -: (p=:?~200){x=:^0j1*?200$200
-((cyc p) C. x) -: (p=:?~200){x=:(?200$#x){x=:;:'#a.){a.now is the 1 2 3'
+((cyc p) C. X) -: (p=:?~400){X=:1=?400 2$2
+((cyc p) C. X) -: (p=:?~1200){X=:(?1200$#a.){a.
+((cyc p) C. X) -: (p=:?~200){X=:?200 2$2000
+((cyc p) C. X) -: (p=:?~200){X=:o.?200 2$2000
+((cyc p) C. X) -: (p=:?~200){X=:^0j1*?200$200
+((cyc p) C. X) -: (p=:?~200){X=:(?200$#X){X=:;:'#a.){a.now is the 1 2 3'
 
 'index error' -: 0 1 24     C. etx i.4
 'index error' -: 0 1 _24    C. etx i.4
@@ -117,10 +117,10 @@ p (C. -: cdot2) x [ p=:?~#x=:(?200$#t){t=:;:'#a.){a.now is the 1 2 3'
 
 NB. C. ------------------------------------------------------------------
 
-pow   =: i.@#@[ C.~ (#&>@C.@[|]) # C.@[ NB. y-th power of permutation x
-ord   =: *./@(#&>"_)@C.                 NB. the order of permutation y
+pow   =: i.@#@[ C.~ (#&>@C.@[|]) # C.@[ NB. Y-th power of permutation X
+ord   =: *./@(#&>"_)@C.                 NB. the order of permutation Y
 
-assert=: 0!:2@":^:-.                    NB. assert y    signal error if 0=y
+assert=: 0!:2@":^:-.                    NB. assert Y    signal error if 0=Y
 
 g0    =: , ,. =@i.@2:                   NB. initial state for GCD
 it    =: {: ,: {. - {: * <.@%&{./       NB. iterative step for GCD
@@ -164,6 +164,6 @@ k = p log"1 p pow"1 0 k=:?2 10$n
 4!:55 ;:'ab ac assert bc boxed c cdot1 cdot2 cfd chk0 '
 4!:55 ;:'chk1 cr CT cyc dfc f g g0 gcd iscyc '
 4!:55 ;:'isperm it k log mr n ord p p1 parity pfill '
-4!:55 ;:'pind pow t wh where x '
+4!:55 ;:'pind pow t wh where X '
 
 

@@ -14,28 +14,28 @@ R=: 1 : 0
  1
 )
 
-x=: <"1 ] 23 2 ?@$ 100
-y=: <"1 ] 3581 2 ?@$ 100
+X=: <"1 ] 23 2 ?@$ 100
+Y=: <"1 ] 3581 2 ?@$ 100
 
-y i.!.0 L x
-y i:!.0 L x
-NB. x -.!.0 R y  NB. does not use prehasing as of 2005-11-16
-x e.!.0 R y
+Y i.!.0 L X
+Y i:!.0 L X
+NB. X -.!.0 R Y  NB. does not use prehasing as of 2005-11-16
+X e.!.0 R Y
 
-x (e.!.0 i. 0:   ) R y
-x (e.!.0 i. 1:   ) R y
-x (e.!.0 i: 0:   ) R y
-x (e.!.0 i: 1:   ) R y
-x ([: + /  e.!.0 ) R y
-x (   + /@(e.!.0)) R y
-x ([: +./  e.!.0 ) R y
-x (   +./@(e.!.0)) R y
-x ([: *./  e.!.0 ) R y
-x (   *./@(e.!.0)) R y
-x ([: I.   e.!.0 ) R y
-x (   I. @(e.!.0)) R y
+X (e.!.0 i. 0:   ) R Y
+X (e.!.0 i. 1:   ) R Y
+X (e.!.0 i: 0:   ) R Y
+X (e.!.0 i: 1:   ) R Y
+X ([: + /  e.!.0 ) R Y
+X (   + /@(e.!.0)) R Y
+X ([: +./  e.!.0 ) R Y
+X (   +./@(e.!.0)) R Y
+X ([: *./  e.!.0 ) R Y
+X (   *./@(e.!.0)) R Y
+X ([: I.   e.!.0 ) R Y
+X (   I. @(e.!.0)) R Y
 
 
-4!:55 ;:'f L R t x y'
+4!:55 ;:'f L R t X Y'
 
 

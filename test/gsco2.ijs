@@ -2,8 +2,8 @@ NB. s: ------------------------------------------------------------------
 
 NB. create test data set 
 
-x=: s: 'wxyz',&.>/":&.>?20$123
-y=: s: 'abcd',&.>/":&.>?20$110
+X=: s: 'wxyz',&.>/":&.>?20$123
+Y=: s: 'abcd',&.>/":&.>?20$110
 a=: {. s: ' 4'
 
 t=: ;:'anaphoric chthonic metonymic oxymoronic sardonic'
@@ -40,15 +40,15 @@ i (="2 1&({&u) -: ="2 1&({&v)) j
 (($i)$0) -: (i{u) = i{    ?(  $u)$12000x
 (($i)$0) -: (i{u) = i{ %/ ?(2,$u)$12000x
 
-'domain error' -: =/\ etx y
-'domain error' -: =/\.etx y
+'domain error' -: =/\ etx Y
+'domain error' -: =/\.etx Y
 
 
 NB. < -------------------------------------------------------------------
 
-q=: (<x) ,<y
-x -: >0{q
-y -: >1{q
+q=: (<X) ,<Y
+X -: >0{q
+Y -: >1{q
 
 i (<    &({&u) -: <    &({&v)) j
 i (</   &({&u) -: </   &({&v)) j
@@ -61,11 +61,11 @@ i (<"2 1&({&u) -: <"2 1&({&v)) j
 (>@:< -: ]) i{u
 (>@:< -: ]) j{u
 
-'domain error' -: 3 < etx y
-'domain error' -: y < etx 3
+'domain error' -: 3 < etx Y
+'domain error' -: Y < etx 3
 
-'domain error' -: </\ etx y
-'domain error' -: </\.etx y
+'domain error' -: </\ etx Y
+'domain error' -: </\.etx Y
 
 
 NB. <. ------------------------------------------------------------------
@@ -89,9 +89,9 @@ i (<./   &({&u) -: {&u@(<./   &.({&v))) j
 i (<./"1 &({&u) -: {&u@(<./"1 &.({&v))) j
 i (<./"2 &({&u) -: {&u@(<./"2 &.({&v))) j
 
-'domain error' -:   <. etx y
-'domain error' -: 3 <. etx y
-'domain error' -: y <. etx 3
+'domain error' -:   <. etx Y
+'domain error' -: 3 <. etx Y
+'domain error' -: Y <. etx 3
 
 
 NB. <: ------------------------------------------------------------------
@@ -104,23 +104,23 @@ i (<:"2 1&({&u) -: <:"2 1&({&v)) j
 (<:/"1&({&u) -: <:/"1&({&v)) 2{."1 j
 (<:/"2&({&u) -: <:/"2&({&v)) 2{."2 j
 
-'domain error' -:   <: etx y
+'domain error' -:   <: etx Y
 
-'domain error' -: 3 <: etx y
-'domain error' -: y <: etx 3
+'domain error' -: 3 <: etx Y
+'domain error' -: Y <: etx 3
 
-'domain error' -: <:/\ etx y
-'domain error' -: <:/\.etx y
+'domain error' -: <:/\ etx Y
+'domain error' -: <:/\.etx Y
 
 
 NB. > -------------------------------------------------------------------
 
-q=: x;y
-x -: >0{q
-y -: >1{q
+q=: X;Y
+X -: >0{q
+Y -: >1{q
 
-(>a;x) -: (($x){.a) ,: x
-(>y;a) -: y ,: ($y){.a
+(>a;X) -: (($X){.a) ,: X
+(>Y;a) -: Y ,: ($Y){.a
 
 i (>    &({&u) -: >    &({&v)) j
 i (>/   &({&u) -: >/   &({&v)) j
@@ -130,28 +130,28 @@ i (>"2 1&({&u) -: >"2 1&({&v)) j
 (>/"1&({&u) -: >/"1&({&v)) 2{."1 j
 (>/"2&({&u) -: >/"2&({&v)) 2{."2 j
 
-'domain error' -:   > etx 0   ;y
-'domain error' -:   > etx 2   ;y
-'domain error' -:   > etx 2.4 ;y
-'domain error' -:   > etx 2j4 ;y
-'domain error' -:   > etx 2r4 ;y
-'domain error' -:   > etx (<2);y
-'domain error' -:   > etx '22';y
-'domain error' -:   > etx y   ;0
-'domain error' -:   > etx y   ;2
-'domain error' -:   > etx y   ;2.4
-'domain error' -:   > etx y   ;2j4
-'domain error' -:   > etx y   ;2r4
-'domain error' -:   > etx y   ;'22'
-'domain error' -:   > etx y   ;<2
-'domain error' -: 3 > etx y
-'domain error' -: y > etx 3
+'domain error' -:   > etx 0   ;Y
+'domain error' -:   > etx 2   ;Y
+'domain error' -:   > etx 2.4 ;Y
+'domain error' -:   > etx 2j4 ;Y
+'domain error' -:   > etx 2r4 ;Y
+'domain error' -:   > etx (<2);Y
+'domain error' -:   > etx '22';Y
+'domain error' -:   > etx Y   ;0
+'domain error' -:   > etx Y   ;2
+'domain error' -:   > etx Y   ;2.4
+'domain error' -:   > etx Y   ;2j4
+'domain error' -:   > etx Y   ;2r4
+'domain error' -:   > etx Y   ;'22'
+'domain error' -:   > etx Y   ;<2
+'domain error' -: 3 > etx Y
+'domain error' -: Y > etx 3
 
-'domain error' -: 3 > etx y
-'domain error' -: y > etx 3
+'domain error' -: 3 > etx Y
+'domain error' -: Y > etx 3
 
-'domain error' -: >/\ etx y
-'domain error' -: >/\.etx y
+'domain error' -: >/\ etx Y
+'domain error' -: >/\.etx Y
 
 
 NB. >. ------------------------------------------------------------------
@@ -175,9 +175,9 @@ i (>./   &({&u) -: {&u@(>./   &.({&v))) j
 i (>./"1 &({&u) -: {&u@(>./"1 &.({&v))) j
 i (>./"2 &({&u) -: {&u@(>./"2 &.({&v))) j
 
-'domain error' -:   >. etx y
-'domain error' -: 3 >. etx y
-'domain error' -: y >. etx 3
+'domain error' -:   >. etx Y
+'domain error' -: 3 >. etx Y
+'domain error' -: Y >. etx 3
 
 
 NB. >: ------------------------------------------------------------------
@@ -190,52 +190,52 @@ i (>:"2 1&({&u) -: >:"2 1&({&v)) j
 (>:/"1&({&u) -: >:/"1&({&v)) 2{."1 j
 (>:/"2&({&u) -: >:/"2&({&v)) 2{."2 j
 
-'domain error' -:   >: etx y
+'domain error' -:   >: etx Y
 
-'domain error' -: 3 >: etx y
-'domain error' -: y >: etx 3
+'domain error' -: 3 >: etx Y
+'domain error' -: Y >: etx 3
 
-'domain error' -: >:/\ etx y
-'domain error' -: >:/\.etx y
+'domain error' -: >:/\ etx Y
+'domain error' -: >:/\.etx Y
 
 
 NB. + -------------------------------------------------------------------
 
-'domain error' -:   + etx y
+'domain error' -:   + etx Y
 
-'domain error' -: 3 + etx y
-'domain error' -: y + etx 3
+'domain error' -: 3 + etx Y
+'domain error' -: Y + etx 3
 
 
 NB. +. ------------------------------------------------------------------
 
-'domain error' -:     +. etx y
+'domain error' -:     +. etx Y
 
-'domain error' -: 3   +. etx y
-'domain error' -: y   +. etx 3
-'domain error' -: x   +. etx y
+'domain error' -: 3   +. etx Y
+'domain error' -: Y   +. etx 3
+'domain error' -: X   +. etx Y
 
 
 NB. +: ------------------------------------------------------------------
 
-'domain error' -:     +: etx y
+'domain error' -:     +: etx Y
 
-'domain error' -: 1   +: etx x
-'domain error' -: x   +: etx 1
+'domain error' -: 1   +: etx X
+'domain error' -: X   +: etx 1
 
 
 NB. - -------------------------------------------------------------------
 
-'domain error' -:     -  etx y
+'domain error' -:     -  etx Y
 
-'domain error' -: 3   -  etx y
-'domain error' -: y   -  etx 3
-'domain error' -: x   -  etx y
+'domain error' -: 3   -  etx Y
+'domain error' -: Y   -  etx 3
+'domain error' -: X   -  etx Y
 
 
 NB. -. ------------------------------------------------------------------
 
-'domain error' -:     -. etx y
+'domain error' -:     -. etx Y
 
 (s=: ?300    $#u) (-.&({&u) -: ({&u)@-.) t=: ?30    $#u
 (s=: ?200 2  $#u) (-.&({&u) -: ({&u)@-.) t=: ?20 2  $#u
@@ -244,28 +244,28 @@ NB. -. ------------------------------------------------------------------
 
 NB. -: ------------------------------------------------------------------
 
-'domain error' -:     -: etx y
+'domain error' -:     -: etx Y
 
 
 NB. * -------------------------------------------------------------------
 
-'domain error' -:     *  etx y
+'domain error' -:     *  etx Y
 
-'domain error' -: 3   *  etx y
-'domain error' -: y   *  etx 3
+'domain error' -: 3   *  etx Y
+'domain error' -: Y   *  etx 3
 
 
 NB. *. ------------------------------------------------------------------
 
-'domain error' -:     *. etx y
+'domain error' -:     *. etx Y
 
-'domain error' -: 3   *. etx y
-'domain error' -: y   *. etx 3
+'domain error' -: 3   *. etx Y
+'domain error' -: Y   *. etx 3
 
 
 NB. *: ------------------------------------------------------------------
 
-'domain error' -:     *: etx y
+'domain error' -:     *: etx Y
 
 'domain error' -: 1      *: etx f
 'domain error' -: (s:' ')*: etx 1
@@ -273,11 +273,11 @@ NB. *: ------------------------------------------------------------------
 
 NB. % -------------------------------------------------------------------
 
-'domain error' -:     %  etx y
+'domain error' -:     %  etx Y
 
-'domain error' -: 3   %  etx y
-'domain error' -: y   %  etx 3
-'domain error' -: x   %  etx y
+'domain error' -: 3   %  etx Y
+'domain error' -: Y   %  etx 3
+'domain error' -: X   %  etx Y
 
 
 NB. %. ------------------------------------------------------------------
@@ -291,34 +291,34 @@ NB. %. ------------------------------------------------------------------
 
 NB. %: ------------------------------------------------------------------
 
-'domain error' -:     %: etx y
+'domain error' -:     %: etx Y
 
-'domain error' -: 3   %: etx y
-'domain error' -: y   %: etx 3
-'domain error' -: x   %: etx y
+'domain error' -: 3   %: etx Y
+'domain error' -: Y   %: etx 3
+'domain error' -: X   %: etx Y
 
 
 NB. ^ -------------------------------------------------------------------
 
-'domain error' -:     ^  etx y
+'domain error' -:     ^  etx Y
 
-'domain error' -: 3   ^  etx y
-'domain error' -: y   ^  etx 3
-'domain error' -: x   ^  etx y
+'domain error' -: 3   ^  etx Y
+'domain error' -: Y   ^  etx 3
+'domain error' -: X   ^  etx Y
 
 
 NB. ^. ------------------------------------------------------------------
 
-'domain error' -:     ^. etx y
+'domain error' -:     ^. etx Y
 
-'domain error' -: 3   ^. etx y
-'domain error' -: y   ^. etx 3
-'domain error' -: x   ^. etx y
+'domain error' -: 3   ^. etx Y
+'domain error' -: Y   ^. etx 3
+'domain error' -: X   ^. etx Y
 
 
 NB. ^: ------------------------------------------------------------------
 
-'domain error' -:  ex '+:^:y 2 3'
+'domain error' -:  ex '+:^:Y 2 3'
 
 
 NB. $ -------------------------------------------------------------------
@@ -368,17 +368,17 @@ i (~:"2 1&({&u) -: ~:"2 1&({&v)) j
 (($i)$1) -: (i{u) ~: i{    ?(  $u)$12000x
 (($i)$1) -: (i{u) ~: i{ %/ ?(2,$u)$12000x
 
-'domain error' -: ~:/\ etx y
-'domain error' -: ~:/\.etx y
+'domain error' -: ~:/\ etx Y
+'domain error' -: ~:/\.etx Y
 
 
 NB. | -------------------------------------------------------------------
 
-'domain error' -:   | etx y
+'domain error' -:   | etx Y
 
-'domain error' -: 3 | etx y
-'domain error' -: y | etx 3
-'domain error' -: x | etx y
+'domain error' -: 3 | etx Y
+'domain error' -: Y | etx 3
+'domain error' -: X | etx Y
 
 
 NB. |. ------------------------------------------------------------------
@@ -402,7 +402,7 @@ NB. |. ------------------------------------------------------------------
 
 NB. : -------------------------------------------------------------------
 
-'domain error' -: ex 'a : ''o.y.'''
+'domain error' -: ex 'a : ''o.Y.'''
 'domain error' -: ex '3 : y'
 
 
@@ -415,86 +415,86 @@ NB. , -------------------------------------------------------------------
 i (,&({&u) -: {&(f,u)@,&:>:) j
 (,i) (,&({&u) -: {&u@,) ,j
 
-'domain error' -: 0   ,  etx y
-'domain error' -: 2   ,  etx y
-'domain error' -: 2.4 ,  etx y
-'domain error' -: 2j4 ,  etx y
-'domain error' -: 2x  ,  etx y
-'domain error' -: 2r4 ,  etx y
-'domain error' -: '3' ,  etx y
-'domain error' -: (<3),  etx y
+'domain error' -: 0   ,  etx Y
+'domain error' -: 2   ,  etx Y
+'domain error' -: 2.4 ,  etx Y
+'domain error' -: 2j4 ,  etx Y
+'domain error' -: 2x  ,  etx Y
+'domain error' -: 2r4 ,  etx Y
+'domain error' -: '3' ,  etx Y
+'domain error' -: (<3),  etx Y
 
-'domain error' -: y   ,  etx 0
-'domain error' -: y   ,  etx 2
-'domain error' -: y   ,  etx 2.4
-'domain error' -: y   ,  etx 2j4
-'domain error' -: y   ,  etx 2x
-'domain error' -: y   ,  etx 2r4
-'domain error' -: y   ,  etx '3'
-'domain error' -: y   ,  etx <3
+'domain error' -: Y   ,  etx 0
+'domain error' -: Y   ,  etx 2
+'domain error' -: Y   ,  etx 2.4
+'domain error' -: Y   ,  etx 2j4
+'domain error' -: Y   ,  etx 2x
+'domain error' -: Y   ,  etx 2r4
+'domain error' -: Y   ,  etx '3'
+'domain error' -: Y   ,  etx <3
 
 
 NB. ,. ------------------------------------------------------------------
 
 i (,&({&u) -: {&(f,u)@,&:>:) j
 
-'domain error' -: 0   ,. etx y
-'domain error' -: 2   ,. etx y
-'domain error' -: 2.4 ,. etx y
-'domain error' -: 2j4 ,. etx y
-'domain error' -: 2x  ,. etx y
-'domain error' -: 2r4 ,. etx y
-'domain error' -: '3' ,. etx y
-'domain error' -: (<3),. etx y
+'domain error' -: 0   ,. etx Y
+'domain error' -: 2   ,. etx Y
+'domain error' -: 2.4 ,. etx Y
+'domain error' -: 2j4 ,. etx Y
+'domain error' -: 2x  ,. etx Y
+'domain error' -: 2r4 ,. etx Y
+'domain error' -: '3' ,. etx Y
+'domain error' -: (<3),. etx Y
 
-'domain error' -: y   ,. etx 0
-'domain error' -: y   ,. etx 2
-'domain error' -: y   ,. etx 2.4
-'domain error' -: y   ,. etx 2j4
-'domain error' -: y   ,. etx 2x
-'domain error' -: y   ,. etx 2r4
-'domain error' -: y   ,. etx '3'
-'domain error' -: y   ,. etx <3
+'domain error' -: Y   ,. etx 0
+'domain error' -: Y   ,. etx 2
+'domain error' -: Y   ,. etx 2.4
+'domain error' -: Y   ,. etx 2j4
+'domain error' -: Y   ,. etx 2x
+'domain error' -: Y   ,. etx 2r4
+'domain error' -: Y   ,. etx '3'
+'domain error' -: Y   ,. etx <3
 
 
 NB. ,: ------------------------------------------------------------------
 
-'domain error' -: 0   ,: etx y
-'domain error' -: 2   ,: etx y
-'domain error' -: 2.4 ,: etx y
-'domain error' -: 2j4 ,: etx y
-'domain error' -: 2x  ,: etx y
-'domain error' -: 2r4 ,: etx y
-'domain error' -: '3' ,: etx y
-'domain error' -: (<3),: etx y
+'domain error' -: 0   ,: etx Y
+'domain error' -: 2   ,: etx Y
+'domain error' -: 2.4 ,: etx Y
+'domain error' -: 2j4 ,: etx Y
+'domain error' -: 2x  ,: etx Y
+'domain error' -: 2r4 ,: etx Y
+'domain error' -: '3' ,: etx Y
+'domain error' -: (<3),: etx Y
 
-'domain error' -: y   ,: etx 0
-'domain error' -: y   ,: etx 2
-'domain error' -: y   ,: etx 2.4
-'domain error' -: y   ,: etx 2j4
-'domain error' -: y   ,: etx 2x
-'domain error' -: y   ,: etx 2r4
-'domain error' -: y   ,: etx '3'
-'domain error' -: y   ,: etx <3
+'domain error' -: Y   ,: etx 0
+'domain error' -: Y   ,: etx 2
+'domain error' -: Y   ,: etx 2.4
+'domain error' -: Y   ,: etx 2j4
+'domain error' -: Y   ,: etx 2x
+'domain error' -: Y   ,: etx 2r4
+'domain error' -: Y   ,: etx '3'
+'domain error' -: Y   ,: etx <3
 
 
 NB. ; -------------------------------------------------------------------
 
-'domain error' -: ; etx 0   ;y
-'domain error' -: ; etx 2   ;y
-'domain error' -: ; etx 2.4 ;y
-'domain error' -: ; etx 2j4 ;y
-'domain error' -: ; etx 2r4 ;y
-'domain error' -: ; etx (<2);y
-'domain error' -: ; etx '22';y
+'domain error' -: ; etx 0   ;Y
+'domain error' -: ; etx 2   ;Y
+'domain error' -: ; etx 2.4 ;Y
+'domain error' -: ; etx 2j4 ;Y
+'domain error' -: ; etx 2r4 ;Y
+'domain error' -: ; etx (<2);Y
+'domain error' -: ; etx '22';Y
 
-'domain error' -: ; etx y   ;0
-'domain error' -: ; etx y   ;2
-'domain error' -: ; etx y   ;2.4
-'domain error' -: ; etx y   ;2j4
-'domain error' -: ; etx y   ;2r4
-'domain error' -: ; etx y   ;'22'
-'domain error' -: ; etx y   ;<2
+'domain error' -: ; etx Y   ;0
+'domain error' -: ; etx Y   ;2
+'domain error' -: ; etx Y   ;2.4
+'domain error' -: ; etx Y   ;2j4
+'domain error' -: ; etx Y   ;2r4
+'domain error' -: ; etx Y   ;'22'
+'domain error' -: ; etx Y   ;<2
 
 
 NB. ;. ------------------------------------------------------------------
@@ -535,35 +535,35 @@ NB. # -------------------------------------------------------------------
 ((3#0{t),(4#f),5#1{t) -: 3j4 5#t=: 0 1{u
 
 'domain error' -: a # etx 3
-'domain error' -: a # etx y
-'domain error' -: a # etx y
+'domain error' -: a # etx Y
+'domain error' -: a # etx Y
 
 
 NB. #. ------------------------------------------------------------------
 
-'domain error' -:   #. etx y
+'domain error' -:   #. etx Y
 
-'domain error' -: 3 #. etx y
-'domain error' -: y #. etx 3
-'domain error' -: x #. etx y
+'domain error' -: 3 #. etx Y
+'domain error' -: Y #. etx 3
+'domain error' -: X #. etx Y
 
 
 NB. #: ------------------------------------------------------------------
 
-'domain error' -:   #: etx y
+'domain error' -:   #: etx Y
 
-'domain error' -: 3 #: etx y
-'domain error' -: y #: etx 3
-'domain error' -: x #: etx y
+'domain error' -: 3 #: etx Y
+'domain error' -: Y #: etx 3
+'domain error' -: X #: etx Y
 
 
 NB. ! -------------------------------------------------------------------
 
-'domain error' -:   ! etx y
+'domain error' -:   ! etx Y
 
-'domain error' -: 3 ! etx y
-'domain error' -: y ! etx 3
-'domain error' -: x ! etx y
+'domain error' -: 3 ! etx Y
+'domain error' -: Y ! etx 3
+'domain error' -: X ! etx Y
 
 
 NB. !. ------------------------------------------------------------------
@@ -578,33 +578,33 @@ NB. !: ------------------------------------------------------------------
 (i{u) -: 3!:2 (3!:1) i{u
 (i{u) -: 3!:2 (3!:3) i{u
 
-(-: 3!:2 @(   3!:1 )) x
-(-: 3!:2 @(   3!:1 )) y
+(-: 3!:2 @(   3!:1 )) X
+(-: 3!:2 @(   3!:1 )) Y
 (-: 3!:2 @(   3!:1 )) a
 (-: 3!:2 @(   3!:1 )) f
 
-(-: 3!:2 @(   3!:1 )) 1 2 3;x
-(-: 3!:2 @(   3!:1 )) x;1 2 3
-(-: 3!:2 @(   3!:1 )) (5 s: x);<<<<x
-(-: 3!:2 @(   3!:1 )) a;x
+(-: 3!:2 @(   3!:1 )) 1 2 3;X
+(-: 3!:2 @(   3!:1 )) X;1 2 3
+(-: 3!:2 @(   3!:1 )) (5 s: X);<<<<X
+(-: 3!:2 @(   3!:1 )) a;X
 
-(-: 3!:2 @(0&(3!:1))) x
-(-: 3!:2 @(0&(3!:1))) y
+(-: 3!:2 @(0&(3!:1))) X
+(-: 3!:2 @(0&(3!:1))) Y
 (-: 3!:2 @(0&(3!:1))) a
 (-: 3!:2 @(0&(3!:1))) f
 
-(-: 3!:2 @(1&(3!:1))) x
-(-: 3!:2 @(1&(3!:1))) y
+(-: 3!:2 @(1&(3!:1))) X
+(-: 3!:2 @(1&(3!:1))) Y
 (-: 3!:2 @(1&(3!:1))) a
 (-: 3!:2 @(1&(3!:1))) f
 
-(-: 3!:2 @(   3!:3 )) x
-(-: 3!:2 @(   3!:3 )) y
+(-: 3!:2 @(   3!:3 )) X
+(-: 3!:2 @(   3!:3 )) Y
 (-: 3!:2 @(   3!:3 )) a
 (-: 3!:2 @(   3!:3 )) f
 
-x -: (5!:1 <'x') 5!:0
-y -: (5!:1 <'y') 5!:0
+X -: (5!:1 <'X') 5!:0
+Y -: (5!:1 <'Y') 5!:0
 a -: (5!:1 <'a') 5!:0
 f -: (5!:1 <'f') 5!:0
 
@@ -613,7 +613,7 @@ t -: ". 5!:5 <'t' [ t=: i{u
 t -: ". 5!:5 <'t' [ t=: f
 
 'domain error' -: ex 'a!:3'
-'domain error' -: ex 'a!:y'
+'domain error' -: ex 'a!:Y'
 'domain error' -: ex '3!:a'
 
 
@@ -621,7 +621,7 @@ NB. /: ------------------------------------------------------------------
 
 (/: -: /:&(5&s:)) u
 (/: -: /:&(5&s:)) (?1000$#u){u
-(/: -: /:&(5&s:)) (?1000$#x){x
+(/: -: /:&(5&s:)) (?1000$#X){X
 
 (/:&({&u) -: /:&({&v)) t=: ?300    $#u
 (/:&({&u) -: /:&({&v)) t=: ?200   3$#u
@@ -661,20 +661,20 @@ p=: (i.!#q) A. i.#q
 
 NB. { -------------------------------------------------------------------
 
-'domain error' -: { etx 0   ;y
-'domain error' -: { etx 2   ;y
-'domain error' -: { etx 2.4 ;y
-'domain error' -: { etx 2j4 ;y
-'domain error' -: { etx 2r4 ;y
-'domain error' -: { etx (<2);y
-'domain error' -: { etx '22';y
-'domain error' -: { etx y   ;0
-'domain error' -: { etx y   ;2
-'domain error' -: { etx y   ;2.4
-'domain error' -: { etx y   ;2j4
-'domain error' -: { etx y   ;2r4
-'domain error' -: { etx y   ;'22'
-'domain error' -: { etx y   ;<2
+'domain error' -: { etx 0   ;Y
+'domain error' -: { etx 2   ;Y
+'domain error' -: { etx 2.4 ;Y
+'domain error' -: { etx 2j4 ;Y
+'domain error' -: { etx 2r4 ;Y
+'domain error' -: { etx (<2);Y
+'domain error' -: { etx '22';Y
+'domain error' -: { etx Y   ;0
+'domain error' -: { etx Y   ;2
+'domain error' -: { etx Y   ;2.4
+'domain error' -: { etx Y   ;2j4
+'domain error' -: { etx Y   ;2r4
+'domain error' -: { etx Y   ;'22'
+'domain error' -: { etx Y   ;<2
 
 
 NB. {. ------------------------------------------------------------------
@@ -692,52 +692,52 @@ NB. }. ------------------------------------------------------------------
 
 NB. ". ------------------------------------------------------------------
 
-'domain error' -:   ". etx x
+'domain error' -:   ". etx X
 
-'domain error' -: 3 ". etx x
+'domain error' -: 3 ". etx X
 'domain error' -: a ". etx '3142'
 
 
 NB. ": ------------------------------------------------------------------
 
-2 -: 3!:0 ":x
-(1>.#$x) -: #$ ":x
+2 -: 3!:0 ":X
+(1>.#$X) -: #$ ":X
 
-'domain error' -: 3 ": etx x
+'domain error' -: 3 ": etx X
 'domain error' -: a ": etx i.3 4
 
 
 NB. ? -------------------------------------------------------------------
 
-'domain error' -:     ?  etx y
+'domain error' -:     ?  etx Y
 
-'domain error' -: 3   ?  etx y
-'domain error' -: y   ?  etx 3
-'domain error' -: x   ?  etx y
+'domain error' -: 3   ?  etx Y
+'domain error' -: Y   ?  etx 3
+'domain error' -: X   ?  etx Y
 
 
 NB. ?. ------------------------------------------------------------------
 
-'domain error' -:     ?. etx y
+'domain error' -:     ?. etx Y
 
-'domain error' -: 3   ?. etx y
-'domain error' -: y   ?. etx 3
-'domain error' -: x   ?. etx y
+'domain error' -: 3   ?. etx Y
+'domain error' -: Y   ?. etx 3
+'domain error' -: X   ?. etx Y
 
 NB. A. ------------------------------------------------------------------
 
-'domain error' -:   A. etx y
+'domain error' -:   A. etx Y
 
-'domain error' -: y A. etx 3
-'domain error' -: x A. etx y
+'domain error' -: Y A. etx 3
+'domain error' -: X A. etx Y
 
 
 NB. C. ------------------------------------------------------------------
 
-'domain error' -:   C. etx y
+'domain error' -:   C. etx Y
 
-'domain error' -: y C. etx 3
-'domain error' -: x C. etx y
+'domain error' -: Y C. etx 3
+'domain error' -: X C. etx Y
 
 
 NB. e. ------------------------------------------------------------------
@@ -783,63 +783,63 @@ j (i:&({&u) -: i:&({&v)) j
 
 NB. j. ------------------------------------------------------------------
 
-'domain error' -:   j. etx y
+'domain error' -:   j. etx Y
 
-'domain error' -: 3 j. etx y
-'domain error' -: y j. etx 3
-'domain error' -: x j. etx y
+'domain error' -: 3 j. etx Y
+'domain error' -: Y j. etx 3
+'domain error' -: X j. etx Y
 
 
 NB. o. ------------------------------------------------------------------
 
-'domain error' -:   o. etx y
+'domain error' -:   o. etx Y
 
-'domain error' -: 3 o. etx y
-'domain error' -: y o. etx 3
-'domain error' -: x o. etx y
+'domain error' -: 3 o. etx Y
+'domain error' -: Y o. etx 3
+'domain error' -: X o. etx Y
 
 
 NB. p. ------------------------------------------------------------------
 
-'domain error' -:   p. etx y
+'domain error' -:   p. etx Y
 
-'domain error' -: 3 p. etx y
-'domain error' -: y p. etx 3
-'domain error' -: x p. etx y
+'domain error' -: 3 p. etx Y
+'domain error' -: Y p. etx 3
+'domain error' -: X p. etx Y
 
 
 NB. p: ------------------------------------------------------------------
 
-'domain error' -:   p: etx y
+'domain error' -:   p: etx Y
 
 
 NB. q: ------------------------------------------------------------------
 
-'domain error' -:   q: etx y
+'domain error' -:   q: etx Y
 
-'domain error' -: 3 q: etx y
-'domain error' -: y q: etx 3
-'domain error' -: x q: etx y
+'domain error' -: 3 q: etx Y
+'domain error' -: Y q: etx 3
+'domain error' -: X q: etx Y
 
 
 NB. r. ------------------------------------------------------------------
 
-'domain error' -:   r. etx y
+'domain error' -:   r. etx Y
 
-'domain error' -: 3 r. etx y
-'domain error' -: y r. etx 3
-'domain error' -: x r. etx y
+'domain error' -: 3 r. etx Y
+'domain error' -: Y r. etx 3
+'domain error' -: X r. etx Y
 
 
 NB. x: ------------------------------------------------------------------
 
-'domain error' -:   x: etx y
+'domain error' -:   x: etx Y
 
-'domain error' -: y x: etx 3
-'domain error' -: 3 x: etx y
-'domain error' -: x x: etx y
+'domain error' -: Y x: etx 3
+'domain error' -: 3 x: etx Y
+'domain error' -: X x: etx Y
 
 
-4!:55 ;:'a f i j k p q s t u v x y'
+4!:55 ;:'a f i j k p q s t u v X Y'
 
 

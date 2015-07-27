@@ -8,11 +8,11 @@ open  =. 1!:21
 close =. 1!:22
 erase =. 1!:55
 
-x=. 9!:12 ''
-win =. x e. 2 6
-mac =. x e. 3
-unix=. x e. 5 7
-pc  =. x e. 0 1 2 6
+X=. 9!:12 ''
+win =. X e. 2 6
+mac =. X e. 3
+unix=. X e. 5 7
+pc  =. X e. 0 1 2 6
 
 p =. >{:4!:3 ''
 p =. < p ([ }.~ [: - |.@[ i. ]) (pc#'\'),(mac#':'),unix#'/'
@@ -24,7 +24,7 @@ h =. open f
 (size h) -: # read h
 close h
 
-f =. <'foogoo5.x'
+f =. <'foogoo5.X'
 t =. (?1000$#a.){a.
 t write f
 h =. open f
@@ -37,13 +37,13 @@ erase f
 d =. dir p,&.><(-.mac)#'*.ijs'
 (>2{"1 d) -: #@read p,&.>{."1 d
 
-x=.'1'#~1 j. 1 2 4 8 4 2 1 0
+X=.'1'#~1 j. 1 2 4 8 4 2 1 0
 t=.read 1   NB. read from keyboard
 1 1  1    1        1    1  1 1
-t -: x
+t -: X
 t=.read <1  NB. read from keyboard
 1 1  1    1        1    1  1 1
-t -: x
+t -: X
 
 'domain error'      -: read etx 'a'
 'domain error'      -: read etx 'abc'
@@ -66,6 +66,6 @@ t -: x
 'file number error' -: read etx <2
 'file number error' -: read etx <12345
 
-4!:55 ;:'close d dir erase f h mac open p pc read size t unix win write x'
+4!:55 ;:'close d dir erase f h mac open p pc read size t unix win write X'
 
 

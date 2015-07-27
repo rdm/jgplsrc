@@ -125,6 +125,6 @@ p4 =: 3 : 0
 
 
 4!:55 ;:'adot1 adot2 base boxed dfr grow j ord p p0 '
-4!:55 ;:'p1 p2 p3 p4 pfill pind rfd x y z '
+4!:55 ;:'p1 p2 p3 p4 pfill pind rfd X Y z '
 
 

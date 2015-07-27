@@ -101,9 +101,9 @@ f5=: 3 : 0
  end.
 )
 
-(|: -: f5) x=:? 7 11$1000
-(|: -: f5) x=:?13  9$1000
-(|: -: f5) x=:? 8  8$1000
+(|: -: f5) X=:? 7 11$1000
+(|: -: f5) X=:?13  9$1000
+(|: -: f5) X=:? 8  8$1000
 
 f6=: 3 : 0
  s=. y
@@ -144,7 +144,7 @@ f8=: 4 : 0
  end.
 )
 
-(+/x)           -: 1 f8 x=:?10$100
+(+/X)           -: 1 f8 X=:?10$100
 (2!n)           -: 2 f8 n=:?1000
 'control error' -: 3 f8 etx 10
 
@@ -155,7 +155,7 @@ f9=: 3 : 0
  end.
 )
 
-(; -: f9) (?1000$#x){x=: ;:'Cogito, ergo sum. 4 5 6 John Smith a b c d' 
+(; -: f9) (?1000$#X){X=: ;:'Cogito, ergo sum. 4 5 6 John Smith a b c d' 
 
 f10=: 4 : 0
  best=. _999
@@ -167,8 +167,8 @@ f10=: 4 : 0
  best
 )
 
-x -: f10"0 1~x=: ?100$1e6
-_999 = 1e7 f10 x
+X -: f10"0 1~X=: ?100$1e6
+_999 = 1e7 f10 X
 
 f11=: 4 : 0
  best=. _999
@@ -180,8 +180,8 @@ f11=: 4 : 0
  best
 )
 
-(i:~x) -: f11"0 1~x=: ?100$90
-_999 = 1e7 f11 x
+(i:~X) -: f11"0 1~X=: ?100$90
+_999 = 1e7 f11 X
 
 'ill-formed name' -: ex '3 : ''for_123. 4 5 6 do. 7 end.'' '
 'ill-formed name' -: ex '3 : ''for_1ab. 4 5 6 do. 7 end.'' '
@@ -256,6 +256,6 @@ f=: 4 : 0  NB. assertions on queens n
  
 
 4!:55 ;:'comp f f0 f1 f1a f2 f2a f3 f3a f4 f5 f6 f7 f8 f9 f10 f11'
-4!:55 ;:'g0 g1 n queens x '
+4!:55 ;:'g0 g1 n queens X '
 
 

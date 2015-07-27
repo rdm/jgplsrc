@@ -7,21 +7,21 @@ mkdir =. 1!:5
 att   =. 1!:6
 erase =. 1!:55
 
-x=. 9!:12 ''
-win =. x e. 2 6
-mac =. x e. 3
-unix=. x e. 5 7
-pc  =. x e. 0 1 2 6
+X=. 9!:12 ''
+win =. X e. 2 6
+mac =. X e. 3
+unix=. X e. 5 7
+pc  =. X e. 0 1 2 6
 
 p=: (1!:43 ''),mac{'/:'
 
 mkdir d=.<'brandnew'
 ". pc#'''----d-'' -: att d'
 
-f=. p&,&.> mac{'brandnew/foo.x';':brandnew:foo.x'
-0 0$(x=.a.{~?500$#a.) write f
-x -: read f
-(<'foo.x') -: _5{.&.> {.,dir p&,&.>mac{'brandnew/*.*';':brandnew'
+f=. p&,&.> mac{'brandnew/foo.X';':brandnew:foo.X'
+0 0$(X=.a.{~?500$#a.) write f
+X -: read f
+(<'foo.X') -: _5{.&.> {.,dir p&,&.>mac{'brandnew/*.*';':brandnew'
 
 erase f,d
 
@@ -46,6 +46,6 @@ bada <mkdir etx <'conflict'
 erase <'conflict'
 
 4!:55 ;:'att bada badf d dir erase f mac mkdir p pc '
-4!:55 ;:'read unix win write x '
+4!:55 ;:'read unix win write X '
 
 

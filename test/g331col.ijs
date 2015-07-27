@@ -1,4 +1,4 @@
-NB. x <;.n y for boxed x and matrix y -----------------------------------
+NB. X <;.n Y for boxed X and matrix Y -----------------------------------
 
 cutcol=: 2 : 0
   :
@@ -32,13 +32,13 @@ m=: 50
 n=: 300
 b=: (i.m)e.?20$m
 c=: (i.n)e.?20$n
-y=: a{~?(m,n)$#a=: ' abcd efgh ijkl mnop qrst uvwy xz '
+Y=: a{~?(m,n)$#a=: ' abcd efgh ijkl mnop qrst uvwy xz '
 
-test b    ;c    ;y
-test b    ;(0*c);y
-test (0*b);c    ;y
-test (0*b);(0*c);y
+test b    ;c    ;Y
+test b    ;(0*c);Y
+test (0*b);c    ;Y
+test (0*b);(0*c);Y
 
 
-4!:55 ;:'a b c cutcol m n test y yy'
+4!:55 ;:'a b c cutcol m n test Y yy'
 

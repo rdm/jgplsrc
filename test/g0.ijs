@@ -52,10 +52,10 @@ g=: 3 : 0
  1
 )
 
-f x=: 0 %  __ _5 0 5 _
-f x=: 5 5 _5 _5 % _ __ _ __
-g x=: 0 %  __ _5 0 5 _
-g x=: 5 5 _5 _5 % _ __ _ __
+f X=: 0 %  __ _5 0 5 _
+f X=: 5 5 _5 _5 % _ __ _ __
+g X=: 0 %  __ _5 0 5 _
+g X=: 5 5 _5 _5 % _ __ _ __
 
 __ __ 0 _ _ (-:!.0) 0 %~ __ _5 0 5 _
 
@@ -293,6 +293,6 @@ g =: 3: 4: 5:
 
 
 4!:55 ;:'ar dr eight eq f five four fx g lr '
-4!:55 ;:'mac nine one rk seven six test three tr two x z zero '
+4!:55 ;:'mac nine one rk seven six test three tr two X z zero '
 
 

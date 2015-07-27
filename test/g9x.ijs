@@ -28,8 +28,8 @@ read  =: 1!:1
 erase =: 1!:55
 drop1 =: (>:@(i.&(10{a.)) }. ]) @ read
 old   =: dispq ''
-p     =: <'a1b2q0.x'
-q     =: <'a1b2q1.x'
+p     =: <'a1b2q0.X'
+q     =: <'a1b2q1.X'
 
 nub   =: (i.@# = i.~) # ]
 
@@ -94,7 +94,7 @@ old =: boxq ''
 'length error' -: boxs etx 10$' '   
 'length error' -: boxs etx 12$' '  
 
-'rank error'   -: boxs etx 2 3 11$'x'
+'rank error'   -: boxs etx 2 3 11$'X'
 
 
 NB. 9!:8 and 9!:9 -------------------------------------------------------
@@ -300,8 +300,8 @@ NB. 9!:48 and 9!:49 -----------------------------------------------------
 
 old=: 9!:48 ''
 9!:49 ]0
-'spelling error' -: ex 'x.=: 1'
-'spelling error' -: ex 'y.=: 1'
+'spelling error' -: ex 'X.=: 1'
+'spelling error' -: ex 'Y.=: 1'
 'spelling error' -: ex 'm.=: 1'
 'spelling error' -: ex 'n.=: 1'
 'spelling error' -: ex 'u.=: +'
