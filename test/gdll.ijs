@@ -14,6 +14,7 @@ lib=: lib,' '
 )
 
 dcd=: 4 : '(lib,x) cd y'
+(5.4;2.7        )= 'dd d d' dcd 2.7
 
 NB. test integer types
 a=: 4 u: +/401 402 403
