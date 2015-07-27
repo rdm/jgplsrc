@@ -1,3 +1,4 @@
+# want -Wno-incompatible-pointer-types but that needs gcc 5
 CFLAGS= -D_UNIX64 -fPIC -g -fno-strict-aliasing -DNOASM
 
 LIB=a.o ab.o af.o ai.o am.o am1.o amn.o ao.o ap.o ar.o as.o au.o c.o   \
@@ -24,6 +25,7 @@ clean:
 	rm -f *.o libj.so jconsole j/bin/libj.so j/bin/jconsole
 	rm -f defs/netdefs defs/netdefs.ijs defs/hostdefs defs/hostdefs.ijs 
 	rm -rf j/system/defs *.jmf
+	rm -f typescript   # produced by: script (to capture a console session)
 
 j/bin/libj.so: libj.so
 	cp libj.so j/bin/.
