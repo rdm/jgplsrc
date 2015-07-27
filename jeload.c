@@ -94,20 +94,20 @@ void jepath(char* arg)
  if(0!=n) strcat(arg2,arg);
 #else
  n=readlink("/proc/self/exe",arg2,sizeof(arg2));
- if(-1==n) strcpy(arg2,arg); else arg2[n]=0;
+ if(-1==n) strlcpy(arg2,arg,sz); else arg2[n]=0;
 #endif
  // fprintf(stderr,"arg2 %s\n",arg2);
  // arg2 is path (abs or relative) to executable or soft link
  n=readlink(arg2,arg3,sz);
- if(-1==n) strcpy(arg3,arg2); else arg3[n]=0;
+ if(-1==n) strlcpy(arg3,arg2,sz); else arg3[n]=0;
  // fprintf(stderr,"arg3 %s\n",arg3);
  if('/'==*arg3)
-  strcpy(path,arg3);
+  strlcpy(path,arg3,PLEN);
  else
  {
   getcwd(path,sizeof(path));
-  strcat(path,"/");
-  strcat(path,arg3);
+  strlcat(path,"/",PLEN);
+  strlcat(path,arg3,PLEN);
  }
  *(1+strrchr(path,'/'))=0;
  // remove ./ and backoff ../
@@ -130,16 +130,16 @@ void jepath(char* arg)
  snk=path+strlen(path)-1;
  if('/'==*snk) *snk=0;
 #endif
- strcpy(pathdll,path);
- strcat(pathdll,JDLLNAME);
+ strlcpy(pathdll,path,PLEN);
+ strlcat(pathdll,JDLLNAME,PLEN);
  // fprintf(stderr,"arg4 %s\n",path);
 }
 
 // called by jwdp (java jnative.c) to set path
 void jesetpath(char* arg)
 {
-	strcpy(pathdll,arg); // jwdp gives path to j.dll
-	strcpy(path,arg);
+	strlcpy(pathdll,arg,PLEN); // jwdp gives path to j.dll
+	strlcpy(path,arg,PLEN);
 	*(strrchr(path,filesep)) = 0;
 }
 
@@ -151,23 +151,24 @@ void jesetpath(char* arg)
 int jefirst(int type,char* arg)
 {
 	int r; char* p,*q;
-	char* input=malloc(2000+strlen(arg));
+        int len= 2000+strlen(arg);
+	char* input=malloc(len);
 	*input=0;
 	if(0==type)
 	{
-		strcat(input,"(3 : '0!:0 y')<BINPATH,'");
-		strcat(input,filesepx);
-		strcat(input,"profile.ijs'");
+		strlcat(input,"(3 : '0!:0 y')<BINPATH,'",len);
+		strlcat(input,filesepx,len);
+		strlcat(input,"profile.ijs'",len);
 	}
 	else if(1==type)
-		strcat(input,"(3 : '0!:0 y')2{ARGV");
+		strlcat(input,"(3 : '0!:0 y')2{ARGV",len);
 	else if(2==type)
-		strcat(input,ijx);
+		strlcat(input,ijx,len);
 	else
-		strcat(input,"i.0 0");
-	strcat(input,"[ARGV_z_=:");
-	strcat(input,arg);
-	strcat(input,"[BINPATH_z_=:'");
+		strlcat(input,"i.0 0",len);
+	strlcat(input,"[ARGV_z_=:",len);
+	strlcat(input,arg,len);
+	strlcat(input,"[BINPATH_z_=:'",len);
 	p=path;
 	q=input+strlen(input);
 	while(*p)
@@ -176,7 +177,7 @@ int jefirst(int type,char* arg)
 		*q++=*p++;
 	}
 	*q=0;
-	strcat(input,"'");
+	strlcat(input,"'",len);
 	r=jedo(input);
 	free(input);
 	return r;
@@ -184,7 +185,7 @@ int jefirst(int type,char* arg)
 
 void jefail(char* msg)
 {
-	strcpy(msg, "Load library ");
-	strcat(msg, pathdll);
-	strcat(msg," failed.");
+	strlcpy(msg, "Load library ",PLEN);
+	strlcat(msg, pathdll,PLEN);
+	strlcat(msg," failed.",PLEN);
 }
