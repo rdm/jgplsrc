@@ -236,6 +236,6 @@ F2(jtforeign){I p,q;
 void double_trick(D a,D b,D c,D d){;}
 #endif
 
-#if SY_64 && (SY_LINUX || SY_MAC)
+#if SY_64 && (SY_LINUX || SY_BSD || SY_MAC)
 void double_trick(D a,D b,D c,D d,D e,D f,D g,D h){;}
 #endif

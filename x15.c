@@ -132,7 +132,7 @@ void double_trick(D,D,D,D);
 #endif
 
 #if SY_LINUX || SY_BSD
-void double_trick(D d1,D d2,D d3,D d4,D d5,D d6,D d7,D d8){}
+void double_trick(D,D,D,D,D,D,D,D);
 #endif
 #if SY_MACPPC
 static void double_trick(double*v, I n){I i=0;
