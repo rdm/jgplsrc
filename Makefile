@@ -61,4 +61,4 @@ toc:
 	fgrep -n '/*' *.c | grep :4:
 
 fixme:
-	find . -type f -print0 | xargs -0 fgrep -l FIXME
+	find . -name .git -prune -o -type f -print0 | xargs -0 fgrep -l FIXME
