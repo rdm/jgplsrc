@@ -33,8 +33,8 @@ j/bin/jconsole: jconsole
 libj.so: $(LIB)
 	cc $(LIB) -shared -Wl,-soname,libj.so.8 -lm -o libj.so
 
-jconsole: jconsole.o jeload.o
-	cc jconsole.o jeload.o -o jconsole
+jconsole: jconsole.o jeload.o compat.o
+	cc jconsole.o jeload.o compat.o -o jconsole
 
 j/system/defs/hostdefs_openbsd_64.ijs: defs/hostdefs.ijs j/system/defs
 	cp defs/hostdefs.ijs j/system/defs/hostdefs_openbsd_64.ijs
