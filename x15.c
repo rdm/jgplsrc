@@ -157,42 +157,19 @@ static void double_trick(double*v, I n){I i=0;
 }
 #endif
 
-/*
-#if SYS & SYS_MACOSX
- #define dtrick double_trick(dd,dcnt);
-#elif SY_64 && SY_WIN32
- #define dtrick {D*pd=(D*)d; double_trick(pd[0],pd[1],pd[2],pd[3]);}
-#elif SY_64 && (SY_LINUX || SY_BSD)
- #define dtrick double_trick(dd[0],dd[1],dd[2],dd[3],dd[4],dd[5],dd[6],dd[7]);
-#elif 1
- #define dtrick ;
-#endif
-*/
-
 #if SY_64
  #if SY_WIN32
   #define dtrick {D*pd=(D*)d; double_trick(pd[0],pd[1],pd[2],pd[3]);}
  #elif SY_UNIX64
   #define dtrick double_trick(dd[0],dd[1],dd[2],dd[3],dd[4],dd[5],dd[6],dd[7]);
- #elif SY_MAC
-  #define dtrick;
- #elif SY_BSD
-  #define dtrick ;
  #endif
 #else
- #if SY_WIN32
-  #define dtrick ;
- #elif SY_LINUX
-  #define dtrick ;
- #elif SY_MACPPC
+ #if SY_MACPPC
   #define dtrick double_trick(dd,dcnt);
- #elif SY_MAC
-  #define dtrick ;
- #elif SY_BSD
+ #else
   #define dtrick ;
  #endif
 #endif
-
 
 #define SWITCHCALL                                                         \
   dtrick                                                                   \

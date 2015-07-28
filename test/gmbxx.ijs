@@ -184,7 +184,7 @@ mbxcheck_jmf_ q
 add=: mema 2*IF64{4 8
 3 4 memw add,0,2,JINT
 q=: X=: (,2);2;<<add
-('xbasic X *X X *X' dcd X) -: 'xbasic X *X X *X' dcd q NB. FIXME
+('xbasic x *x x *x' dcd X) -: 'xbasic x *x x *x' dcd q NB. FIXME
 mbxcheck_jmf_ q
 0=memf add
 
@@ -205,7 +205,7 @@ abc_xyz_ =: ?10$100
 
 (mbxcheck_jmf_ q), X             -: q
 (mbxcheck_jmf_ q), Y             -: r
-(mbxcheck_jmf_ q), (abc__x)      -: abc__q
+(mbxcheck_jmf_ q), (abc__X)      -: abc__q
 (mbxcheck_jmf_ q), (18!:2 X)     -: 18!:2 q
 (mbxcheck_jmf_ q), (Y 18!:2 X)   -: r 18!:2 q
 (mbxcheck_jmf_ q), (18!:2 X)     -: 18!:2 q

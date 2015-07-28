@@ -16,10 +16,7 @@ LIB=a.o ab.o af.o ai.o am.o am1.o amn.o ao.o ap.o ar.o as.o au.o c.o   \
 all: j/bin/libj.so j/bin/jconsole j/system/defs/hostdefs_openbsd_64.ijs j/system/defs/netdefs_openbsd_64.ijs
 
 test: all libtsdll.so
-	# something wrong with gdll tests - ignore temporarily
-	# also turn off gmbxx since it needs 15!: foreigns
-	# test/test.sh
-	test/test.sh $$(cd test; ls g*.ijs | fgrep -v t.ijs | fgrep -v gdll.ijs | fgrep -v gmbxx.ijs | sed 's/.ijs//')
+	test/test.sh
 
 clean:
 	rm -f *.o libj.so jconsole j/bin/libj.so j/bin/jconsole

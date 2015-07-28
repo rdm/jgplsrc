@@ -25,7 +25,7 @@ b=: 4 u: 402 403
 (9;(,9);2;1 ic 3 4)=     'sbasic s *s s *s' dcd (,2);2;1 ic 3 4  NB. shorts in chars
 (9;(,9);2;3 4)=          'ibasic i *i i *i' dcd (,2);2;3 4
 (9;(,.9);2;,.3 4)=       'ibasic i *i i *i' dcd (,.2);2;,.3 4 NB. allow rank>1
-(9;(,9);2;3 4)=          'xbasic X *X X *X' dcd (,2);2;3 4 NB. FIXME
+(9;(,9);2;3 4)=          'xbasic x *x x *x' dcd (,2);2;3 4
 (2;(,2);1;0 1)=          'ibasic i *i i *i' dcd (,1);1;0 1 NB. boolean promotion to int
 
 NB. declaration (left argument) and parameter (right argument) checking
@@ -34,11 +34,11 @@ NB. declaration (left argument) and parameter (right argument) checking
 'limit error'  -: (lib,'ibasic i *i i *i',2300$' '  ) cd etx (,2);2;3 4
 'limit error'  -: ((2300$' '),lib,'ibasic i *i i *i') cd etx (,2);2;3 4
 
-(1 0 -: cder '') *. 'domain error' -: ((1200$'X'),' proc i i i') cd etx 2;3
+(1 0 -: cder '') *. 'domain error' -: ((1200$'x'),' proc i i i') cd etx 2;3
 (1 0 -: cder '') *. 'domain error' -: ('xxxx proc i i i'       ) cd etx 2;3
 (1 0 -: cder '') *. 'domain error' -: ('xxxx proc i i i'       ) cd etx 2;3
 
-(2 0 -: cder '') *. 'domain error' -: (lib,(1200$'X'),' i i i' ) cd etx 2;3
+(2 0 -: cder '') *. 'domain error' -: (lib,(1200$'x'),' i i i' ) cd etx 2;3
 (2 0 -: cder '') *. 'domain error' -: (lib,'xxxx i i i'        ) cd etx 2;3
 (2 0 -: cder '') *. 'domain error' -: (lib,'xxxx i i i'        ) cd etx 2;3
 
@@ -61,10 +61,10 @@ NB. 'rank error' -: 'ibasic i *i i *i' dcd etx ,.(,2);2;3 4
 NB. mema memory
 add=: mema 2*IF64{4 8
 3 4 memw add,0,2,JINT
-(9;(,9);2;<<add)=         'xbasic X *X X *X' dcd (,2);2;<<add
+(9;(,9);2;<<add)=         'xbasic x *x x *x' dcd (,2);2;<<add
 0=memf add
 
-NB. l type is same as X on J64 and and error on J32
+NB. l type is same as x on J64 and and error on J32
 3 : 0''
 if. IF64 do.
  assert. (9;(,9);2;3 4) =  'xbasic l *l l *l' dcd (,2);2;3 4
@@ -112,18 +112,18 @@ z=:'fd d f d f d *f *d' dcd 1.1;1.2;1.3;1.4;(6.6,6.6);7.7,7.7
 (1.1;1.2;1.3;1.4;1.2 1.4)= 1 2 3 4 6{z
 0.00001>5.0 1.1 1.3-;0 5{z
 
-(+/>yy)=>{.'dx0 d X d'       dcd yy=:12;12.5
-(+/>yy)=>{.'dx1 d d X'       dcd yy=:12.5;12
-(+/>yy)=>{.'dx2 d X d X'     dcd yy=:12;12.5;13
-(+/>yy)=>{.'dx3 d d X d'     dcd yy=:12.5;12;13.6
-(+/>yy)=>{.'dx4 d X d X d'   dcd yy=:12;12.5;13;15.4
-(+/>yy)=>{.'dx5 d d X d X'   dcd yy=:12.5;12;13.6;7
-(+/>yy)=>{.'dx6 d X d X d X' dcd yy=:12;12.5;13;15.4;9
-(+/>yy)=>{.'dx7 d d X d X d' dcd yy=:12.5;12;13.6;7;23.7
+(+/>yy)=>{.'dx0 d x d'       dcd yy=:12;12.5
+(+/>yy)=>{.'dx1 d d x'       dcd yy=:12.5;12
+(+/>yy)=>{.'dx2 d x d x'     dcd yy=:12;12.5;13
+(+/>yy)=>{.'dx3 d d x d'     dcd yy=:12.5;12;13.6
+(+/>yy)=>{.'dx4 d x d x d'   dcd yy=:12;12.5;13;15.4
+(+/>yy)=>{.'dx5 d d x d x'   dcd yy=:12.5;12;13.6;7
+(+/>yy)=>{.'dx6 d x d x d x' dcd yy=:12;12.5;13;15.4;9
+(+/>yy)=>{.'dx7 d d x d x d' dcd yy=:12.5;12;13.6;7;23.7
 
 td=: 16$'d '
 (  +/>yy)=>{.z=:('d1 d ',td) dcd yy=:<"0 [ 1.3*?8#10
-(<.+/>yy)=>{.z=:('d2 X ',td) dcd yy=:<"0 [ 1.3*?8#10
+(<.+/>yy)=>{.z=:('d2 x ',td) dcd yy=:<"0 [ 1.3*?8#10
 
 td1a=: 18$'d '
 
@@ -135,18 +135,18 @@ catch.
 end.
 )
 
-td3=: 32$'d X '
+td3=: 32$'d x '
 (+/>yy)=>{.z=:('d3 d ',td3) dcd yy=:16$12.3;4
 td4=: 32$'d i '
 (+/>yy)=>{.z=:('d4 d ',td4) dcd yy=:16$12.3;4
 
-xx=:'d5 d d i d i d i d *d *f *X *i'
+xx=:'d5 d d i d i d i d *d *f *x *i'
 (+/;yy)=>{.z=: xx dcd yy=:1.1;2;3.3;4;5.5;6;7.7;2.2 3.3;3.3 4.4;23 24;46 47 
 
 tf=: 16$'f '
 (<.+/>yy)=<.>{.z=:('f1 f ',tf ) dcd yy=:<"0 [ 1.375*?8#10
-(<.+/>yy)=  >{.z=:('f2 X ',tf ) dcd yy=:<"0 [ 1.375*?8#10
-tf3=: 32$'f X '
+(<.+/>yy)=  >{.z=:('f2 x ',tf ) dcd yy=:<"0 [ 1.375*?8#10
+tf3=: 32$'f x '
 (<.+/>yy)=<.>{.z=:('f3 f ',tf3) dcd yy=:16$12.3;4
 
 NB. test scalar boolean and integer promotion to double
@@ -185,14 +185,14 @@ NB. use of > parameter
 (+/"1 X)  -: 'fff > f f f'    dcd X=: 17 2 ?@$ 100
 (+/"1 X)  -: 'fff > f f f'    dcd X=: (-~0j5)+1024 %~ 17 2 ?@$ 1e4
 
-(+/"1 X) -: 'dx0 > d X d'       dcd X=: 7 2 ?@$ 9 0
-(+/"1 X) -: 'dx1 > d d X'       dcd X=: 7 2 ?@$ 0 9
-(+/"1 X) -: 'dx2 > d X d X'     dcd X=: 7 3 ?@$ 9 0 9
-(+/"1 X) -: 'dx3 > d d X d'     dcd X=: 7 3 ?@$ 0 9 0
-(+/"1 X) -: 'dx4 > d X d X d'   dcd X=: 7 4 ?@$ 9 0 9 0
-(+/"1 X) -: 'dx5 > d d X d X'   dcd X=: 7 4 ?@$ 0 9 0 9
-(+/"1 X) -: 'dx6 > d X d X d X' dcd X=: 7 5 ?@$ 9 0 9 0 9
-(+/"1 X) -: 'dx7 > d d X d X d' dcd X=: 7 5 ?@$ 0 9 0 9 0
+(+/"1 X) -: 'dx0 > d x d'       dcd X=: 7 2 ?@$ 9 0
+(+/"1 X) -: 'dx1 > d d x'       dcd X=: 7 2 ?@$ 0 9
+(+/"1 X) -: 'dx2 > d x d x'     dcd X=: 7 3 ?@$ 9 0 9
+(+/"1 X) -: 'dx3 > d d x d'     dcd X=: 7 3 ?@$ 0 9 0
+(+/"1 X) -: 'dx4 > d x d x d'   dcd X=: 7 4 ?@$ 9 0 9 0
+(+/"1 X) -: 'dx5 > d d x d x'   dcd X=: 7 4 ?@$ 0 9 0 9
+(+/"1 X) -: 'dx6 > d x d x d x' dcd X=: 7 5 ?@$ 9 0 9 0 9
+(+/"1 X) -: 'dx7 > d d x d x d' dcd X=: 7 5 ?@$ 0 9 0 9 0
 
 
 td=: 16$'d '
@@ -241,52 +241,52 @@ f=: 3 : 0
 
 
 NB. 0 procaddress
-xbasic_add=: ":>{.'xbasic_add X' dcd ''
-(9;(,9);2;3 4) = ('0 ',xbasic_add,' X *X X *X') cd (,2);2;3 4
+xbasic_add=: ":>{.'xbasic_add x' dcd ''
+(9;(,9);2;3 4) = ('0 ',xbasic_add,' x *x x *x') cd (,2);2;3 4
 
-(2 0 -: cder '') *. 'domain error' -: '0  1e4 X X' cd etx (,2);2;3 4
-(2 0 -: cder '') *. 'domain error' -: '0 _1e4 X X' cd etx (,2);2;3 4
-(2 0 -: cder '') *. 'domain error' -: '0 abc  X X' cd etx (,2);2;3 4
-(2 0 -: cder '') *. 'domain error' -: '0 34aa X X' cd etx (,2);2;3 4
+(2 0 -: cder '') *. 'domain error' -: '0  1e4 x x' cd etx (,2);2;3 4
+(2 0 -: cder '') *. 'domain error' -: '0 _1e4 x x' cd etx (,2);2;3 4
+(2 0 -: cder '') *. 'domain error' -: '0 abc  x x' cd etx (,2);2;3 4
+(2 0 -: cder '') *. 'domain error' -: '0 34aa x x' cd etx (,2);2;3 4
 
-(2 0 -: cder '') *. 'domain error' -: ('0  ',(>IF64{'2333444555';19$'93'),' X X') cd etx (,2);2;3 4
-(2 0 -: cder '') *. 'domain error' -: ('0 _',(>IF64{'2333444555';19$'93'),' X X') cd etx (,2);2;3 4
+(2 0 -: cder '') *. 'domain error' -: ('0  ',(>IF64{'2333444555';19$'93'),' x x') cd etx (,2);2;3 4
+(2 0 -: cder '') *. 'domain error' -: ('0 _',(>IF64{'2333444555';19$'93'),' x x') cd etx (,2);2;3 4
 
 NB. 1 procindex - 0 is objxxx and 1 is objddd
-obj_add=:    <>{.'obj_add X' dcd ''
-5    = >{.'objxxx X * X X' dcd obj_add;2;3
+obj_add=:    <>{.'obj_add x' dcd ''
+5    = >{.'objxxx x * x x' dcd obj_add;2;3
 5.75 = >{.'objddd d * d d' dcd obj_add;2.5;3.25 
-5    = >{.'1 0 X * X X'     cd obj_add;2;3
+5    = >{.'1 0 x * x x'     cd obj_add;2;3
 5.75 = >{.'1 1 d * d d'     cd obj_add;2.5;3.25
 
-5    = >{.'1 0 X X X X'     cd (>obj_add);2;3
-5    = >{.'1 0 X X X X'     cd (>obj_add),2 3
-5    = >{.'1 0 X X X X'     cd (>obj_add),2 3+-~0.5
+5    = >{.'1 0 x x x x'     cd (>obj_add);2;3
+5    = >{.'1 0 x x x x'     cd (>obj_add),2 3
+5    = >{.'1 0 x x x x'     cd (>obj_add),2 3+-~0.5
 
-5.75 = >{.'1 1 d X d d'     cd (>obj_add);2.5;3.25
-5.75 = >{.'1 1 d X d d'     cd (>obj_add),2.5 3.25
-55   = >{.'1 1 d X d d'     cd (>obj_add),22 33
+5.75 = >{.'1 1 d x d d'     cd (>obj_add);2.5;3.25
+5.75 = >{.'1 1 d x d d'     cd (>obj_add),2.5 3.25
+55   = >{.'1 1 d x d d'     cd (>obj_add),22 33
 
-(2 0 -: cder '') *. 'domain error' -: '1 _10000 X * X X'  cd etx obj_add;2;3
-(2 0 -: cder '') *. 'domain error' -: '1 1e2    X * X X'  cd etx obj_add;2;3
-(2 0 -: cder '') *. 'domain error' -: '1 abc    X * X X'  cd etx obj_add;2;3
-(2 0 -: cder '') *. 'domain error' -: '1 34aa   X * X X'  cd etx obj_add;2;3
+(2 0 -: cder '') *. 'domain error' -: '1 _10000 x * x x'  cd etx obj_add;2;3
+(2 0 -: cder '') *. 'domain error' -: '1 1e2    x * x x'  cd etx obj_add;2;3
+(2 0 -: cder '') *. 'domain error' -: '1 abc    x * x x'  cd etx obj_add;2;3
+(2 0 -: cder '') *. 'domain error' -: '1 34aa   x * x x'  cd etx obj_add;2;3
 
-(2 0 -: cder '') *. 'domain error' -: ('1 ',(>IF64{'2333444555';19$'93'),' X * X X')  cd etx obj_add;2;3
+(2 0 -: cder '') *. 'domain error' -: ('1 ',(>IF64{'2333444555';19$'93'),' x * x x')  cd etx obj_add;2;3
 
-(5 1 -: cder '') *. 'domain error' -: '1 0      X *d X X' cd etx obj_add;2;3
-(5 1 -: cder '') *. 'domain error' -: '1 0      X *X X X' cd etx obj_add;2;3
-(5 1 -: cder '') *. 'domain error' -: '1 0      X d  X X' cd etx obj_add;2;3
-(5 1 -: cder '') *. 'domain error' -: '1 0      X'        cd etx obj_add;2;3
+(5 1 -: cder '') *. 'domain error' -: '1 0      x *d x x' cd etx obj_add;2;3
+(5 1 -: cder '') *. 'domain error' -: '1 0      x *x x x' cd etx obj_add;2;3
+(5 1 -: cder '') *. 'domain error' -: '1 0      x d  x x' cd etx obj_add;2;3
+(5 1 -: cder '') *. 'domain error' -: '1 0      x'        cd etx obj_add;2;3
 
-(6 0 -: cder '') *. 'domain error' -: '1 0      X X  X X' cd etx obj_add   ;2  ;3
-(6 0 -: cder '') *. 'domain error' -: '1 0      X *  X X' cd etx (>obj_add);2  ;3
-(6 0 -: cder '') *. 'domain error' -: '1 0      X *  X X' cd etx (>obj_add),2   3
-(6 1 -: cder '') *. 'domain error' -: '1 0      X *  X X' cd etx obj_add   ;'2';3
-(6 2 -: cder '') *. 'domain error' -: '1 0      X *  X X' cd etx obj_add   ;2  ;'3'
+(6 0 -: cder '') *. 'domain error' -: '1 0      x x  x x' cd etx obj_add   ;2  ;3
+(6 0 -: cder '') *. 'domain error' -: '1 0      x *  x x' cd etx (>obj_add);2  ;3
+(6 0 -: cder '') *. 'domain error' -: '1 0      x *  x x' cd etx (>obj_add),2   3
+(6 1 -: cder '') *. 'domain error' -: '1 0      x *  x x' cd etx obj_add   ;'2';3
+(6 2 -: cder '') *. 'domain error' -: '1 0      x *  x x' cd etx obj_add   ;2  ;'3'
 
 
 4!:55 ;:'a add address b dcd f lib obj_add pc s0 s1 td td1a td3 td4 tf tf3'
-4!:55 ;:'v0 v1 v2 v3 v4 v5 X xbasic_add xx yy z'
+4!:55 ;:'v0 v1 v2 v3 v4 v5 x xbasic_add xx yy z'
 
 
