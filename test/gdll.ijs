@@ -14,7 +14,7 @@ lib=: lib,' '
 )
 
 dcd=: 4 : '(lib,x) cd y'
-(5.4;2.7        )= 'dd d d' dcd 2.7 NB. FIXME
+(5.4;2.7        )= 'dd d d' dcd 2.7
 
 NB. test integer types
 a=: 4 u: +/401 402 403
@@ -25,7 +25,7 @@ b=: 4 u: 402 403
 (9;(,9);2;1 ic 3 4)=     'sbasic s *s s *s' dcd (,2);2;1 ic 3 4  NB. shorts in chars
 (9;(,9);2;3 4)=          'ibasic i *i i *i' dcd (,2);2;3 4
 (9;(,.9);2;,.3 4)=       'ibasic i *i i *i' dcd (,.2);2;,.3 4 NB. allow rank>1
-(9;(,9);2;3 4)=          'xbasic X *X X *X' dcd (,2);2;3 4
+(9;(,9);2;3 4)=          'xbasic X *X X *X' dcd (,2);2;3 4 NB. FIXME
 (2;(,2);1;0 1)=          'ibasic i *i i *i' dcd (,1);1;0 1 NB. boolean promotion to int
 
 NB. declaration (left argument) and parameter (right argument) checking

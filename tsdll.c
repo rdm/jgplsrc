@@ -26,7 +26,6 @@ typedef long I;
 #define sum {return a[0]=b+c[0]+c[1];}
 
 typedef double D;
-#define D double
 typedef float F;
 
 // test each integer type
@@ -56,15 +55,11 @@ double _stdcall dipdpd(int c, double* p, double* pr)
 // test f result and *f (convert in place)
 float _stdcall fipfpf(int c, float* p, float* pr)
 {
-	printf("fipfpf ");
 	float f=0; int i;
 	for(i=0; i<c; ++i)
 	{
-		printf("%g+", p[i]);
 		*pr=f+=(float)p[i];
 	}
-        printf("0=%g\n", f);
-	fflush(stdout);
 	return f;
 }
 
@@ -73,14 +68,8 @@ double _stdcall complex(int c, double* j){ return j[c];}
 float _stdcall  f(){ return (float)1.5;}
 double _stdcall d(){ return (double)1.5;}
 
-D _stdcall dd(D d0){
-	printf("%g=2*%g\n", 2*d0, d0);
-	fflush(stdout);
-return d0*2;}
-D _stdcall ddd(D d0, D d1){
-	printf("%g=%g+%g\n", d0+d1, d0, d1);
-	fflush(stdout);
-return d0+d1;}
+D _stdcall dd(D d0){return d0*2;}
+D _stdcall ddd(D d0, D d1){return d0+d1;}
 D _stdcall dddd(D d0, D d1, D d2){return d0+d1+d2;}
 
 D _stdcall dx0(I a,D b)              {return a+b;}
