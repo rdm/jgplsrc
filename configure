@@ -12,7 +12,8 @@ main() {
 }
 ___
 
-if ! make -s deleteme && ./deleteme; then
+if make -s deleteme 2>/dev/null || ! ./deleteme; then
+	echo using local definition of strlcat and strlcpy
 	cat >>compat.c <<___
 /*
  * Copyright (c) 1998 Todd C. Miller <Todd.Miller@courtesan.com>
