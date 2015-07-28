@@ -11,7 +11,7 @@ LIB=a.o ab.o af.o ai.o am.o am1.o amn.o ao.o ap.o ar.o as.o au.o c.o   \
     vg.o vgauss.o vgcomp.o vgranking.o vgsort.o vgsp.o vi.o viix.o     \
     visp.o vm.o vo.o vp.o vq.o vrand.o vrep.o vs.o vsb.o vt.o vu.o     \
     vx.o vz.o w.o wc.o wn.o ws.o x.o x15.o xa.o xb.o xc.o xcrc.o xd.o  \
-    xf.o xfmt.o xh.o xi.o xl.o xo.o xs.o xt.o xu.o
+    xf.o xfmt.o xh.o xi.o xl.o xo.o xs.o xt.o xu.o compat.o
 
 all: j/bin/libj.so j/bin/jconsole j/system/defs/hostdefs_openbsd_64.ijs j/system/defs/netdefs_openbsd_64.ijs
 
