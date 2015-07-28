@@ -172,9 +172,13 @@
 #define IX(n)           apv((n),0L,1L)
 #define JATTN           {if(*jt->adbreak&&!jt->breakignore){jsignal(EVATTN); R 0;}}
 #define JBREAK0         {if(2<=*jt->adbreak&&!jt->breakignore){jsignal(EVBREAK); R 0;}}
+#ifndef MAX
 #define MAX(a,b)        ((a)>(b)?(a):(b))
+#endif
 #define MC              memcpy
+#ifndef MIN
 #define MIN(a,b)        ((a)<(b)?(a):(b))
+#endif
 #define MLEN            (SY_64?63:31)
 #define NAN0            (_clearfp())
 #define NAN1            {if(_SW_INVALID&_clearfp()){jsignal(EVNAN); R 0;}}

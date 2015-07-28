@@ -52,7 +52,7 @@ typedef unsigned char       BYTE;
 
 #include "j.h"
 
-#define SY_UNIX64 (SY_64 && (SY_LINUX || SY_MAC))
+#define SY_UNIX64 (SY_64 && (SY_LINUX || SY_BSD || SY_MAC))
 
 /*  unix issues                                                 */
 /*  if there is only one calling convention then                */
@@ -65,10 +65,6 @@ typedef unsigned char       BYTE;
 #if (SYS & SYS_UNIX)
 
 #include <dlfcn.h>
-
-#undef MAX     /* defined in sys/param.h */
-#undef MIN     /* defined in sys/param.h */
-#include <sys/param.h>
 
 typedef void *HMODULE;
 typedef char *LPSTR;
@@ -135,8 +131,8 @@ typedef struct {
 void double_trick(D,D,D,D);
 #endif
 
-#if SYS & (SYS & SYS_LINUX)
-void double_trick(D,D,D,D,D,D,D,D);
+#if SY_LINUX || SY_BSD
+void double_trick(D d1,D d2,D d3,D d4,D d5,D d6,D d7,D d8){}
 #endif
 #if SY_MACPPC
 static void double_trick(double*v, I n){I i=0;
@@ -166,7 +162,7 @@ static void double_trick(double*v, I n){I i=0;
  #define dtrick double_trick(dd,dcnt);
 #elif SY_64 && SY_WIN32
  #define dtrick {D*pd=(D*)d; double_trick(pd[0],pd[1],pd[2],pd[3]);}
-#elif SY_64 && SY_LINUX
+#elif SY_64 && (SY_LINUX || SY_BSD)
  #define dtrick double_trick(dd[0],dd[1],dd[2],dd[3],dd[4],dd[5],dd[6],dd[7]);
 #elif 1
  #define dtrick ;
@@ -626,7 +622,7 @@ static B jtcdexec1(J jt,CCT*cc,C*zv0,C*wu,I wk,I wt,I wd){A*wv=(A*)wu,x,y,*zv;B 
 #if SY_MACPPC
 	         dd[dcnt++]=(float)*(D*)xv;
 #endif
-#if SY_64 && (SY_LINUX  || SY_MAC)
+#if SY_64 && (SY_LINUX || SY_BSD || SY_MAC)
 			  {f=(float)*(D*)xv; dd[dcnt]=0; *(float*)(dd+dcnt++)=f;}
 #else
              f=(float)*(D*)xv; *dv++=*(int*)&f;

@@ -11,10 +11,11 @@
 #define SYS_PCWIN           2048L           /* Watcom C 386                */
 #define SYS_LINUX           262144L         /* GCC                         */
 #define SYS_MACOSX          4194304L        /* GCC (CC)                    */
-#define SYS_OPENBSD         8388608L        /* x86 only                    */
+#define SYS_BSD             8388608L        /* x86 only                    */
 
 #define SY_64               0    /* 64-bit systems                         */
 
+#define SY_BSD              0    /* and BSD intel version                  */
 #define SY_WIN32            0    /* any windows intel version              */
 #define SY_LINUX            0    /* any linux intel version                */
 #define SY_MAC              0    /* any macosx intel or powerpc version    */
@@ -24,8 +25,7 @@
 
 #define SYS_DOS             (SYS_PCWIN)
 
-#define SYS_UNIX            (SYS_LINUX + SYS_MACOSX + \
-                             SYS_OPENBSD )
+#define SYS_UNIX            (SYS_LINUX + SYS_MACOSX + SYS_BSD )
 
 #define SYS_ANSILIB         (SYS_DOS + \
                              SYS_UNIX)
@@ -35,10 +35,15 @@
 
 #define SYS_LILENDIAN       (SYS_DOS + \
                              SYS_LINUX + \
-                             SYS_OPENBSD )
+                             SYS_BSD )
 
-#if defined(__OpenBSD__)
-#define SYS SYS_OPENBSD
+#if defined(__unix__) || (defined(__APPLE__) && defined(__MACH__))
+#include <sys/param.h>
+#if defined(BSD)
+#define SYS SYS_BSD
+#undef SY_BSD
+#define SY_BSD 1
+#endif
 #endif
 
 #ifdef __linux__
@@ -93,8 +98,6 @@
 #undef SY_64
 #define SY_64               1
 #endif
-
-#define SY_BSD 1
 
 #ifndef SYS     /* must be defined */
  error: "SYS must be defined"
