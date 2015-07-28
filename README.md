@@ -33,3 +33,4 @@ PLAN:
 
 * When putting things back together (and re-introducing support for currently supported platforms) to follow the linux kernel practice of making conditional compilation define swappable names with parallel definitions for different contexts (e.g. unix vs. windows). This might mean considerable work so keep it simple. Note that this will probably mean I should just strip out windows support (and everything else). But I also want to stick to minimal code changes until after I can get the test-suite working.
 
+* linux-rebuild branch for restoring any broken linux portability
