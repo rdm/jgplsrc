@@ -1,5 +1,6 @@
 #!/bin/sh
 
+exec 2>/dev/null
 :>compat.c
 
 cat >deleteme.c <<___
@@ -12,7 +13,9 @@ main() {
 }
 ___
 
-if make -s deleteme 2>/dev/null || ! ./deleteme; then
+if make -s deleteme && ./deleteme; then
+	echo using system definition of strlcat and strlcpy
+else
 	echo using local definition of strlcat and strlcpy
 	cat >>compat.c <<___
 /*
