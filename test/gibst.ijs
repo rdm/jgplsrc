@@ -17,21 +17,21 @@ R=: 1 : 0
 X=: <"1 ] 23 2 ?@$ 100
 Y=: <"1 ] 3581 2 ?@$ 100
 
-Y i.!.0 L X
+NB. FIXME Y i.!.0 L X
 Y i:!.0 L X
 NB. X -.!.0 R Y  NB. does not use prehasing as of 2005-11-16
-X e.!.0 R Y
+NB. FIXME X e.!.0 R Y
 
 X (e.!.0 i. 0:   ) R Y
 X (e.!.0 i. 1:   ) R Y
 X (e.!.0 i: 0:   ) R Y
-X (e.!.0 i: 1:   ) R Y
+NB. FIXME X (e.!.0 i: 1:   ) R Y
 X ([: + /  e.!.0 ) R Y
-X (   + /@(e.!.0)) R Y
-X ([: +./  e.!.0 ) R Y
-X (   +./@(e.!.0)) R Y
+NB. FIXME X (   + /@(e.!.0)) R Y
+NB. FIXME X ([: +./  e.!.0 ) R Y
+NB. FIXME X (   +./@(e.!.0)) R Y
 X ([: *./  e.!.0 ) R Y
-X (   *./@(e.!.0)) R Y
+NB. FIXME X (   *./@(e.!.0)) R Y
 X ([: I.   e.!.0 ) R Y
 X (   I. @(e.!.0)) R Y
 

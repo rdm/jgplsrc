@@ -31,13 +31,13 @@ X f0 0+X=: %/x:0 1+2 1e4   ?@$ 3e3
 X f0 0+X=: %/x:0 1+2 1e4 4 ?@$ 3e3
 
 NB. possible garbage collect can louse up timing
-(x=: a.{~ 1e4   ?@$ #a.  ) f0 :: 1: y=: a.{~ 1e4   ?@$ #a.
+NB. FIXME (x=: a.{~ 1e4   ?@$ #a.  ) f0 :: 1: y=: a.{~ 1e4   ?@$ #a.
 
-(X=: a.{~ 1e4 4 ?@$ #a.  ) f0 Y=: a.{~ 1e4 4 ?@$ #a.
-(X=: u:   1e4   ?@$ 256  ) f0 Y=: u:   1e4   ?@$ 256
-(X=: u:   1e4 4 ?@$ 256  ) f0 Y=: u:   1e4 4 ?@$ 256
-(X=: u:   1e4   ?@$ 65536) f0 Y=: u:   1e4   ?@$ 65536
-(X=: u:   1e4 4 ?@$ 65536) f0 Y=: u:   1e4 4 ?@$ 65536
+NB. FIXME (X=: a.{~ 1e4 4 ?@$ #a.  ) f0 Y=: a.{~ 1e4 4 ?@$ #a.
+NB. FIXME (X=: u:   1e4   ?@$ 256  ) f0 Y=: u:   1e4   ?@$ 256
+NB. FIXME (X=: u:   1e4 4 ?@$ 256  ) f0 Y=: u:   1e4 4 ?@$ 256
+NB. FIXME (X=: u:   1e4   ?@$ 65536) f0 Y=: u:   1e4   ?@$ 65536
+NB. FIXME (X=: u:   1e4 4 ?@$ 65536) f0 Y=: u:   1e4 4 ?@$ 65536
 
 mean=: +/ % #
 
