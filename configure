@@ -1,8 +1,25 @@
 #!/bin/sh
 
 exec 2>/dev/null
+rm -f Makefile
 :>compat.c
 
+rm -f deleteme*
+cat >deleteme.c <<___
+#include <dlfcn.h>
+main() {
+     void *ignore= dlopen("fixme", RTLD_NOW);
+}
+___
+
+if make -s deleteme; then
+	LDLOPEN=
+else
+	echo dlopen needs -ldl
+	LDLOPEN=-ldl
+fi
+
+rm -f deleteme*
 cat >deleteme.c <<___
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +30,7 @@ main() {
 }
 ___
 
-if make -s deleteme && ./deleteme; then
+if make -s deleteme; then
 	echo using system definition of strlcat and strlcpy
 else
 	echo using local definition of strlcat and strlcpy
@@ -104,9 +121,8 @@ strlcpy(char *dst, const char *src, size_t siz)
 }
 ___
 fi
+
 rm -f delete*
-
-
 ######################################################################
 # now emit the makefile
 
@@ -150,7 +166,7 @@ libj.so: \$(LIB)
 	cc \$(LIB) -shared -Wl,-soname,libj.so.8 -lm -o libj.so
 
 jconsole: jconsole.o jeload.o compat.o
-	cc jconsole.o jeload.o compat.o -o jconsole
+	cc jconsole.o jeload.o compat.o $LDLOPEN -o jconsole
 
 j/system/defs/hostdefs_openbsd_64.ijs: defs/hostdefs.ijs j/system/defs
 	cp defs/hostdefs.ijs j/system/defs/hostdefs_openbsd_64.ijs
@@ -178,3 +194,4 @@ toc:
 
 fixme:
 	find . -name .git -prune -o -type f -print0 | xargs -0 fgrep -l FIXME
+___
