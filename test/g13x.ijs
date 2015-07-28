@@ -110,7 +110,7 @@ sum =: [: +/ ".@('t=:13!:13 $0'&[) ] ]
 13!:0 ]1
 1: mean X=: ?4 5$100
 
-($t) -: 3 9 NB. sum mean TESTX (FIXME for non-TESTX case)
+($t) -: 2 9 NB. sum mean TESTX (FIXME for TESTX case)
 t=: 2{.t
 (0{"1 t) -: 'sum';'mean'          NB. name
 (1{"1 t) -: 0;0                   NB. error number
@@ -124,7 +124,7 @@ t=: 2{.t
 
 1: mean"1 X
 
-($t) -: 3 9 NB. sum mean TESTX (FIXME for non-TESTX case)
+($t) -: 2 9 NB. sum mean TESTX (FIXME for TESTX case)
 t=: 2{.t
 (0{"1 t) -: 'sum';'mean'          NB. name
 (1{"1 t) -: 0;0                   NB. error number
@@ -140,7 +140,7 @@ sum=: 3 : ('z=.+/y';'t=: 13!:13 $0';'z')
 
 1: mean"1 X
 
-($t) -: 3 9 NB. sum mean TESTX (FIXME for non-TESTX case)
+($t) -: 2 9 NB. sum mean TESTX (FIXME for TESTX case)
 t=: 2{.t
 (0{"1 t) -: 'sum';'mean'          NB. name
 (1{"1 t) -: 0;0                   NB. error number

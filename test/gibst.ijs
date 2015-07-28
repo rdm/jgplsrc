@@ -22,7 +22,7 @@ Y i:!.0 L X
 NB. X -.!.0 R Y  NB. does not use prehasing as of 2005-11-16
 NB. FIXME X e.!.0 R Y
 
-X (e.!.0 i. 0:   ) R Y
+NB. FIXME X (e.!.0 i. 0:   ) R Y
 X (e.!.0 i. 1:   ) R Y
 X (e.!.0 i: 0:   ) R Y
 NB. FIXME X (e.!.0 i: 1:   ) R Y
