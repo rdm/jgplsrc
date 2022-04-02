@@ -1,3 +1,5 @@
+obsolete: please use github.com/jsoftware/jsource
+
 jgplsrc
 =======
 
